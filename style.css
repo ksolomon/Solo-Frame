@@ -1,0 +1,600 @@
+/* 
+Theme Name: Solo-Frame HTML5
+Theme URI: http://
+Description: Custom theme for
+Version: 1.0
+Author: Keith Solomon
+Author URL: http://solowebdesigns.net
+
+	Unless otherwise noted, all code in this theme complies with the GNU GPL 2.0 license.
+	For a copy, please refer to the following link: http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+body {
+	background: #fff;
+	color: #000;
+	font: 11px 'Droid Sans', Helvetica, sans-serif;
+	text-align: left;
+}
+
+#wrapper {
+	margin: 0 auto;
+	width: 960px;
+}
+
+/** MISCELLANEOUS */
+.clear {
+	clear: both;
+	line-height: 1;
+	margin: 0;
+	padding: 0;
+}
+
+.left {
+	display: inline;
+	float: left;
+}
+
+.right {
+	display: inline;
+	float: right;
+}
+
+.feed {
+	background: url(images/icon-feed.png) no-repeat 0 50%;
+	padding: 1px 0 1px 15px;
+}
+
+strong.search-excerpt {
+	background: yellow;
+	padding: .2em .3em;
+}
+
+abbr {
+	border-bottom: 1px dashed #000;
+}
+/* /MISCELLANEOUS **/
+
+/** HEADER */
+#header {
+	border-bottom: 1px solid #333;
+	float: left;
+	margin: 1em 0 3em;
+	width: 100%;
+}
+
+/** LOGO */
+#logo {
+	margin-bottom: .5em;
+}
+
+#logo h1 a:link, #logo h1 a:visited, #logo h1 a:active {
+	font-size: 2.4em;
+	text-decoration: none;
+}
+
+#logo h1 a:hover {
+
+}
+
+#logo h2 {
+	font-size: 1.8em;
+	font-weight: normal;
+}
+/* /LOGO **/
+
+/** NAVIGATION */
+#nav {
+	float: left;
+	font-size: 1.2em;
+	margin: .5em 0 1em;
+	width: 100%;
+}
+
+#nav li {
+	display: block;
+	float: left;
+}
+
+#nav li a:link, #nav li a:visited, #nav li a:active {
+	display: block;
+	margin-right: 10px;
+	padding: 0px;
+	text-decoration: none;
+}
+
+#nav li a:hover {
+	text-decoration: underline;
+}
+
+/** SUCKERFISH DROPDOWNS */
+#nav li ul { /* second-level lists */
+	background: #fff;
+	border: 1px solid #333;
+	left: -999em; /* using left instead of display to hide menus because display: none isn't read by screen readers */
+	/*margin: 0 0 0 -12px;*/
+	position: absolute;
+	width: 10em;
+}
+
+#nav li ul li a:link, #nav li ul li a:visited, #nav li ul li a:active {
+	display: block;
+	font-size: 1em;
+	height: auto !important;
+	padding: 5px !important;
+	width: 10em;
+}
+
+#nav li ul li a:hover {
+
+}
+
+#nav li:hover ul, #nav li.sfhover ul { /* lists nested under hovered list items */
+	left: auto;
+}
+/* /DROPDOWNS **/
+/* /NAVIGATION **/
+/* /HEADER **/
+
+/** CONTENT */
+#content {
+	clear: left;
+	display: inline;
+	float: left;
+	margin-bottom: 1em;
+	width: 600px;
+}
+
+.content .post {
+	margin-bottom: 1.5em;
+}
+
+.content .odd {
+
+}
+
+.content .even {
+
+}
+
+.content .postmeta {
+	border: 1px solid #333;
+	border-left: none;
+	border-right: none;
+	line-height: 1.4em;
+	margin-bottom: 1em;
+	padding: .5em;
+}
+
+.navigation {
+	float: left;
+	padding: 1em;
+	width: 100%;
+}
+
+.content p {
+	line-height: 1.5em;
+	margin-bottom: 1.8em;
+	text-align: left;
+}
+
+/** MAIN CONTENT LINKS */
+.content a:link, .content a:visited, .content a:active {
+	text-decoration: none;
+}
+
+.content a:hover {
+
+}
+
+.content a.more-link {
+	display: block;
+	margin-top: 1.5em;
+}
+/* /LINKS **/
+
+/** HEADING STYLES */
+.content h1 {
+	font-size: 2em;
+	margin-bottom: 1em;
+}
+
+.content h2 {
+	font-size: 1.8em;
+	margin-bottom: 1em;
+}
+
+.content h2.pagetitle {
+	font-size: 2em;
+	font-weight: normal;
+	margin-bottom: .25em;
+}
+
+.content h2.pagetitle a:link, .content h2.pagetitle a:visited, .content h2.pagetitle a:active {
+	text-decoration: none;
+}
+
+.content h2.pagetitle a:hover {
+
+}
+
+.content h3 {
+	font-size: 1.5em;
+	font-weight: bold;
+	margin: 2em 0 1em;
+}
+
+.content h4 {
+	font-size: 1.4em;
+	font-weight: bold;
+	margin: 2em 0 1em;
+}
+
+.content h5 {
+	font-size: 1.3em;
+	font-weight: bold;
+	margin: 2em 0 1em;
+}
+
+.content h6 {
+	font-size: 1.2em;
+	font-weight: bold;
+	margin: 2em 0 1em;
+}
+/* /HEADINGS **/
+
+/** QUOTES & LISTS */
+.content blockquote {
+	font-style: italic;
+	line-height: 1.4em;
+	margin-bottom: 1.8em;
+	padding: 0 1.5em;
+}
+
+.content ul, .content ol {
+	margin: 0 0 1.5em 3em;
+}
+
+.content li {
+	font-size: 1em;
+	line-height: 1.4em;
+	margin-bottom: .5em;
+}
+
+.content ul li {
+	list-style-type: disc;
+}
+
+.content ol li {
+	list-style-type: decimal;
+}
+
+.content li ul {
+	margin-bottom: 0;
+}
+
+.content li li {
+	font-size: 1em;
+}
+/* /QUOTES & LISTS **/
+/* /CONTENT **/
+
+/** SIDEBAR */
+#sidebar {
+	display: inline;
+	float: right;
+	width: 300px;
+}
+
+.sidebar a:link, .sidebar a:visited, .sidebar a:active {
+	text-decoration: none;
+}
+
+.sidebar a:hover {
+
+}
+
+.sidebar h3 {
+	font-size: 1.5em;
+	font-weight: bold;
+	margin-bottom: 1em;
+}
+
+.sidebar #searchform div {
+	margin: 0 0 1.5em 1.8em;
+}
+
+.sidebar #searchsubmit {
+	border: 2px solid #333;
+	font-size: .9em;
+	font-weight: bold;
+	margin-left: .5em;
+	padding: .3em .5em;
+	text-transform: uppercase;
+	-moz-border-radius: 1em;
+	-webkit-border-radius: 1em;
+}
+
+.sidebar #searchsubmit:hover {
+	cursor: pointer;
+}
+
+.sidebar ul, .sidebar ol {
+	margin: 0 0 1.5em 3em;
+}
+
+.sidebar li {
+	font-size: 1em;
+	line-height: 1.4em;
+	margin-bottom: .5em;
+}
+
+.sidebar ul li {
+	list-style-type: square;
+}
+
+.sidebar ol li {
+	list-style-type: decimal;
+}
+
+.sidebar li ul {
+	margin-bottom: 0;
+}
+
+.sidebar li li {
+	font-size: 1em;
+}
+/* /SIDEBAR **/
+
+/** COMMENTS */
+#comments {
+	margin: 3em 0;
+}
+
+#comments h3 {
+	border-bottom: 1px solid #333;
+	margin: 0 0 1em;
+}
+
+#comments .commentlist {
+	margin: 0;
+	padding: 0;
+}
+
+#comments .commentlist li {
+	font-size: 1.2em;
+	list-style: none;
+	margin: 0 0 1em;
+	padding: .5em;
+}
+
+#comments .commentlist li.alt {
+	background: #eee;
+	border-bottom: 1px solid #333;
+	border-top: 1px solid #333;
+}
+
+#comments .commentlist p {
+	font-size: 1.1em;
+	line-height: 1.4em;
+	margin: 0;
+}
+
+#commentform p {
+	margin: 0;
+}
+
+#commentform p small {
+	font-size: 1.1em;
+}
+
+.nocomments {
+	margin: 0;
+	padding: 0;
+}
+
+.commentmetadata {
+	display: block;
+	margin: 0 0 1.5em;
+}
+
+#comments .commentmetadata a:link, #comments .commentmetadata a:visited, #comments .commentmetadata a:active {
+
+}
+
+#comments .commentmetadata a:hover, #comments .comment-author a:hover {
+	background: transparent;
+}
+
+#comments .avatar {
+	border: 1px solid #333;
+	display: inline;
+	float: left;
+	margin: 0 .5em 0 0;
+	padding: .3em;
+}
+
+#comments .comment-author {
+	font-size: 1.2em;
+}
+
+#comments .comment-author cite {
+
+}
+
+#comments .comment-author a:link, #comments .comment-author a:visited, #comments .comment-author a:active, #comments .comment-author a:hover {
+	text-transform: none;
+}
+
+#commentform {
+	margin: 0;
+	padding-bottom: 2em;
+}
+
+#commentform label {
+	font-size: 1.2em;
+}
+
+#commentform label span {
+	font-size: 1.1em;
+}
+
+#commentform input, #commentform textarea {
+	border: 1px solid #333;
+	padding: .5em;
+}
+
+#commentform input:focus, #commentform textarea:focus {
+	border: 1px solid #333;
+}
+
+#commentform input#author, #commentform input#email, #commentform input#url {
+	margin-right: .5em;
+	width: 20em;
+}
+
+#commentform textarea {
+	margin-bottom: .5em;
+	width: 100%;
+}
+
+#commentform p.subscribe-to-comments {
+	display: inline;
+	float: left;
+	margin-top: -2.5em;
+}
+
+#commentform p.subscribe-to-comments input {
+	margin-left: .5em;
+}
+
+#commentform #submit {
+	border: 2px solid #333;
+	display: inline;
+	float: right;
+	font-size: .8em;
+	font-weight: bold;
+	padding: .5em;
+	text-transform: uppercase;
+	-moz-border-radius: 1em;
+	-webkit-border-radius: 1em;
+}
+
+#commentform #submit:hover {
+	cursor: pointer;
+}
+/* /COMMENTS **/
+
+/** CALENDAR */
+table#wp-calendar {
+	border: 1px solid #333;
+}
+
+table#wp-calendar caption {
+	font-size: 1.4em;
+	text-align: center;
+}
+
+table#wp-calendar tbody .pad {
+	background: #ddd;
+}
+
+table#wp-calendar>tbody>tr>td>a {
+	font-weight: bold;
+}
+
+table#wp-calendar thead>tr>th {
+	background: #cdd5de;
+	border: 1px solid #333;
+	height: 2em;
+	line-height: 2em;
+	text-align: center;
+	width: 2em;
+}
+
+table#wp-calendar tbody>tr>td {
+	border: 1px solid #333;
+	height: 2em;
+	line-height: 2em;
+	text-align: center;
+	width: 2em;
+}
+
+table#wp-calendar tfoot>tr>td.pad {
+	border: 1px solid #333;
+	border-left: none;
+	border-right: none;
+}
+
+table#wp-calendar tfoot>tr>td>a, table#wp-calendar tfoot>tr>td>a:link, table#wp-calendar tfoot>tr>td>a:visited,
+table#wp-calendar tfoot>tr>td>a:hover, table#wp-calendar tfoot>tr>td>a:active {
+	font-weight: bold;
+}
+
+table#wp-calendar tfoot>tr>td#prev {
+	background: #fff;
+	border: 1px solid #333;
+	border-right: none;
+	height: 2em;
+	line-height: 2em;
+	text-align: left;
+	padding-left: .5em;
+	width: 5.3em;
+}
+
+table#wp-calendar tfoot>tr>td#next {
+	background: #fff;
+	border: 1px solid #333;
+	border-left: none;
+	height: 2em;
+	line-height: 2em;
+	text-align: right;
+	padding-right: .5em;
+	width: 5.3em;
+}
+/* /CALENDAR **/
+
+/** FOOTER */
+#footer {
+	border-top: 1px solid #333;
+	clear: both;
+	color: #333;
+	padding-top: .5em;
+}
+
+#footer-credits, #footer-meta {
+	width: 49%;
+}
+
+#footer-meta {
+	text-align: right;
+}
+
+#footer a:link, #footer a:visited, #footer a:active {
+	text-decoration: none;
+}
+
+#footer a:hover {
+
+}
+
+#footer p {
+	font-size: 1.1em;
+}
+
+#footer ul {
+	margin-bottom: 1em;
+}
+
+#footer ul li {
+	border-left: 1px solid #999;
+	display: inline;
+	font-size: 1.1em;
+	margin-left: .5em;
+	padding-left: 1em;
+}
+
+#footer ul li.first {
+	border-left: none;
+}
+/* /FOOTER **/

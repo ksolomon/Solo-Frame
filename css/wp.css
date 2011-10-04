@@ -1,0 +1,78 @@
+/* --------------------------------------------------------------
+   Basic WordPress Blog Styles
+-------------------------------------------------------------- */
+
+/** IMAGES */
+.entry img {
+	margin: 0;
+}
+
+.alignleft, img.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 1.5em;
+}
+
+.alignright,img.alignright {
+	display: inline;
+	float: right;
+	margin-left: 1.5em;
+}
+
+.center,img.center,.aligncenter,img.aligncenter {
+	clear: both;
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.wp-caption {
+	text-align: center;
+	margin-bottom: 1.5em;
+}
+
+.wp-caption img {
+	border: 0 none;
+	margin: 0;
+	padding: 0;
+}
+
+.wp-caption p.wp-caption-text {
+	margin: 0;
+}
+
+.wp-smiley {
+	background: none !important;
+	border: none !important;
+	display: inline !important;
+	margin: 0 !important;
+	max-height: 1em;
+	vertical-align: middle;
+}
+
+.gallery dl {
+	margin: 0;
+}
+
+.gallery-caption {
+	margin: -1.5em 0 0 0;
+}
+/* /IMAGES **/
+
+/** PULLQUOTES */
+blockquote.left {
+	float: left;
+	margin-left: 0;
+	margin-right: 20px;
+	text-align: right;
+	width: 33%;
+}
+
+blockquote.right {
+	float: right;
+	margin-left: 20px;
+	margin-right: 0;
+	text-align: left;
+	width: 33%;
+}
+/* /PULLQUOTES **/

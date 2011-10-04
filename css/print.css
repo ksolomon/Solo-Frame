@@ -1,0 +1,39 @@
+/* Styles so your printed pages look nice */
+
+body {
+	background: white;
+	font-size: 12pt;
+}
+
+.sidebar {
+	display: none;
+}
+
+#wrapper, #content {
+	background: transparent none;
+	border: 0;
+	color: black;
+	float: none !important;
+	margin: 0 5%;
+	padding: 0;
+	width: auto;
+}
+
+div#content {
+	border-top: 1px solid #930;
+	margin-left: 10%;
+	padding-top: 1em;
+}
+
+a:link, a:visited {
+	background: transparent;
+	color: #520;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+#content a:link:after, #content a:visited:after {
+   content: " (" attr(href) ") ";
+   font-size: 90%;
+}
+
