@@ -38,4 +38,7 @@
 
 	// Widget Logic plugin
 	require (LIBPATH.'widget_logic.php');
+
+	// Show Active Template plugin
+	require (LIBPATH.'show-template.php');
 ?>

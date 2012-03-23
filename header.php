@@ -13,8 +13,6 @@
 	<!-- Droid Sans font from Google Fonts API -->
 	<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
 
-	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/reset.css" />
-	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/wp.css" />
 	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/style.css?v=<?php echo filemtime(TEMPLATEPATH . '/style.css'); ?>" media="screen, projection" />
 	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/print.css" media="print" />
 	<!--[if lt IE 9]><link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/ie7.css" media="screen, projection" /><![endif]-->

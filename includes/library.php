@@ -72,7 +72,7 @@ function sf_generate_title_tag() {
 }
 
 // Display context-aware post/page navigation elements. Default div ID: "previous-next".
-function sf_display_nav($class="navigation") {
+function sf_display_nav($navstyle="nextprev",$class="navigation") {
 	if (is_single()) {
 		echo '<div class="' . $class . '"> <!-- BEGIN .' . $class . ' -->';
 		echo '<div class="left">';
@@ -85,12 +85,18 @@ function sf_display_nav($class="navigation") {
 	} else {
 		$_SERVER['REQUEST_URI']  = preg_replace("/(.*?).php(.*?)&(.*?)&(.*?)&_=/","$2$3", $_SERVER['REQUEST_URI']);
 		echo '<div class="' . $class . '"> <!-- BEGIN .' . $class . ' -->';
-		echo '<div class="left">';
-		next_posts_link('&laquo; Older Entries');
-		echo '</div>';
-		echo '<div class="right">';
-		previous_posts_link('Newer Entries &raquo;');
-		echo '</div>';
+
+		if ($navstyle == "nextprev") {
+			echo '<div class="left">';
+			next_posts_link('&laquo; Older Entries');
+			echo '</div>';
+			echo '<div class="right">';
+			previous_posts_link('Newer Entries &raquo;');
+			echo '</div>';
+		} elseif ($navstyle == "numbar") {
+			sf_corenav();
+		}
+
 		echo '</div> <!-- END .' . $class . ' -->';
 	}
 }
@@ -326,7 +332,7 @@ function sf_performance($visible = false) {
 	$stat = sprintf(
 		'Page generated with %d queries in %.3f seconds, using %.2fMB memory',
 		get_num_queries(),
-		timer_stop( 0, 3 ),
+		timer_stop(0, 3),
 		memory_get_peak_usage() / 1024 / 1024
 	);
 
@@ -365,4 +371,34 @@ function sf_check_referrer() {
 }
 
 add_action('check_comment_flood', 'sf_check_referrer');
+
+function sf_corenav() {
+	global $wp_query, $wp_rewrite;
+
+	$pages = '';
+	$max = $wp_query->max_num_pages;
+
+	if (!$current = get_query_var('paged')) $current = 1;
+
+	$a['base'] = ($wp_rewrite->using_permalinks()) ? user_trailingslashit(trailingslashit(remove_query_arg('s', get_pagenum_link(1))) . 'page/%#%/', 'paged') : @add_query_arg('paged','%#%');
+
+	if (!empty($wp_query->query_vars['s'])) $a['add_args'] = array('s' => get_query_var('s'));
+
+	$a['total'] = $max;
+	$a['current'] = $current;
+
+	$total = 1; //1 - display the text "Page N of N", 0 - not display
+	$a['mid_size'] = 5; //how many links to show on the left and right of the current
+	$a['end_size'] = 1; //how many links to show in the beginning and end
+	$a['prev_text'] = '&laquo; Previous'; //text of the "Previous page" link
+	$a['next_text'] = 'Next &raquo;'; //text of the "Next page" link
+
+	if ($max > 1) echo '<div class="pb-nav">';
+
+	if ($total == 1 && $max > 1) $pages = '<span class="pages">Page ' . $current . ' of ' . $max . '</span>'."\r\n";
+
+	echo $pages . paginate_links($a);
+
+	if ($max > 1) echo '</div>';
+}
 ?>

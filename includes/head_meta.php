@@ -5,14 +5,16 @@
 	This file is a part of the Solo-Frame WordPress theme framework.
 */
 
+// PHP ternary: $var = (if clause) ? if true : if false
+
 function head_meta() {
 	include (LIBPATH.'get_theme_options.php');
 
-	$default_blog_desc = ($sf_blog_desc) ? $sf_blog_desc : '';
-	$default_blog_kw = ($sf_blog_kw) ? $sf_blog_kw : '';
+	$default_blog_desc = ($sf_settings['sf_blog_desc']) ? $sf_settings['sf_blog_desc'] : '';
+	$default_blog_kw = ($sf_settings['sf_blog_kw']) ? $sf_settings['sf_blog_kw'] : '';
 
-	$post_desc_length  = ($sf_blog_desc_len) ? $sf_blog_desc_len : 20; // description length in # words for post/Page
-	$post_use_excerpt  = ($sf_blog_desc_exc) ? $sf_blog_desc_exc : 0; // 0 (zero) to force content as description for post/Page
+	$post_desc_length  = ($sf_settings['sf_blog_desc_len']) ? $sf_settings['sf_blog_desc_len'] : 20; // description length in # words for post/Page
+	$post_use_excerpt  = ($sf_settings['sf_blog_desc_exc']) ? $sf_settings['sf_blog_desc_exc'] : 0; // 0 (zero) to force content as description for post/Page
 	$custom_desc_key   = 'description'; // custom field key; if used, overrides excerpt/content
 	$custom_kw_key   = 'keywords'; // custom field key; if used, overrides excerpt/content
 

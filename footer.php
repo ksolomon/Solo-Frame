@@ -23,6 +23,6 @@
 
 	<script src="<?php bloginfo('template_url'); ?>/includes/scripts.js"></script>
 
-	<?php if ($sf_analytics) { echo $sf_analytics; } ?>
+	<?php if ($sf_settings['sf_analytics']) { echo html_entity_decode($sf_settings['sf_analytics'])."\n"; } ?>
 </body>
 </html>

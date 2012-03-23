@@ -1,221 +1,128 @@
 <?php
-$options = array(
-	array(
-		"desc" => __("<h3>Meta Description/Keywords</h3>"),
-		"type" => "nothing"
-	),
-
-	array(
-		"name" => __('Default Meta Description'),
-		"desc" => __('If used, will override blog description (from Settings page) for meta description'),
-		"id" => $shortname."_blog_desc",
-		"std" => "",
-		"type" => "text"
-	),
-
-	array(
-		"name" => __('Default Meta Keywords'),
-		"desc" => __('Default keywords for meta tag'),
-		"id" => $shortname."_blog_kw",
-		"std" => "",
-		"type" => "text"
-	),
-
-	array(
-		"name" => __('Use Excerpt for Meta Description?'),
-		"desc" => __('If selected, use post/page excerpt for meta description'),
-		"id" => $shortname."_blog_desc_exc",
-		"std" => "false",
-		"type" => "checkbox"
-	),
-
-	array(
-		"name" => __('Post/Page Meta Description Length'),
-		"desc" => __('Number of words from post content to use as meta description (Default: 20)'),
-		"id" => $shortname."_blog_desc_len",
-		"std" => "",
-		"type" => "text"
-	),
-
-	array(
-		"desc" => __("<h3>Analytics/Footer Code</h3>"),
-		"type" => "nothing"
-	),
-
-	array(
-		"name" => __('Analytics code'),
-		"desc" => __("Paste your Google Analytics code (or other javascript to add) in the box above"),
-		"id" => $shortname."_analytics",
-		"std" => __(""),
-		"type" => "textarea",
-		"options" => array("rows" => "5","cols" => "94")
-	)
+// Default options values
+$sf_options = array(
+	'sf_blog_desc' => '',
+	'sf_blog_kw' => '',
+	'sf_blog_desc_exc' => false,
+	'sf_blog_desc_len' => 20,
+	'sf_analytics' => ''
 );
 
-function sf_add_admin() {
-    global $themename, $shortname, $options;
+if (is_admin()) : // Load only if we are viewing an admin page
 
-	if ($_GET['page'] == basename(__FILE__)) {
-		if ('save' == $_REQUEST['action']) {
-			foreach ($options as $value) {
-				update_option($value['id'], $_REQUEST[ $value['id'] ]);
-			}
-
-			foreach ($options as $value) {
-				if(isset($_REQUEST[ $value['id'] ])) { update_option($value['id'], $_REQUEST[ $value['id'] ] ); } else { delete_option($value['id']); }
-			}
-
-			header("Location: themes.php?page=theme_options.php&saved=true");
-			die;
-		} elseif('reset' == $_REQUEST['action']) {
-			foreach ($options as $value) {
-				delete_option($value['id']);
-			}
-
-			header("Location: themes.php?page=theme_options.php&reset=true");
-			die;
-		}
-	}
-
-    add_theme_page("Theme Options", "Theme Options", 'edit_themes', basename(__FILE__), 'sf_admin');
+function sf_register_settings() {
+	// Register settings and call sanitation functions
+	register_setting('sf_theme_options', 'sf_options', 'sf_validate_options');
 }
 
-function sf_admin() {
-    global $themename, $shortname, $options;
+add_action('admin_init', 'sf_register_settings');
 
-    if ($_REQUEST['saved']) echo '<div id="message" class="updated fade"><p><strong>'.__('Theme settings saved.').'</strong></p></div>';
-    if ($_REQUEST['reset']) echo '<div id="message" class="updated fade"><p><strong>'.__('Theme settings reset.').'</strong></p></div>';
+function sf_theme_options() {
+	// Add theme options page to the addmin menu
+	add_theme_page('Theme Options', 'Theme Options', 'edit_theme_options', 'theme_options', 'sf_theme_options_page');
+}
 
-	$nonce = wp_create_nonce('sf_admin'); // create nonce token for security
-?>
-	<div="wrap">
-		<?php if (function_exists('screen_icon')) screen_icon(); ?>
+add_action('admin_menu', 'sf_theme_options');
 
-		<h2>Theme Options</h2>
+// Function to generate options page
+function sf_theme_options_page() {
+	global $sf_options;
 
-		<form method="post" action="themes.php?page=theme_options.php&_wpnonce=<?php echo $nonce ?>">
-			<table class="form-table">
-				<?php foreach ($options as $value) {
-					switch ($value['type']) {
-						case 'text':
-						?>
-						<tr valign="top">
-							<th scope="row"><label for="<?php echo $value['id']; ?>"><?php echo __($value['name']); ?></label></th>
-							<td>
-								<input name="<?php echo $value['id']; ?>" id="<?php echo $value['id']; ?>" type="<?php echo $value['type']; ?>" value="<?php if ( get_option( $value['id'] ) != "") { echo get_option( $value['id'] ); } else { echo $value['std']; } ?>" />
-								<?php echo __($value['desc']); ?>
-							</td>
-						</tr>
-						<?php
-						break;
+	if (!isset($_REQUEST['saved']))
+		$_REQUEST['saved'] = false; // This checks whether the form has just been submitted. ?>
 
-						case 'select':
-						?>
-						<tr valign="top">
-							<th scope="row"><label for="<?php echo $value['id']; ?>"><?php echo __($value['name']); ?></label></th>
-							<td>
-								<select name="<?php echo $value['id']; ?>" id="<?php echo $value['id']; ?>">
-									<?php foreach ($value['options'] as $option) { ?>
-										<option<?php if ( get_settings( $value['id'] ) == $option) { echo ' selected="selected"'; } elseif ($option == $value['std']) { echo ' selected="selected"'; } ?>><?php echo $option; ?></option>
-									<?php } ?>
-								</select>
-							</td>
-						</tr>
-						<?php
-						break;
+	<div class="wrap">
+		<?php screen_icon(); echo "<h2>" . get_current_theme() . __(' Theme Options') . "</h2>";
+		// This shows the page's name and an icon if one has been provided ?>
 
-						case 'textarea':
-						$ta_options = $value['options'];
-						?>
-						<tr valign="top">
-							<th scope="row"><label for="<?php echo $value['id']; ?>"><?php echo __($value['name']); ?></label></th>
-							<td><textarea name="<?php echo $value['id']; ?>" id="<?php echo $value['id']; ?>" cols="<?php echo $ta_options['cols']; ?>" rows="<?php echo $ta_options['rows']; ?>"><?php
-							if (get_option($value['id']) != "") {
-								echo __(stripslashes(get_option($value['id'])));
-							} else {
-								echo __($value['std']);
-							}?></textarea><br /><?php echo __($value['desc']); ?></td>
-						</tr>
-						<?php
-						break;
+		<?php if (false !== $_REQUEST['saved']) : ?>
+			<div class="updated fade"><p><strong><?php _e('Options saved'); ?></strong></p></div>
+		<?php endif; // If the form has just been submitted, this shows the notification ?>
 
-						case 'radio':
-						?>
-						<tr valign="top">
-							<th scope="row"><?php echo __($value['name']); ?></th>
-							<td>
-							<?php foreach ($value['options'] as $key=>$option) {
-								$radio_setting = get_option($value['id']);
-								if ($radio_setting != '') {
-									if ($key == get_option($value['id'])) {
-										$checked = "checked=\"checked\"";
-									} else {
-										$checked = "";
-									}
-								} else {
-									if ($key == $value['std']) {
-										$checked = "checked=\"checked\"";
-									} else {
-										$checked = "";
-									}
-								} ?>
-								<input type="radio" name="<?php echo $value['id']; ?>" id="<?php echo $value['id'] . $key; ?>" value="<?php echo $key; ?>" <?php echo $checked; ?> /><label for="<?php echo $value['id'] . $key; ?>"><?php echo $option; ?></label><br />
-							<?php } ?>
-							</td>
-						</tr>
-						<?php
-						break;
+		<form method="post" action="options.php">
+			<?php $settings = get_option('sf_options', $sf_options); ?>
+			<?php settings_fields('sf_theme_options');
+			/* This function outputs some hidden fields required by the form,
+			including a nonce, a unique number used to ensure the form has been submitted from the admin page
+			and not somewhere else, very important for security */ ?>
 
-						case 'checkbox':
-						?>
-						<tr valign="top">
-							<th scope="row"><?php echo __($value['name']); ?></th>
-							<td>
-								<?php
-								if (get_option($value['id'])) {
-									$checked = "checked=\"checked\"";
-								} else {
-									$checked = "";
-								}
-								?>
-								<input type="checkbox" name="<?php echo $value['id']; ?>" id="<?php echo $value['id']; ?>" value="true" <?php echo $checked; ?> />
-								<label for="<?php echo $value['id']; ?>"><?php echo __($value['desc']); ?></label>
-							</td>
-						</tr>
-						<?php
-						break;
-						
-						case 'nothing':
-						?>
-						<tr valign="top">
-							<th scope="row"><?php echo __($value['desc']); ?></th>
-							<td>&nbsp;</td>
-						</tr>
-						<?php
-						break;
+			<table class="form-table"><!-- Grab a hot cup of coffee, yes we're using tables! -->
+				<tr valign="top">
+					<td><h3>Meta Description/Keywords</h3></td>
+				</tr>
 
-						default:
-						break;
-					}
-				}
-?>
+				<tr valign="top">
+					<th scope="row"><label for="sf_blog_desc">Default Meta Description</label></th>
+					<td>
+						<input id="sf_blog_desc" name="sf_options[sf_blog_desc]" type="text" value="<?php esc_attr_e($settings['sf_blog_desc']); ?>" />
+						If used, will override blog description (from Settings page) for meta description.
+					</td>
+				</tr>
+
+				<tr valign="top">
+					<th scope="row"><label for="sf_blog_kw">Default Meta Keywords</label></th>
+					<td>
+						<input id="sf_blog_kw" name="sf_options[sf_blog_kw]" type="text" value="<?php esc_attr_e($settings['sf_blog_kw']); ?>" />
+						Default keywords for meta tag (must be comma separated).
+					</td>
+				</tr>
+
+				<tr valign="top">
+					<th scope="row">Use Excerpt as Description</th>
+					<td>
+						<input type="checkbox" id="sf_blog_desc_exc" name="sf_options[sf_blog_desc_exc]" value="1" <?php checked(true, $settings['sf_blog_desc_exc']); ?> />
+						<label for="sf_blog_desc_exc">If selected, use post/page excerpt for meta description.</label>
+					</td>
+				</tr>
+
+				<tr valign="top">
+					<th scope="row"><label for="sf_blog_desc_len">Post/Page Meta Description Length</label></th>
+					<td>
+						<input id="sf_blog_desc_len" name="sf_options[sf_blog_desc_len]" type="text" value="<?php esc_attr_e($settings['sf_blog_desc_len']); ?>" />
+						Number of words from post content to use as meta description (Default: 20).
+					</td>
+				</tr>
+
+				<tr valign="top">
+					<td><h3>Analytics/Footer Code</h3></td>
+				</tr>
+
+				<tr valign="top">
+					<th scope="row"><label for="sf_analytics">Analytics Code</label></th>
+					<td>
+						<textarea id="sf_analytics" name="sf_options[sf_analytics]" rows="5" cols="94"><?php echo stripslashes($settings['sf_analytics']); ?></textarea>
+						<br />Paste your Google Analytics code (or other javascript to add) in the box above.
+					</td>
+				</tr>
 			</table>
 
-			<p class="submit">
-				<input name="save" type="submit" value="<?php _e('Save changes'); ?>" />
-				<input type="hidden" name="action" value="save" />
-			</p>
-		</form>
-
-		<form method="post" action="themes.php?page=theme_options.php&_wpnonce=<?php echo $nonce ?>">
-			<p class="submit">
-				<input name="reset" type="submit" value="<?php _e('Reset'); ?>" />
-				<input type="hidden" name="action" value="reset" />
-			</p>
+			<p class="submit"><input type="submit" class="button-primary" value="Save Options" /></p>
 		</form>
 	</div>
+
 	<?php
 }
 
-add_action('admin_menu', 'sf_add_admin'); 
-?>
+function sf_validate_options($input) {
+	global $sf_options;
+
+	$settings = get_option('sf_options', $sf_options);
+	
+	// We strip all tags from the text field, to avoid vulnerablilties like XSS
+	$input['sf_blog_desc'] = wp_filter_nohtml_kses($input['sf_blog_desc']);
+	$input['sf_blog_kw'] = wp_filter_nohtml_kses($input['sf_blog_kw']);
+	$input['sf_blog_desc_len'] = wp_filter_nohtml_kses($input['sf_blog_desc_len']);
+
+	// We strip all tags from the text field, to avoid vulnerablilties like XSS
+	$input['sf_analytics'] = htmlentities(stripslashes($input['sf_analytics']));
+
+	// If the checkbox has not been checked, we void it
+	if (! isset($input['sf_blog_desc_exc']))
+		$input['sf_blog_desc_exc'] = null;
+	// We verify if the input is a boolean value
+	$input['sf_blog_desc_exc'] = ($input['sf_blog_desc_exc'] == 1 ? 1 : 0);
+
+	return $input;
+}
+
+endif;  // EndIf is_admin()

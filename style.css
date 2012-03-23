@@ -10,6 +10,9 @@ Author URL: http://solowebdesigns.net
 	For a copy, please refer to the following link: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
+@import url('css/reset.css');
+@import url('css/wp.css');
+
 body {
 	background: #fff;
 	color: #000;
@@ -145,6 +148,15 @@ abbr {
 	width: 600px;
 }
 
+.content .featured {
+	color: #666;
+	font-size: 10px;
+	font-weight: 500;
+	letter-spacing: 0.1em;
+	line-height: 2.6em;
+	text-transform: uppercase;
+}
+
 .content .post {
 	margin-bottom: 1.5em;
 }
@@ -191,17 +203,40 @@ abbr {
 	display: block;
 	margin-top: 1.5em;
 }
+
+/** PAGE BAR NAV STYLING */
+.pb-nav {
+	clear: both;
+}
+
+.pb-nav a, .pb-nav span {
+	text-decoration: none;
+	border: 1px solid #BFBFBF;
+	padding: 3px 5px;
+	margin: 2px;
+}
+
+.pb-nav a:hover, .pb-nav span.current {
+	border-color: #000;
+}
+
+.pb-nav span.current {
+	font-weight: bold;
+}
+/* /PAGE BAR **/
 /* /LINKS **/
 
 /** HEADING STYLES */
+h1, h2, h3, h4, h5, h6 {
+	clear: both;
+}
+
 .content h1 {
 	font-size: 2em;
-	margin-bottom: 1em;
 }
 
 .content h2 {
 	font-size: 1.8em;
-	margin-bottom: 1em;
 }
 
 .content h2.pagetitle {
@@ -221,25 +256,21 @@ abbr {
 .content h3 {
 	font-size: 1.5em;
 	font-weight: bold;
-	margin: 2em 0 1em;
 }
 
 .content h4 {
 	font-size: 1.4em;
 	font-weight: bold;
-	margin: 2em 0 1em;
 }
 
 .content h5 {
 	font-size: 1.3em;
 	font-weight: bold;
-	margin: 2em 0 1em;
 }
 
 .content h6 {
 	font-size: 1.2em;
 	font-weight: bold;
-	margin: 2em 0 1em;
 }
 /* /HEADINGS **/
 

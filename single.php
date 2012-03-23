@@ -18,12 +18,17 @@
 						<?php the_content("Continue reading " . the_title('', '', false)); ?>
 
 						<div class="clear"></div>
+
+						<?php wp_link_pages(array('before' => '<div class="page-link">Pages:', 'after' => '</div>')); ?>
 					</div>
 
 					<div id="comments">
 						<?php comments_template('', true); ?>
 					</div>
-				<?php endwhile; else : ?>
+				<?php endwhile; ?>
+					<!-- Navigation -->
+					<?php sf_display_nav("numbar"); ?>
+				<?php else : ?>
 					<!-- No Posts Found -->
 					<div class="entry" id="entry-err">
 						<h2 class="pagetitle">Post not found.</h2>
