@@ -28,9 +28,8 @@
 				<?php else : ?>
 					<!-- No Posts Found -->
 					<section id="post-0" class="post error404 not-found">
-						<h2 class="pagetitle">Post not found.</h2>
-						<p>Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post.</p>
-						<?php get_search_form(); ?>
+						<h2 class="pagetitle">No news yet.</h2>
+						<p>There's nothing here yet.  Check back later.</p>
 					</section>
 			<?php endif; ?>
 		</section>

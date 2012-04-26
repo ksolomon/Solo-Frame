@@ -11,6 +11,9 @@
 
 	include (LIBPATH.'theme_options.php');
 
+	// Delete core pages, add new pages, and set up static front page
+	include (LIBPATH.'activation.php');
+
 	// Load framework libraries
 	// Generic functions
 	require (LIBPATH.'library.php');
