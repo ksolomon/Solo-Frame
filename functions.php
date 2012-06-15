@@ -21,6 +21,9 @@
 	// Widgets
 	require (LIBPATH.'widgets.php');
 
+	// Custom gallery functions
+	require (LIBPATH.'gallery.php');
+
 	// Custom excerpt functions
 	require (LIBPATH.'excerpts.php');
 
