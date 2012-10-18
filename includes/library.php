@@ -294,7 +294,7 @@ function sf_copyright() {
 	echo 'Copyright &copy; ';
 
 	/* Display first post year and current year */
-	if (substr($first_date,0,4) == date('Y')) {
+	if (!$first_date || (substr($first_date,0,4) == date('Y'))) {
 		/* Only display current year if no posts in previous years */
 		echo date('Y');
 	} else {
