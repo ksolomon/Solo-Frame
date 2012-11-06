@@ -56,6 +56,21 @@ strong.search-excerpt {
 abbr {
 	border-bottom: 1px dashed #000;
 }
+
+/** LINKS */
+a:link, a:visited, a:active {
+	text-decoration: none;
+}
+
+a:hover {
+
+}
+
+a.more-link {
+	display: block;
+	margin-top: 1.5em;
+}
+/* /LINKS **/
 /* /MISCELLANEOUS **/
 
 /** HEADER */
@@ -233,20 +248,6 @@ abbr {
 .col-9 { width: 11.111% }
 /* /GALLERY **/
 
-/** MAIN CONTENT LINKS */
-.content a:link, .content a:visited, .content a:active {
-	text-decoration: none;
-}
-
-.content a:hover {
-
-}
-
-.content a.more-link {
-	display: block;
-	margin-top: 1.5em;
-}
-
 /** PAGE BAR NAV STYLING */
 .pb-nav {
 	clear: both;
@@ -267,7 +268,6 @@ abbr {
 	font-weight: bold;
 }
 /* /PAGE BAR **/
-/* /LINKS **/
 
 /** HEADING STYLES */
 h1, h2, h3, h4, h5, h6 {
