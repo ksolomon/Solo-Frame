@@ -25,13 +25,6 @@
 
 	<?php wp_head(); ?>
 
-	<?php if (is_user_logged_in()) { ?>
-		<style type="text/css">
-			html { margin-top: 28px !important; }
-			* html body { margin-top: 28px !important; }
-		</style>
-	<?php } ?>
-
 	<!-- HTML5 Shim for older IE versions -->
 	<!--[if lt IE 9]>
 	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>

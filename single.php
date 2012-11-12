@@ -1,14 +1,14 @@
 <?php get_header(); ?>
 
 		<!-- content -->
-		<div id="content" class="content">
+		<section id="content" class="content">
 			<?php if (have_posts()) : ?>
 				<?php while (have_posts()) : the_post(); ?>
 					<!-- Navigation -->
 					<?php sf_display_nav(); ?>
 
 					<!-- Individual Post Styling -->
-					<div class="entry" id="entry-<?php the_ID(); ?>">
+					<article <?php post_class(); ?> id="entry-<?php the_ID(); ?>">
 						<h2 class="pagetitle"><?php the_title(); ?></h2>
 						<div class="postmeta">
 							Posted <?php the_time('F jS, Y') ?> &nbsp; &mdash; &nbsp; Filed under <?php the_category(', ') ?><br />
@@ -20,7 +20,7 @@
 						<div class="clear"></div>
 
 						<?php wp_link_pages(array('before' => '<div class="page-link">Pages:', 'after' => '</div>')); ?>
-					</div>
+					</article>
 
 					<div id="comments">
 						<?php comments_template('', true); ?>
@@ -34,7 +34,7 @@
 						<h2 class="pagetitle">Post not found.</h2>
 					</div>
 			<?php endif; ?>
-		</div>
+		</section>
 		<!-- /content -->
 
 <?php get_sidebar(); ?>
