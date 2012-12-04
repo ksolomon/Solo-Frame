@@ -71,6 +71,37 @@ function sf_generate_title_tag() {
 	endif;
 }
 
+// Core navigation functions
+function sf_corenav() {
+	global $wp_query, $wp_rewrite;
+
+	$pages = '';
+	$max = $wp_query->max_num_pages;
+
+	if (!$current = get_query_var('paged')) $current = 1;
+
+	$a['base'] = ($wp_rewrite->using_permalinks()) ? user_trailingslashit(trailingslashit(remove_query_arg('s', get_pagenum_link(1))) . 'page/%#%/', 'paged') : @add_query_arg('paged','%#%');
+
+	if (!empty($wp_query->query_vars['s'])) $a['add_args'] = array('s' => get_query_var('s'));
+
+	$a['total'] = $max;
+	$a['current'] = $current;
+
+	$total = 1; //1 - display the text "Page N of N", 0 - not display
+	$a['mid_size'] = 5; //how many links to show on the left and right of the current
+	$a['end_size'] = 1; //how many links to show in the beginning and end
+	$a['prev_text'] = '&laquo; Previous'; //text of the "Previous page" link
+	$a['next_text'] = 'Next &raquo;'; //text of the "Next page" link
+
+	if ($max > 1) echo '<div class="pb-nav">';
+
+	if ($total == 1 && $max > 1) $pages = '<span class="pages">Page ' . $current . ' of ' . $max . '</span>'."\r\n";
+
+	echo $pages . paginate_links($a);
+
+	if ($max > 1) echo '</div>';
+}
+
 // Display context-aware post/page navigation elements. Default div ID: "previous-next".
 function sf_display_nav($navstyle="nextprev",$class="navigation") {
 	if (is_single()) {
@@ -302,8 +333,15 @@ function sf_copyright() {
 	}
 
 	/* Display blog name from 'General Settings' page */
-	echo ' <strong>'.get_bloginfo('name').'</strong> ';
-	echo 'All rights reserved.';
+	echo ' '.get_bloginfo('name').'. ';
+	echo 'Design by <a href="http://betterbug.com/">Drake Creative</a>';
+}
+
+// Get page slug
+function sf_get_slug() {
+    $post_data = get_post($post->ID, ARRAY_A);
+    $slug = $post_data['post_name'];
+    return $slug; 
 }
 
 // Post Tag support for pages
@@ -328,6 +366,7 @@ function sf_post_class($classes) {
 
 add_filter('post_class','sf_post_class');
 
+// Add performance metrics to page footer
 function sf_performance($visible = false) {
 	$stat = sprintf(
 		'Page generated with %d queries in %.3f seconds, using %.2fMB memory',
@@ -341,12 +380,14 @@ function sf_performance($visible = false) {
 
 add_action('wp_footer', 'sf_performance', 20);
 
+// remove theme and plugin editor menu itmes
 function sf_remove_editor_menu() {
 	remove_action('admin_menu', '_add_themes_utility_last', 101);
 }
 
 add_action('_admin_menu', 'sf_remove_editor_menu', 1);
 
+// Rewrite search urls to get rid of querystring
 function sf_search_url_rewrite() {
 	if (is_search() && !empty($_GET['s'])) {
 		wp_redirect(home_url("/search/") . urlencode(get_query_var('s')));
@@ -356,6 +397,7 @@ function sf_search_url_rewrite() {
 
 add_action('template_redirect', 'sf_search_url_rewrite');
 
+// remove localization routines
 function sf_remove_l1on() {
 	if (!is_admin()) {
 		wp_deregister_script('l10n');
@@ -364,6 +406,7 @@ function sf_remove_l1on() {
 
 add_action('init', 'sf_remove_l1on');
 
+// Check referrer querystring to prevent comment floods
 function sf_check_referrer() {
 	if (!isset($_SERVER['HTTP_REFERER']) || $_SERVER['HTTP_REFERER'] == "") {
 		wp_die(__('Please enable referrers in your browser to cooment'));
@@ -371,34 +414,4 @@ function sf_check_referrer() {
 }
 
 add_action('check_comment_flood', 'sf_check_referrer');
-
-function sf_corenav() {
-	global $wp_query, $wp_rewrite;
-
-	$pages = '';
-	$max = $wp_query->max_num_pages;
-
-	if (!$current = get_query_var('paged')) $current = 1;
-
-	$a['base'] = ($wp_rewrite->using_permalinks()) ? user_trailingslashit(trailingslashit(remove_query_arg('s', get_pagenum_link(1))) . 'page/%#%/', 'paged') : @add_query_arg('paged','%#%');
-
-	if (!empty($wp_query->query_vars['s'])) $a['add_args'] = array('s' => get_query_var('s'));
-
-	$a['total'] = $max;
-	$a['current'] = $current;
-
-	$total = 1; //1 - display the text "Page N of N", 0 - not display
-	$a['mid_size'] = 5; //how many links to show on the left and right of the current
-	$a['end_size'] = 1; //how many links to show in the beginning and end
-	$a['prev_text'] = '&laquo; Previous'; //text of the "Previous page" link
-	$a['next_text'] = 'Next &raquo;'; //text of the "Next page" link
-
-	if ($max > 1) echo '<div class="pb-nav">';
-
-	if ($total == 1 && $max > 1) $pages = '<span class="pages">Page ' . $current . ' of ' . $max . '</span>'."\r\n";
-
-	echo $pages . paginate_links($a);
-
-	if ($max > 1) echo '</div>';
-}
 ?>
