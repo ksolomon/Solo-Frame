@@ -33,7 +33,7 @@ function sf_gallery_shortcode($attr) {
 		'captiontag' => 'dd',
 		'columns'    => 3,
 		'size'       => 'thumbnail',
-		'include'    => '',
+		'ids'    => '',
 		'exclude'    => ''
 	), $attr));
 
@@ -41,9 +41,9 @@ function sf_gallery_shortcode($attr) {
 	if ('RAND' == $order)
 		$orderby = 'none';
 
-	if (!empty($include)) {
-		$include = preg_replace('/[^0-9,]+/', '', $include);
-		$_attachments = get_posts(array('include' => $include, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby));
+	if (!empty($ids)) {
+		$ids = preg_replace('/[^0-9,]+/', '', $ids);
+		$_attachments = get_posts(array('include' => $ids, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby));
 
 		$attachments = array();
 		foreach ($_attachments as $key => $val) {
