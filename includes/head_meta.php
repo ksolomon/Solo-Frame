@@ -32,7 +32,7 @@ function head_meta() {
 			$posttags = get_the_tags();
 			if ($posttags) {
 				foreach ($posttags as $tag) {
-					$keywords .= $tag->name.','; 
+					$keywords .= $tag->name.',';
 				}
 			}
 		}
@@ -72,14 +72,27 @@ function head_meta() {
 		$keywords = $default_blog_kw;
 	}
 
+	global $post;
+
+	$url = get_permalink();
+	$title = get_the_title();
+	$imageArr = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID),'single-post-thumbnail');
+	$image = $imageArr[0];
+
 	echo "<!-- Meta tags built by Solo-Frame -->\n";
-	
-	if ($keywords) {
+
+	echo "<meta property=\"og:url\" content=\"$url\" />\n";
+	echo "<meta property=\"og:title\" content=\"$title\" />\n";
+
+	if ($image)
+		echo "<meta property=\"og:image\" content=\"$image\"/>\n";
+
+	if ($keywords)
 		echo "<meta name=\"keywords\" content=\"$keywords\" />\n";
-	}
 
 	if ($description) {
 		echo "<meta name=\"description\" content=\"$description\" />\n";
+		echo "<meta property=\"og:description\" content=\"$description\" />\n";
 	}
 }
 
