@@ -119,41 +119,11 @@ function sfsm_options_page() {
 
 	<p><?php echo SFSM_DEFAULT_NOTICE; ?></p>
 
+	<p><strong>Usage:</strong> Insert "<strong>[sitemap]</strong>" on your chosen page after configuration and updating permalinks.</p>
+
 	<fieldset class="options"> 
-	<legend><?php echo SFSM_GENERAL_OPTIONS; ?></legend>
+	<legend><strong><?php echo SFSM_GENERAL_OPTIONS; ?></strong></legend>
 	<table width="100%" border="0" cellspacing="0" cellpadding="6">
-
-		<!--
-   	<tr valign="top"><td width="25%" align="right">
-	<b><?php echo SFSM_LANGUAGE; ?></b>
-	</td>
-	<td align="left">
-	<select name="sfsm_language">
-	<?php 
-
-	// Get list of available languages
-	$language_list = array();
-    $handle = opendir(ABSPATH . 'wp-content/themes/PPT/includes');
-    while ($file = readdir($handle)) {
-        if ($file != '.' && $file != '..')
-   	        $language_list[] = $file;
-    }
-    closedir($handle);
-
-	$slang = trim(get_option('sfsm_language'));
-	foreach ($language_list as $lang) {
-		echo '<option';
-		if ($lang == ($slang . '.php')) {
-			echo ' selected="selected"';
-		}
-		echo '>' . substr($lang, 0, strlen($lang)-4) . '</option>';
-	}
-	?>
-	</select>
-	<br /><?php echo SFSM_LANGUAGE_DESC; ?>
-	</td>
-	</tr>
-	-->
 
 	<tr><th width="45%" valign="top" align="right" scope="row"><?php echo SFSM_ITEMS_PER_PAGE; ?></th><td valign="top">
 	<input name="sfsm_items_per_page" type="text" size="5" value="<?php echo get_option('sfsm_items_per_page') ?>"/><br />
@@ -169,7 +139,7 @@ function sfsm_options_page() {
 	</fieldset>
 
 	<fieldset class="options"> 
-	<legend><?php echo SFSM_SITEMAP_GENERATION; ?></legend>
+	<legend><strong><?php echo SFSM_SITEMAP_GENERATION; ?></strong></legend>
 	<table width="100%" border="0" cellspacing="0" cellpadding="6">
 
 	<tr><th width="45%" valign="top" align="right" scope="row"><?php echo SFSM_SHOW; ?></th><td valign="top">
@@ -226,7 +196,7 @@ function sfsm_options_page() {
 	</fieldset>
 
 	<fieldset class="options"> 
-	<legend><?php echo SFSM_EXCLUSIONS; ?></legend>
+	<legend><strong><?php echo SFSM_EXCLUSIONS; ?></strong></legend>
 	<table width="100%" border="0" cellspacing="0" cellpadding="6">
 
 	<tr><th width="45%" valign="top" align="right" scope="row"><?php echo SFSM_EXCLUDED_CATS; ?></th><td valign="top">
@@ -251,7 +221,7 @@ function sfsm_options_page() {
 	</fieldset>
 
 	<fieldset class="options"> 
-	<legend><?php echo SFSM_NAVIGATION; ?></legend>
+	<legend><strong><?php echo SFSM_NAVIGATION; ?></strong></legend>
 	<table width="100%" border="0" cellspacing="0" cellpadding="6">
 
 	<tr><th width="45%" valign="top" align="right" scope="row"><?php echo SFSM_NAV_METHOD; ?></th><td valign="top">
@@ -270,7 +240,7 @@ function sfsm_options_page() {
 	</fieldset>
 
 	<fieldset class="options"> 
-	<legend><?php echo SFSM_MISC; ?></legend>
+	<legend><strong><?php echo SFSM_MISC; ?></strong></legend>
 	<table width="100%" border="0" cellspacing="0" cellpadding="6">	
 
 	<tr><th width="45%" valign="top" align="right" scope="row"><?php echo SFSM_XML_PATH; ?></th><td valign="top">
