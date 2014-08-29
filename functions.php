@@ -15,6 +15,9 @@
 	include (LIBPATH.'activation.php');
 
 	// Load framework libraries
+	// Custom post types and taxonomies
+	require (LIBPATH.'post-types.php');
+
 	// Generic functions
 	require (LIBPATH.'library.php');
 
