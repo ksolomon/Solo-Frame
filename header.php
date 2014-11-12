@@ -10,10 +10,11 @@
 
 	<title><?php sf_generate_title_tag(); ?></title>
 
-	<!-- Droid Sans font from Google Fonts API -->
-	<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+	<!-- Source Sans font from Google Fonts API -->
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,600italic,600' rel='stylesheet' type='text/css'>
 
 	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/style.css?v=<?php echo filemtime(TEMPLATEPATH . '/style.css'); ?>" media="screen, projection" />
+	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/lemonade.css?v=<?php echo filemtime(TEMPLATEPATH . '/css/lemonade.css'); ?>" media="screen" />
 	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/print.css" media="print" />
 	<!--[if lt IE 9]><link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/ie7.css" media="screen, projection" /><![endif]-->
 
@@ -33,7 +34,7 @@
 
 <body <?php body_class(); ?>>
 	<!-- wrapper -->
-	<div id="wrapper">
+	<div id="wrapper" class="frame">
 		<header id="header" role="banner">
 			<hgroup id="logo">
 				<h1 id="site-name"><a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1>
