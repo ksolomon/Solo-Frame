@@ -11,6 +11,9 @@ add_filter('widget_text', 'do_shortcode');
 // Set up feed links in theme header
 add_theme_support('automatic_feed_links');
 
+// Add title tag support
+add_theme_support('title-tag');
+
 // Menu Support
 register_nav_menus(array(
 	'primary' => 'Main Navigation',

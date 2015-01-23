@@ -9,8 +9,6 @@
 
     <link rel="shortcut icon" href="<?php bloginfo('template_url'); ?>/images/favicon.ico" />
 
-	<title><?php sf_generate_title_tag(); ?></title>
-
 	<!-- Source Sans font from Google Fonts API -->
 	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,600italic,600' rel='stylesheet' type='text/css'>
 
