@@ -12,9 +12,6 @@
 				</ul>
 			<?php } ?>
 
-			<!-- Plugin Hook -->
-			<?php wp_footer(); ?>
-
 			<div class="clear"></div>
 		</div>
 		<!-- /footer -->
@@ -24,5 +21,8 @@
 	<script src="<?php bloginfo('template_url'); ?>/includes/scripts.js"></script>
 
 	<?php if ($sf_settings['sf_analytics']) { echo html_entity_decode($sf_settings['sf_analytics'])."\n"; } ?>
+
+	<!-- Plugin Hook -->
+	<?php wp_footer(); ?>
 </body>
 </html>
