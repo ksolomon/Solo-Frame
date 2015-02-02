@@ -12,7 +12,7 @@
 
 <?php //You can start editing here. ?>
 <?php if (have_comments()) : ?>
-	<?php if (! empty($comments_by_type['comment'])) : ?>
+	<?php if (!empty($comments_by_type['comment'])) : ?>
 		<h3><?php comments_number('No Comments', '1 Comment', '% Comments');?> on &#8220;<?php the_title(); ?>&#8221;</h3>
 
 		<ul class="commentlist">
@@ -20,7 +20,7 @@
 		</ul>
 	<?php endif; ?>
 
-	<?php if (! empty($comments_by_type['pings'])) : ?>
+	<?php if (!empty($comments_by_type['pings'])) : ?>
 		<h3 id="pings">Trackbacks/Pingbacks</h3>
 
 		<ul class="pinglist">
