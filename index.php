@@ -6,7 +6,7 @@
 				<?php while (have_posts()) : the_post(); ?>
 					<!-- Individual Post Styling -->
 					<article <?php post_class(); ?> id="entry-<?php the_ID(); ?>">
-						<h2 class="pagetitle"><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'twentyeleven' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+                        <h2 class="pagetitle"><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(array('before' => 'Permalink to: ', 'after' => '')); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
 
 						<div class="postmeta">
 							<?php if (is_sticky()) : ?><h3 class="featured">Featured</h3><?php endif; ?>
@@ -36,5 +36,5 @@
 		<!-- /content -->
 
 <?php get_sidebar(); ?>
-		
+
 <?php get_footer(); ?>

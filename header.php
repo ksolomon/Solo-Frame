@@ -9,13 +9,9 @@
 
     <link rel="shortcut icon" href="<?php bloginfo('template_url'); ?>/images/favicon.ico" />
 
-	<!-- Source Sans font from Google Fonts API -->
-	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,600italic,600' rel='stylesheet' type='text/css'>
-
 	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/style.css?v=<?php echo filemtime(TEMPLATEPATH . '/style.css'); ?>" media="screen, projection" />
-	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/lemonade.css?v=<?php echo filemtime(TEMPLATEPATH . '/css/lemonade.css'); ?>" media="screen" />
 	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/print.css" media="print" />
-	<!--[if lt IE 9]><link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/ie7.css" media="screen, projection" /><![endif]-->
+	<!--[if lte IE 9]><link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/ie7.css" media="screen, projection" /><![endif]-->
 
 	<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />
 

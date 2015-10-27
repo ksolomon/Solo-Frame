@@ -1,1 +1,88 @@
-/* IE 7+ Specific Style Fixes */
+/* IE 9 and lower Specific Style Fixes */
+
+#wrapper {
+	margin: 0 auto;
+	max-width: 1260px;
+	width: 98%;
+}
+
+#header {
+	border-bottom: 1px solid #333;
+	float: left;
+	margin: 1em 0 3em;
+	width: 100%;
+}
+
+/** NAVIGATION */
+	#nav {
+		float: left;
+		font-size: 1.2em;
+		margin: .5em 0 1em;
+		width: 100%;
+	}
+
+	#nav li {
+		display: block;
+		float: left;
+	}
+
+	#nav li a:link, #nav li a:visited, #nav li a:active {
+		display: block;
+		margin-right: 10px;
+		padding: 0px;
+		text-decoration: none;
+	}
+
+	#nav li a:hover {
+		text-decoration: underline;
+	}
+
+	/** SUCKERFISH DROPDOWNS */
+		#nav li ul { /* second-level lists */
+			background: #fff;
+			border: 1px solid #333;
+			left: -999em; /* using left instead of display to hide menus because display: none isn't read by screen readers */
+			/*margin: 0 0 0 -12px;*/
+			position: absolute;
+			width: 10em;
+		}
+
+		#nav li ul li a:link, #nav li ul li a:visited, #nav li ul li a:active {
+			display: block;
+			font-size: 1em;
+			height: auto !important;
+			padding: 5px !important;
+			width: 10em;
+		}
+
+		#nav li ul li a:hover {
+
+		}
+
+		#nav li:hover ul, #nav li.sfhover ul { /* lists nested under hovered list items */
+			left: auto;
+		}
+	/* /DROPDOWNS **/
+/* /NAVIGATION **/
+
+#content {
+	clear: left;
+	display: inline;
+	float: left;
+	margin-bottom: 1em;
+	width: 70%;
+}
+
+#sidebar {
+	display: inline;
+	float: right;
+	width: 300px;
+}
+
+#footer {
+	border-top: 1px solid #333;
+	clear: both;
+	color: #333;
+	padding-top: .5em;
+}
+
