@@ -1,34 +1,25 @@
 <?php
 /*
 	Solo-Frame Generic Function Library
-	
+
 	This file is a part of the Solo-Frame WordPress theme framework.
 */
 
+// Add theme support features
+add_theme_support('automatic_feed_links');
+add_theme_support('title-tag');
+add_theme_support('post-thumbnails');
+add_theme_support('html5', array('comment-list', 'comment-form', 'gallery', 'search-form'));
+
 // Set up shortcode support for text widgets
 add_filter('widget_text', 'do_shortcode');
-
-// Set up feed links in theme header
-add_theme_support('automatic_feed_links');
-
-// Add title tag support
-add_theme_support('title-tag');
 
 // Menu Support
 register_nav_menus(array(
 	'primary' => 'Main Navigation',
 ));
 
-// Add a home link to dynamic menus
-function sf_page_menu_args($args) {
-	$args['show_home'] = true;
-	return $args;
-}
-
-add_filter('wp_page_menu_args', 'sf_page_menu_args');
-
 // Post thumbnails
-add_theme_support('post-thumbnails');
 set_post_thumbnail_size(96, 96, true);
 
 function sf_thumbs() {
@@ -73,7 +64,7 @@ function sf_generate_title_tag() {
 
 	else : bloginfo('name'); echo '&nbsp;'; wp_title('&raquo;', true, 'right');
 		echo (' - ');
-		echo bloginfo('description');		
+		echo bloginfo('description');
 	endif;
 }
 
@@ -176,24 +167,24 @@ function sf_addFirstLastClass($pageList) {
 	$allLisPattern = '/<li class="page_item(.*)<\/li>/s';
 	preg_match($allLisPattern,$pageList,$allLis);
 	$liClassPattern =  "/<li[^>]+class=\"([^\"]+)/i";
-	
-	// first let's break out each li	
+
+	// first let's break out each li
 	$liArray = explode("\n",$allLis[0]);
-	
+
 	// count to get last li
 	$liArrayCount = count($liArray);
-	
+
 	$lastLiPosition = $liArrayCount-1;
-	
+
 	// get the class name(s) of first class and last class
 	preg_match($liClassPattern,$liArray[0],$firstMatch);
 	preg_match($liClassPattern,$liArray[$lastLiPosition],$lastMatch);
-	
+
 	// add the new class names and replace the complete first and last lis
 	$newFirstLi = str_replace($firstMatch[1],$firstMatch[1]. " first",$liArray[0]);
 	$newLastLi = str_replace($lastMatch[1],$lastMatch[1]. " last",$liArray[$lastLiPosition]);
 	// replace first and last of the li array with new lis
-	
+
 	// rebuild newPageList
 		// set first li
 		$newPageList .= $newFirstLi.'';
@@ -204,7 +195,7 @@ function sf_addFirstLastClass($pageList) {
 		}
 		// set last li
 		$newPageList .= $newLastLi;
-	
+
 		// lastly, replace old list with new list
 		$pageList = str_replace($allLis[0],$newPageList,$pageList);
 	return $pageList;
@@ -238,7 +229,7 @@ function sf_breadcrumbs($args='') {
 	if (!isset($name)) $name = 'Home'; //text for the 'Home' link
 	if (!isset($currentBefore)) $currentBefore = '<span class="current">';
 	if (!isset($currentAfter)) $currentAfter = '</span>';
-	
+
 	if (!is_home() && !is_front_page() || is_paged()) {
 		echo '<div id="crumbs">';
 
@@ -326,7 +317,7 @@ function sf_copyright() {
 	$first_post = $all_posts[0];
 	/* Get date of first post */
 	$first_date = $first_post->post_date_gmt;
-	
+
 	/* Display common footer copyright notice */
 	echo 'Copyright &copy; ';
 
@@ -347,7 +338,7 @@ function sf_copyright() {
 function sf_get_slug() {
     $post_data = get_post($post->ID, ARRAY_A);
     $slug = $post_data['post_name'];
-    return $slug; 
+    return $slug;
 }
 
 // Post Tag support for pages

@@ -1,5 +1,5 @@
 /*
-Theme Name: Solo-Frame HTML5
+Theme Name: Solo-Frame Flexbox
 Theme URI: http://
 Description: Custom theme for
 Version: 1.0
@@ -16,13 +16,26 @@ Author URL: http://solowebdesigns.net
 body {
 	background: #fff;
 	color: #000;
-	font: 11px 'Source Sans Pro', Helvetica, sans-serif;
+	font: 100%/1.6875 -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
 	text-align: left;
 }
 
 #wrapper {
 	margin: 0 auto;
-	width: 960px;
+	max-width: 1260px;
+	width: 98%;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: row;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-webkit-justify-content: space-between;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
 }
 
 /** MISCELLANEOUS */
@@ -76,18 +89,19 @@ body {
 /** HEADER */
 	#header {
 		border-bottom: 1px solid #333;
-		float: left;
 		margin: 1em 0 3em;
-		width: 100%;
+		-webkit-flex: 0 1 100%;
+		-ms-flex: 0 1 100%;
+		flex: 0 1 100%;
 	}
 
 	/** LOGO */
 		#logo {
-			margin-bottom: .5em;
+			margin-bottom: 0;
 		}
 
 		#logo h1 a:link, #logo h1 a:visited, #logo h1 a:active {
-			font-size: 2.4em;
+			font-size: 2.4rem;
 			text-decoration: none;
 		}
 
@@ -96,55 +110,66 @@ body {
 		}
 
 		#logo h2 {
-			font-size: 1.8em;
+			font-size: 1.8rem;
 			font-weight: normal;
 		}
 	/* /LOGO **/
 
 	/** NAVIGATION */
-		#nav {
-			float: left;
-			font-size: 1.2em;
-			margin: .5em 0 1em;
-			width: 100%;
-		}
-
-		#nav li {
-			display: block;
-			float: left;
+		#nav ul {
+			display: -ms-flexbox;
+			display: -webkit-flex;
+			display: flex;
+			-webkit-flex-wrap: wrap;
+			-ms-flex-wrap: wrap;
+			flex-wrap: wrap;
+			-webkit-justify-content: space-around;
+			-ms-flex-pack: space-around;
+			justify-content: space-around;
+			font-size: 1.2rem;
+			margin: 0 0 1em;
+			padding: 0;
 		}
 
 		#nav li a:link, #nav li a:visited, #nav li a:active {
-			display: block;
-			margin-right: 10px;
-			padding: 0px;
+			align-items: flex-start;
+			color: #007ac9;
+			font-weight: bold;
+			padding: 5px 10px;
+			text-align: center;
 			text-decoration: none;
 		}
 
-		#nav li a:hover {
-			text-decoration: underline;
+		#nav li a:hover, #nav li.current_page_item a, #nav li.current-page-ancestor a {
+			background: #007ac9;
+			color: #fff;
 		}
 
 		/** SUCKERFISH DROPDOWNS */
 			#nav li ul { /* second-level lists */
 				background: #fff;
-				border: 1px solid #333;
+				border: 1px solid #333 !important;
+				-webkit-flex-direction: column;
+				-ms-flex-direction: column;
+				flex-direction: column;
 				left: -999em; /* using left instead of display to hide menus because display: none isn't read by screen readers */
-				/*margin: 0 0 0 -12px;*/
+				margin: 0 !important;
 				position: absolute;
 				width: 10em;
 			}
 
 			#nav li ul li a:link, #nav li ul li a:visited, #nav li ul li a:active {
+				background: transparent;
+				color: #007ac9;
 				display: block;
 				font-size: 1em;
 				height: auto !important;
-				padding: 5px !important;
 				width: 10em;
 			}
 
 			#nav li ul li a:hover {
-
+				background: #007ac9;
+				color: #fff;
 			}
 
 			#nav li:hover ul, #nav li.sfhover ul { /* lists nested under hovered list items */
@@ -156,16 +181,14 @@ body {
 
 /** CONTENT */
 	#content {
-		clear: left;
-		display: inline;
-		float: left;
-		margin-bottom: 1em;
-		width: 600px;
+		-webkit-flex: 0 1 70%;
+		-ms-flex: 0 1 70%;
+		flex: 0 1 70%;
 	}
 
 	.content .featured {
 		color: #666;
-		font-size: 10px;
+		font-size: 0.62rem;
 		font-weight: 500;
 		letter-spacing: 0.1em;
 		line-height: 2.6em;
@@ -200,9 +223,7 @@ body {
 	}
 
 	.content p {
-		line-height: 1.5em;
-		margin-bottom: 1.8em;
-		text-align: left;
+		margin-bottom: 1.5em;
 	}
 
 	/** GALLERY STYLES */
@@ -271,21 +292,21 @@ body {
 
 	/** HEADING STYLES */
 		h1, h2, h3, h4, h5, h6 {
-			clear: both;
+
 		}
 
 		.content h1 {
-			font-size: 2em;
+			font-size: 2rem;
 		}
 
 		.content h2 {
-			font-size: 1.8em;
+			font-size: 1.8rem;
 		}
 
 		.content h2.pagetitle {
-			font-size: 2em;
+			font-size: 2rem;
 			font-weight: normal;
-			margin-bottom: .25em;
+			margin-bottom: 0;
 		}
 
 		.content h2.pagetitle a:link, .content h2.pagetitle a:visited, .content h2.pagetitle a:active {
@@ -297,22 +318,22 @@ body {
 		}
 
 		.content h3 {
-			font-size: 1.5em;
+			font-size: 1.5rem;
 			font-weight: bold;
 		}
 
 		.content h4 {
-			font-size: 1.4em;
+			font-size: 1.4rem;
 			font-weight: bold;
 		}
 
 		.content h5 {
-			font-size: 1.3em;
+			font-size: 1.3rem;
 			font-weight: bold;
 		}
 
 		.content h6 {
-			font-size: 1.2em;
+			font-size: 1.2rem;
 			font-weight: bold;
 		}
 	/* /HEADINGS **/
@@ -330,7 +351,7 @@ body {
 		}
 
 		.content li {
-			font-size: 1em;
+			font-size: 1rem;
 			line-height: 1.4em;
 			margin-bottom: .5em;
 		}
@@ -355,9 +376,11 @@ body {
 
 /** SIDEBAR */
 	#sidebar {
-		display: inline;
-		float: right;
-		width: 300px;
+		border-left: 1px solid #333;
+		-webkit-flex: 0 1 25%;
+		-ms-flex: 0 1 25%;
+		flex: 0 1 25%;
+		padding-left: 25px;
 	}
 
 	.sidebar a:link, .sidebar a:visited, .sidebar a:active {
@@ -368,29 +391,14 @@ body {
 
 	}
 
+	.sidebar .widgetblock {
+		margin-bottom: 1.5em;
+	}
+
 	.sidebar h3 {
-		font-size: 1.5em;
+		font-size: 1.5rem;
 		font-weight: bold;
-		margin-bottom: 1em;
-	}
-
-	.sidebar #searchform div {
-		margin: 0 0 1.5em 1.8em;
-	}
-
-	.sidebar #searchsubmit {
-		border: 2px solid #333;
-		font-size: .9em;
-		font-weight: bold;
-		margin-left: .5em;
-		padding: .3em .5em;
-		text-transform: uppercase;
-		-moz-border-radius: 1em;
-		-webkit-border-radius: 1em;
-	}
-
-	.sidebar #searchsubmit:hover {
-		cursor: pointer;
+		margin-bottom: 0;
 	}
 
 	.sidebar ul, .sidebar ol {
@@ -398,7 +406,7 @@ body {
 	}
 
 	.sidebar li {
-		font-size: 1em;
+		font-size: 1rem;
 		line-height: 1.4em;
 		margin-bottom: .5em;
 	}
@@ -416,7 +424,7 @@ body {
 	}
 
 	.sidebar li li {
-		font-size: 1em;
+		font-size: 1rem;
 	}
 /* /SIDEBAR **/
 
@@ -436,7 +444,7 @@ body {
 	}
 
 	#comments .commentlist li {
-		font-size: 1.2em;
+		font-size: 1.2rem;
 		list-style: none;
 		margin: 0 0 1em;
 		padding: .5em;
@@ -449,7 +457,7 @@ body {
 	}
 
 	#comments .commentlist p {
-		font-size: 1.1em;
+		font-size: 1.1rem;
 		line-height: 1.4em;
 		margin: 0;
 	}
@@ -459,7 +467,7 @@ body {
 	}
 
 	#commentform p small {
-		font-size: 1.1em;
+		font-size: 1.1rem;
 	}
 
 	.nocomments {
@@ -489,7 +497,7 @@ body {
 	}
 
 	#comments .comment-author {
-		font-size: 1.2em;
+		font-size: 1.2rem;
 	}
 
 	#comments .comment-author cite {
@@ -506,11 +514,11 @@ body {
 	}
 
 	#commentform label {
-		font-size: 1.2em;
+		font-size: 1.2rem;
 	}
 
 	#commentform label span {
-		font-size: 1.1em;
+		font-size: 1.1rem;
 	}
 
 	#commentform input, #commentform textarea {
@@ -546,7 +554,7 @@ body {
 		border: 2px solid #333;
 		display: inline;
 		float: right;
-		font-size: .8em;
+		font-size: .8rem;
 		font-weight: bold;
 		padding: .5em;
 		text-transform: uppercase;
@@ -566,7 +574,7 @@ body {
 	}
 
 	table#wp-calendar caption {
-		font-size: 1.4em;
+		font-size: 1.4rem;
 		text-align: center;
 	}
 
@@ -632,9 +640,12 @@ body {
 /** FOOTER */
 	#footer {
 		border-top: 1px solid #333;
-		clear: both;
 		color: #333;
+		margin-top: 3em;
 		padding-top: .5em;
+		-webkit-flex: 0 1 100%;
+		-ms-flex: 0 1 100%;
+		flex: 0 1 100%;
 	}
 
 	#footer-credits, #footer-meta {
@@ -654,7 +665,7 @@ body {
 	}
 
 	#footer p {
-		font-size: 1.1em;
+		font-size: 1.1rem;
 	}
 
 	#footer ul {
@@ -664,7 +675,7 @@ body {
 	#footer ul li {
 		border-left: 1px solid #999;
 		display: inline;
-		font-size: 1.1em;
+		font-size: 1.1rem;
 		margin: 0 .5em;
 		padding: 0 1em;
 	}
@@ -675,3 +686,19 @@ body {
 		padding-left: 0;
 	}
 /* /FOOTER **/
+
+/** Single-column for anything smaller than portrait tablet */
+@media (max-width: 30em) {
+	#content, #sidebar {
+		-webkit-flex: 0 1 100%;
+		-ms-flex: 0 1 100%;
+		flex: 0 1 100%;
+		margin-bottom: 10px;
+	}
+
+	#sidebar {
+		border: none;
+		border-top: 1px solid #333;
+		padding-top: 35px;
+	}
+}
