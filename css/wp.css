@@ -3,80 +3,113 @@
 -------------------------------------------------------------- */
 
 /** IMAGES */
-.entry img {
-	border: 1px solid #eee;
-	margin: 1em;
-	padding: .25em;
-}
+	.entry img {
+		border: 1px solid #eee;
+		margin: 1em;
+		padding: .25em;
+	}
 
-.alignleft, img.alignleft {
-	display: inline;
-	float: left;
-	margin-right: 1.5em;
-}
+	.alignleft, img.alignleft {
+		display: inline;
+		float: left;
+		margin-right: 1.5em;
+	}
 
-.alignright, img.alignright {
-	display: inline;
-	float: right;
-	margin-left: 1.5em;
-}
+	.alignright, img.alignright {
+		display: inline;
+		float: right;
+		margin-left: 1.5em;
+	}
 
-.center, img.center, .aligncenter, img.aligncenter {
-	clear: both;
-	display: block;
-	margin: 0 auto;
-	text-align: center;
-}
+	.center, img.center, .aligncenter, img.aligncenter {
+		clear: both;
+		display: block;
+		margin: 0 auto;
+		text-align: center;
+	}
 
-.wp-caption {
-	border: 1px solid #eee;
-	text-align: center;
-	margin-bottom: 1.5em;
-	padding: .25em;
-}
+	.wp-caption {
+		border: 1px solid #eee;
+		text-align: center;
+		margin-bottom: 1.5em;
+		padding: .25em;
+	}
 
-.wp-caption img {
-	border: 0 none;
-	margin: 0;
-	padding: 0;
-}
+	.wp-caption img {
+		border: 0 none;
+		margin: 0;
+		padding: 0;
+	}
 
-.wp-caption p.wp-caption-text {
-	margin: 0;
-}
+	.wp-caption p.wp-caption-text {
+		margin: 0;
+	}
 
-.wp-smiley {
-	background: none !important;
-	border: none !important;
-	display: inline !important;
-	margin: 0 !important;
-	max-height: 1em;
-	vertical-align: middle;
-}
+	.wp-smiley {
+		background: none !important;
+		border: none !important;
+		display: inline !important;
+		margin: 0 !important;
+		max-height: 1em;
+		vertical-align: middle;
+	}
 
-.gallery dl {
-	margin: 0;
-}
+	.gallery dl {
+		margin: 0;
+	}
 
-.gallery-caption {
-	margin: -1.5em 0 0 0;
-}
+	.gallery-caption {
+		margin: -1.5em 0 0 0;
+	}
 /* /IMAGES **/
 
 /** PULLQUOTES */
-blockquote.left {
-	float: left;
-	margin-left: 0;
-	margin-right: 20px;
-	text-align: right;
-	width: 33%;
-}
+	blockquote.left {
+		float: left;
+		margin-left: 0;
+		margin-right: 20px;
+		text-align: right;
+		width: 33%;
+	}
 
-blockquote.right {
-	float: right;
-	margin-left: 20px;
-	margin-right: 0;
-	text-align: left;
-	width: 33%;
-}
+	blockquote.right {
+		float: right;
+		margin-left: 20px;
+		margin-right: 0;
+		text-align: left;
+		width: 33%;
+	}
 /* /PULLQUOTES **/
+
+/** MISCELLANEOUS */
+	.clear {
+		clear: both;
+		line-height: 1;
+		margin: 0;
+		padding: 0;
+	}
+
+	.left {
+		display: inline;
+		float: left;
+	}
+
+	.right {
+		display: inline;
+		float: right;
+	}
+
+	.feed {
+		background: url(images/icon-feed.png) no-repeat 0 50%;
+		padding: 1px 0 1px 15px;
+	}
+
+	strong.search-excerpt {
+		background: yellow;
+		padding: .2em .3em;
+	}
+
+	abbr {
+		border-bottom: 1px dashed #000;
+	}
+/* /MISCELLANEOUS **/

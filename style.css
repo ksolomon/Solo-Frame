@@ -38,53 +38,20 @@ body {
 	justify-content: space-between;
 }
 
-/** MISCELLANEOUS */
-	.clear {
-		clear: both;
-		line-height: 1;
-		margin: 0;
-		padding: 0;
+/** LINKS */
+	a:link, a:visited, a:active {
+		text-decoration: none;
 	}
 
-	.left {
-		display: inline;
-		float: left;
+	a:hover {
+
 	}
 
-	.right {
-		display: inline;
-		float: right;
+	a.more-link {
+		display: block;
+		margin-top: 1.5em;
 	}
-
-	.feed {
-		background: url(images/icon-feed.png) no-repeat 0 50%;
-		padding: 1px 0 1px 15px;
-	}
-
-	strong.search-excerpt {
-		background: yellow;
-		padding: .2em .3em;
-	}
-
-	abbr {
-		border-bottom: 1px dashed #000;
-	}
-
-	/** LINKS */
-		a:link, a:visited, a:active {
-			text-decoration: none;
-		}
-
-		a:hover {
-
-		}
-
-		a.more-link {
-			display: block;
-			margin-top: 1.5em;
-		}
-	/* /LINKS **/
-/* /MISCELLANEOUS **/
+/* /LINKS **/
 
 /** HEADER */
 	#header {
