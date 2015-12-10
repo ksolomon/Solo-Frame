@@ -1,0 +1,36 @@
+@media all and (min-width: 1024px) and (max-width: 1280px) {
+	/* REMOVE AFTER TESTING!! */
+	#wrapper {
+		border: 1px solid green;
+	}
+
+}
+
+@media all and (min-width: 768px) and (max-width: 1024px) {
+	/* REMOVE AFTER TESTING!! */
+	#wrapper {
+		border: 1px solid yellow;
+	}
+
+}
+
+@media all and (min-width: 480px) and (max-width: 768px) {
+	/* REMOVE AFTER TESTING!! */
+	#wrapper {
+		border: 1px solid blue;
+	}
+
+}
+
+@media all and (max-width: 480px) {
+	/* REMOVE AFTER TESTING!! */
+	#wrapper {
+		border: 1px solid red;
+	}
+
+}
+
+/* Portrait */
+@media screen and (orientation:portrait) { /* Portrait styles here */ }
+/* Landscape */
+@media screen and (orientation:landscape) { /* Landscape styles here */ }
