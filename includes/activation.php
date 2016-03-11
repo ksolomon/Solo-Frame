@@ -1,7 +1,7 @@
-<?php 
+<?php
 /*
 	Solo-Frame Custom excerpts functions
-	
+
 	This file is a part of the Solo-Frame WordPress theme framework.
 
 	On Theme Activation adds Home and News pages, sets up reading options for front page and posts page, and erases sample page and post
@@ -11,10 +11,9 @@ if (isset($_GET['activated']) && is_admin()) {
 	// Create pages for Home and News
 	$home_title = 'Home';
 	$home_content = 'Front page content';
-	$home_template = 'home-tpl.php';
 	$news_title = 'News';
 	$news_content = 'Posts will display on this page';
-	
+
 	$home_check = get_page_by_title($home_title);
 	$news_check = get_page_by_title($news_title);
 
@@ -38,10 +37,6 @@ if (isset($_GET['activated']) && is_admin()) {
 
 	if (!isset($home_check->ID)) {
 		$home_id = wp_insert_post($home);
-
-		if (!empty($home_template)) {
-			update_post_meta($home_id, '_wp_page_template', $home_template);
-		}
 	}
 
 	if (!isset($news_check->ID)) {

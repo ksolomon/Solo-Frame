@@ -26,6 +26,7 @@ body {
 	width: 98%;
 	display: -ms-flexbox;
 	display: -webkit-flex;
+	-js-display: flex;
 	display: flex;
 	-webkit-flex-direction: row;
 	-ms-flex-direction: row;
@@ -86,6 +87,7 @@ body {
 		#nav ul {
 			display: -ms-flexbox;
 			display: -webkit-flex;
+			-js-display: flex;
 			display: flex;
 			-webkit-flex-wrap: wrap;
 			-ms-flex-wrap: wrap;
