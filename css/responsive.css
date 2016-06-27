@@ -20,6 +20,13 @@
 		border: 1px solid blue;
 	}
 
+	#st-trigger-effects {
+		display: block;
+	}
+
+	#nav {
+		display: none;
+	}
 }
 
 @media all and (max-width: 480px) {
@@ -28,9 +35,21 @@
 		border: 1px solid red;
 	}
 
+	#st-trigger-effects {
+		display: block;
+	}
+
+	#nav {
+		display: none;
+	}
 }
 
 /* Portrait */
-@media screen and (orientation:portrait) { /* Portrait styles here */ }
+@media screen and (orientation: portrait) { /* Portrait styles here */ }
 /* Landscape */
-@media screen and (orientation:landscape) { /* Landscape styles here */ }
+@media screen and (orientation: landscape) { /* Landscape styles here */ }
+
+/* Mobile navigation menu styles */
+@media only screen and (max-width: 768px) {
+
+}

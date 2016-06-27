@@ -5,6 +5,12 @@
 	This file is a part of the Solo-Frame WordPress theme framework.
 */
 
+// Disable Admin Bar
+add_filter('show_admin_bar', '__return_false');
+
+// Enqueue jQuery
+wp_enqueue_script("jquery");
+
 // Add theme support features
 add_theme_support('automatic_feed_links');
 add_theme_support('title-tag');
@@ -17,6 +23,7 @@ add_filter('widget_text', 'do_shortcode');
 // Menu Support
 register_nav_menus(array(
 	'primary' => 'Main Navigation',
+	'mobile' => 'Mobile Navigation',
 ));
 
 // Post thumbnails
@@ -31,6 +38,32 @@ function sf_thumbs() {
         echo '<img src="'.get_bloginfo('template_url').'/images/placeholder.png" alt="'.get_the_title().'" />';
     }
 }
+
+// Make captions responsive
+function sf_responsive_caption($val, $attr, $content = null) {
+	extract(shortcode_atts(array(
+		'id' => '',
+		'align' => '',
+		'width' => '',
+		'caption' => ''
+		), $attr
+	));
+
+	if (1 > (int) $width || empty($caption) )
+		return $val;
+
+	$new_caption = sprintf('<div id="%1$s" class="wp-caption %2$s" style="max-width:100%% !important;height:auto;width:%3$dpx;">%4$s<p class="wp-caption-text">%5$s</p></div>',
+		esc_attr($id),
+		esc_attr($align),
+		(10 + (int) $width),
+		do_shortcode($content),
+		$caption
+	);
+
+	return $new_caption;
+}
+
+add_filter('img_caption_shortcode', 'sf_responsive_caption', 10, 3);
 
 // Generate title tag with extra SEO love.  Wrap function call in header.php with <title></title>.
 function sf_generate_title_tag() {

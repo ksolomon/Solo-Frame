@@ -44,7 +44,7 @@ window.Modernizr = (function( window, document, undefined ) {
     var version = '2.0',
 
     Modernizr = {},
-    
+
     // option for enabling the HTML classes to be added
     enableClasses = true,
 
@@ -288,13 +288,13 @@ window.Modernizr = (function( window, document, undefined ) {
     })([
         // Pass in styles to be injected into document
         /*>>fontface*/        '@font-face {font-family:"font";src:url("//:")}'         /*>>fontface*/
-        
+
         /*>>touch*/           ,['@media (',prefixes.join('touch-enabled),('),mod,')',
                                 '{#touch{top:9px;position:absolute}}'].join('')           /*>>touch*/
-                                
+
         /*>>csstransforms3d*/ ,['@media (',prefixes.join('transform-3d),('),mod,')',
                                 '{#csstransforms3d{left:9px;position:absolute}}'].join('')/*>>csstransforms3d*/
-                                
+
         /*>>generatedcontent*/,['#generatedcontent:after{content:"',smile,'"}'].join('')  /*>>generatedcontent*/
     ],
       [
@@ -302,7 +302,7 @@ window.Modernizr = (function( window, document, undefined ) {
         /*>>touch*/           ,'touch'            /*>>touch*/
         /*>>csstransforms3d*/ ,'csstransforms3d'  /*>>csstransforms3d*/
         /*>>generatedcontent*/,'generatedcontent' /*>>generatedcontent*/
-        
+
     ]);/*>>testBundle*/
 
 
@@ -368,13 +368,13 @@ window.Modernizr = (function( window, document, undefined ) {
         return !!(Modernizr['canvas'] && is(document.createElement('canvas').getContext('2d').fillText, 'function'));
     };
 
-    // This WebGL test may false positive. 
-    // But really it's quite impossible to know whether webgl will succeed until after you create the context. 
-    // You might have hardware that can support a 100x100 webgl canvas, but will not support a 1000x1000 webgl 
+    // This WebGL test may false positive.
+    // But really it's quite impossible to know whether webgl will succeed until after you create the context.
+    // You might have hardware that can support a 100x100 webgl canvas, but will not support a 1000x1000 webgl
     // canvas. So this feature inference is weak, but intentionally so.
-    
+
     // It is known to false positive in FF4 with certain hardware and the iPad 2.
-    
+
     tests['webgl'] = function() {
         return !!window.WebGLRenderingContext;
     };
@@ -665,7 +665,7 @@ window.Modernizr = (function( window, document, undefined ) {
     tests['video'] = function() {
         var elem = document.createElement('video'),
             bool = false;
-            
+
         // IE9 Running on Windows Server SKU can cause an exception to be thrown, bug #224
         try {
             if ( bool = !!elem.canPlayType ) {
@@ -679,9 +679,9 @@ window.Modernizr = (function( window, document, undefined ) {
 
                 bool.webm = elem.canPlayType('video/webm; codecs="vp8, vorbis"');
             }
-            
+
         } catch(e) { }
-        
+
         return bool;
     };
 
@@ -689,7 +689,7 @@ window.Modernizr = (function( window, document, undefined ) {
         var elem = document.createElement('audio'),
             bool = false;
 
-        try { 
+        try {
             if ( bool = !!elem.canPlayType ) {
                 bool      = new Boolean(bool);
                 bool.ogg  = elem.canPlayType('audio/ogg; codecs="vorbis"');
@@ -702,7 +702,7 @@ window.Modernizr = (function( window, document, undefined ) {
                 bool.m4a  = elem.canPlayType('audio/x-m4a;') || elem.canPlayType('audio/aac;');
             }
         } catch(e) { }
-        
+
         return bool;
     };
 
@@ -784,8 +784,8 @@ window.Modernizr = (function( window, document, undefined ) {
         //   when applied to all input types:
         //   http://miketaylr.com/code/input-type-attr.html
         // spec: http://www.whatwg.org/specs/web-apps/current-work/multipage/the-input-element.html#input-type-attr-summary
-        
-        // Only input placeholder is tested while textarea's placeholder is not. 
+
+        // Only input placeholder is tested while textarea's placeholder is not.
         // Currently Safari 4 and Opera 11 have support only for the input placeholder
         // Both tests are available in feature-detects/forms-placeholder.js
         Modernizr['input'] = (function( props ) {
@@ -896,7 +896,7 @@ window.Modernizr = (function( window, document, undefined ) {
      Modernizr.addTest = function ( feature, test ) {
        if ( typeof feature == "object" ) {
          for ( var key in feature ) {
-           if ( hasOwnProperty( feature, key ) ) { 
+           if ( hasOwnProperty( feature, key ) ) {
              Modernizr.addTest( key, feature[ key ] );
            }
          }
@@ -907,10 +907,10 @@ window.Modernizr = (function( window, document, undefined ) {
          if ( Modernizr[feature] !== undefined ) {
            // we're going to quit if you're trying to overwrite an existing test
            // if we were to allow it, we'd do this:
-           //   var re = new RegExp("\\b(no-)?" + feature + "\\b");  
+           //   var re = new RegExp("\\b(no-)?" + feature + "\\b");
            //   docElement.className = docElement.className.replace( re, '' );
            // but, no rly, stuff 'em.
-           return; 
+           return;
          }
 
          test = typeof test == "boolean" ? test : !!test();
@@ -922,7 +922,7 @@ window.Modernizr = (function( window, document, undefined ) {
 
        return Modernizr; // allow chaining.
      };
-    
+
 
     // Reset modElem.cssText to nothing to reduce memory footprint.
     setCss('');
@@ -933,7 +933,7 @@ window.Modernizr = (function( window, document, undefined ) {
     if ( window.attachEvent && (function(){ var elem = document.createElement('div');
                                             elem.innerHTML = '<elem></elem>';
                                             return elem.childNodes.length !== 1; })() ) {
-                                              
+
         // iepp v2 by @jon_neal & afarkas : github.com/aFarkas/iepp/
         (function(win, doc) {
           win.iepp = win.iepp || {};
@@ -1060,51 +1060,51 @@ window.Modernizr = (function( window, document, undefined ) {
     // expose these for the plugin API. Look in the source for how to join() them against your input
     Modernizr._prefixes     = prefixes;
     Modernizr._domPrefixes  = domPrefixes;
-    
+
     // Modernizr.mq tests a given media query, live against the current state of the window
     // A few important notes:
     //   * If a browser does not support media queries at all (eg. oldIE) the mq() will always return false
     //   * A max-width or orientation query will be evaluated against the current state, which may change later.
-    //   * You must specify values. Eg. If you are testing support for the min-width media query use: 
+    //   * You must specify values. Eg. If you are testing support for the min-width media query use:
     //       Modernizr.mq('(min-width:0)')
     // usage:
     // Modernizr.mq('only screen and (max-width:768)')
-    Modernizr.mq            = testMediaQuery;   
-    
+    Modernizr.mq            = testMediaQuery;
+
     // Modernizr.hasEvent() detects support for a given event, with an optional element to test on
     // Modernizr.hasEvent('gesturestart', elem)
-    Modernizr.hasEvent      = isEventSupported; 
+    Modernizr.hasEvent      = isEventSupported;
 
     // Modernizr.testProp() investigates whether a given style property is recognized
     // Note that the property names must be provided in the camelCase variant.
     // Modernizr.testProp('pointerEvents')
     Modernizr.testProp      = function(prop){
         return testProps([prop]);
-    };        
+    };
 
     // Modernizr.testAllProps() investigates whether a given style property,
     //   or any of its vendor-prefixed variants, is recognized
     // Note that the property names must be provided in the camelCase variant.
-    // Modernizr.testAllProps('boxSizing')    
-    Modernizr.testAllProps  = testPropsAll;     
+    // Modernizr.testAllProps('boxSizing')
+    Modernizr.testAllProps  = testPropsAll;
 
 
-    
+
     // Modernizr.testStyles() allows you to add custom styles to the document and test an element afterwards
     // Modernizr.testStyles('#modernizr { position:absolute }', function(elem, rule){ ... })
-    Modernizr.testStyles    = injectElementWithStyles; 
+    Modernizr.testStyles    = injectElementWithStyles;
 
 
     // Modernizr.prefixed() returns the prefixed or nonprefixed property name variant of your input
     // Modernizr.prefixed('boxSizing') // 'MozBoxSizing'
-    
+
     // Properties must be passed as dom-style camelcase, rather than `box-sizing` hypentated style.
     // Return values will also be the camelCase variant, if you need to translate that to hypenated style use:
     //
     //     str.replace(/([A-Z])/g, function(str,m1){ return '-' + m1.toLowerCase(); }).replace(/^ms-/,'-ms-');
-    
+
     // If you're trying to ascertain which transition end event to bind to, you might do something like...
-    // 
+    //
     //     var transEndEventNames = {
     //       'WebkitTransition' : 'webkitTransitionEnd',
     //       'MozTransition'    : 'transitionend',
@@ -1113,7 +1113,7 @@ window.Modernizr = (function( window, document, undefined ) {
     //       'transition'       : 'transitionEnd'
     //     },
     //     transEndEventName = transEndEventNames[ Modernizr.prefixed('transition') ];
-    
+
     Modernizr.prefixed      = function(prop){
       return testPropsAll(prop, 'pfx');
     };
@@ -1122,7 +1122,7 @@ window.Modernizr = (function( window, document, undefined ) {
 
     // Remove "no-js" class from <html> element, if it exists:
     docElement.className = docElement.className.replace(/\bno-js\b/, '')
-                            
+
                             // Add the new classes to the <html> element.
                             + (enableClasses ? ' js ' + classes.join(' ') : '');
 
@@ -1138,3 +1138,169 @@ License: http://creativecommons.org/licenses/by/2.5/
 Contributors: http://rafael.adm.br/css_browser_selector#contributors
 */
 function css_browser_selector(u){var ua=u.toLowerCase(),is=function(t){return ua.indexOf(t)>-1},g='gecko',w='webkit',s='safari',o='opera',m='mobile',h=document.documentElement,b=[(!(/opera|webtv/i.test(ua))&&/msie\s(\d)/.test(ua))?('ie ie'+RegExp.$1):is('firefox/2')?g+' ff2':is('firefox/3.5')?g+' ff3 ff3_5':is('firefox/3.6')?g+' ff3 ff3_6':is('firefox/3')?g+' ff3':is('gecko/')?g:is('opera')?o+(/version\/(\d+)/.test(ua)?' '+o+RegExp.$1:(/opera(\s|\/)(\d+)/.test(ua)?' '+o+RegExp.$2:'')):is('konqueror')?'konqueror':is('blackberry')?m+' blackberry':is('android')?m+' android':is('chrome')?w+' chrome':is('iron')?w+' iron':is('applewebkit/')?w+' '+s+(/version\/(\d+)/.test(ua)?' '+s+RegExp.$1:''):is('mozilla/')?g:'',is('j2me')?m+' j2me':is('iphone')?m+' iphone':is('ipod')?m+' ipod':is('ipad')?m+' ipad':is('mac')?'mac':is('darwin')?'mac':is('webtv')?'webtv':is('win')?'win'+(is('windows nt 6.0')?' vista':''):is('freebsd')?'freebsd':(is('x11')||is('linux'))?'linux':'']; c = b.join(' '); h.className += ' '+c; return c;}; css_browser_selector(navigator.userAgent);
+
+/* ========================================================================
+ * Bootstrap: dropdown.js v3.3.6
+ * http://getbootstrap.com/javascript/#dropdowns
+ * ========================================================================
+ * Copyright 2011-2015 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * ======================================================================== */
+
+
++function ($) {
+  'use strict';
+
+  // DROPDOWN CLASS DEFINITION
+  // =========================
+
+  var backdrop = '.dropdown-backdrop'
+  var toggle   = '[data-toggle="dropdown"]'
+  var Dropdown = function (element) {
+    $(element).on('click.bs.dropdown', this.toggle)
+  }
+
+  Dropdown.VERSION = '3.3.6'
+
+  function getParent($this) {
+    var selector = $this.attr('data-target')
+
+    if (!selector) {
+      selector = $this.attr('href')
+      selector = selector && /#[A-Za-z]/.test(selector) && selector.replace(/.*(?=#[^\s]*$)/, '') // strip for ie7
+    }
+
+    var $parent = selector && $(selector)
+
+    return $parent && $parent.length ? $parent : $this.parent()
+  }
+
+  function clearMenus(e) {
+    if (e && e.which === 3) return
+    $(backdrop).remove()
+    $(toggle).each(function () {
+      var $this         = $(this)
+      var $parent       = getParent($this)
+      var relatedTarget = { relatedTarget: this }
+
+      if (!$parent.hasClass('open')) return
+
+      if (e && e.type == 'click' && /input|textarea/i.test(e.target.tagName) && $.contains($parent[0], e.target)) return
+
+      $parent.trigger(e = $.Event('hide.bs.dropdown', relatedTarget))
+
+      if (e.isDefaultPrevented()) return
+
+      $this.attr('aria-expanded', 'false')
+      $parent.removeClass('open').trigger($.Event('hidden.bs.dropdown', relatedTarget))
+    })
+  }
+
+  Dropdown.prototype.toggle = function (e) {
+    var $this = $(this)
+
+    if ($this.is('.disabled, :disabled')) return
+
+    var $parent  = getParent($this)
+    var isActive = $parent.hasClass('open')
+
+    clearMenus()
+
+    if (!isActive) {
+      if ('ontouchstart' in document.documentElement && !$parent.closest('.navbar-nav').length) {
+        // if mobile we use a backdrop because click events don't delegate
+        $(document.createElement('div'))
+          .addClass('dropdown-backdrop')
+          .insertAfter($(this))
+          .on('click', clearMenus)
+      }
+
+      var relatedTarget = { relatedTarget: this }
+      $parent.trigger(e = $.Event('show.bs.dropdown', relatedTarget))
+
+      if (e.isDefaultPrevented()) return
+
+      $this
+        .trigger('focus')
+        .attr('aria-expanded', 'true')
+
+      $parent
+        .toggleClass('open')
+        .trigger($.Event('shown.bs.dropdown', relatedTarget))
+    }
+
+    return false
+  }
+
+  Dropdown.prototype.keydown = function (e) {
+    if (!/(38|40|27|32)/.test(e.which) || /input|textarea/i.test(e.target.tagName)) return
+
+    var $this = $(this)
+
+    e.preventDefault()
+    e.stopPropagation()
+
+    if ($this.is('.disabled, :disabled')) return
+
+    var $parent  = getParent($this)
+    var isActive = $parent.hasClass('open')
+
+    if (!isActive && e.which != 27 || isActive && e.which == 27) {
+      if (e.which == 27) $parent.find(toggle).trigger('focus')
+      return $this.trigger('click')
+    }
+
+    var desc = ' li:not(.disabled):visible a'
+    var $items = $parent.find('.dropdown-menu' + desc)
+
+    if (!$items.length) return
+
+    var index = $items.index(e.target)
+
+    if (e.which == 38 && index > 0)                 index--         // up
+    if (e.which == 40 && index < $items.length - 1) index++         // down
+    if (!~index)                                    index = 0
+
+    $items.eq(index).trigger('focus')
+  }
+
+
+  // DROPDOWN PLUGIN DEFINITION
+  // ==========================
+
+  function Plugin(option) {
+    return this.each(function () {
+      var $this = $(this)
+      var data  = $this.data('bs.dropdown')
+
+      if (!data) $this.data('bs.dropdown', (data = new Dropdown(this)))
+      if (typeof option == 'string') data[option].call($this)
+    })
+  }
+
+  var old = $.fn.dropdown
+
+  $.fn.dropdown             = Plugin
+  $.fn.dropdown.Constructor = Dropdown
+
+
+  // DROPDOWN NO CONFLICT
+  // ====================
+
+  $.fn.dropdown.noConflict = function () {
+    $.fn.dropdown = old
+    return this
+  }
+
+
+  // APPLY TO STANDARD DROPDOWN ELEMENTS
+  // ===================================
+
+  $(document)
+    .on('click.bs.dropdown.data-api', clearMenus)
+    .on('click.bs.dropdown.data-api', '.dropdown form', function (e) { e.stopPropagation() })
+    .on('click.bs.dropdown.data-api', toggle, Dropdown.prototype.toggle)
+    .on('keydown.bs.dropdown.data-api', toggle, Dropdown.prototype.keydown)
+    .on('keydown.bs.dropdown.data-api', '.dropdown-menu', Dropdown.prototype.keydown)
+
+}(jQuery);

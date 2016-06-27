@@ -27,6 +27,7 @@ class ShowTemplate {
 		elseif (is_search()         && $template = get_search_template())         : $this->template = $template;
 		elseif (is_tax()            && $template = get_taxonomy_template())       : $this->template = $template;
 		elseif (is_home()           && $template = get_home_template())           : $this->template = $template;
+		elseif (is_front_page()     && $template = get_front_page_template())     : $this->template = $template;
 		elseif (is_attachment()     && $template = get_attachment_template())     : $this->template = $template;
 		elseif (is_single()         && $template = get_single_template())         : $this->template = $template;
 		elseif (is_page()           && $template = get_page_template())           : $this->template = $template;
