@@ -48,7 +48,6 @@ body {
 		display: block;
 		margin-top: 1.5em;
 	}
-/* /LINKS **/
 
 /** HEADER */
 	#header {
@@ -142,9 +141,10 @@ body {
 			}
 		/* /DROPDOWNS **/
 	/* /NAVIGATION **/
-/* /HEADER **/
 
 /** CONTENT */
+	/** HOMEPAGE CONTENT */
+
 	#content {
 		-webkit-flex: 0 1 70%;
 		-ms-flex: 0 1 70%;
@@ -299,7 +299,6 @@ body {
 
 		.content li li { font-size: 1em; }
 	/* /QUOTES & LISTS **/
-/* /CONTENT **/
 
 /** SIDEBAR */
 	#sidebar {
@@ -335,7 +334,6 @@ body {
 	.sidebar li ul { margin-bottom: 0; }
 
 	.sidebar li li { font-size: 1rem; }
-/* /SIDEBAR **/
 
 /** COMMENTS */
 	#comments { margin: 3em 0; }
@@ -448,7 +446,6 @@ body {
 	}
 
 	#commentform #submit:hover { cursor: pointer; }
-/* /COMMENTS **/
 
 /** CALENDAR */
 	table#wp-calendar {
@@ -513,7 +510,6 @@ body {
 		padding-right: .5em;
 		width: 5.3em;
 	}
-/* /CALENDAR **/
 
 /** FOOTER */
 	#footer {
@@ -551,4 +547,3 @@ body {
 		margin-left: 0;
 		padding-left: 0;
 	}
-/* /FOOTER **/
