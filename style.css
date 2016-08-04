@@ -72,7 +72,6 @@ body {
 			font-size: 1.8rem;
 			font-weight: normal;
 		}
-	/* /LOGO **/
 
 	/** NAVIGATION */
 		#st-trigger-effects {
@@ -139,8 +138,6 @@ body {
 			#nav li:hover ul, #nav li.sfhover ul { /* lists nested under hovered list items */
 				left: auto;
 			}
-		/* /DROPDOWNS **/
-	/* /NAVIGATION **/
 
 /** CONTENT */
 	/** HOMEPAGE CONTENT */
@@ -220,7 +217,6 @@ body {
 		.col-7 { width: 14.285% }
 		.col-8 { width: 12.5% }
 		.col-9 { width: 11.111% }
-	/* /GALLERY **/
 
 	/** PAGE BAR NAV STYLING */
 		.pb-nav { clear: both; }
@@ -235,7 +231,6 @@ body {
 		.pb-nav a:hover, .pb-nav span.current { border-color: #000; }
 
 		.pb-nav span.current { font-weight: bold; }
-	/* /PAGE BAR **/
 
 	/** HEADING STYLES */
 		h1, h2, h3, h4, h5, h6 { }
@@ -273,7 +268,6 @@ body {
 			font-size: 1.2rem;
 			font-weight: bold;
 		}
-	/* /HEADINGS **/
 
 	/** QUOTES & LISTS */
 		.content blockquote {
@@ -298,7 +292,6 @@ body {
 		.content li ul { margin-bottom: 0; }
 
 		.content li li { font-size: 1em; }
-	/* /QUOTES & LISTS **/
 
 /** SIDEBAR */
 	#sidebar {
