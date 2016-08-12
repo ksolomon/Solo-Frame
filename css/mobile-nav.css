@@ -11,8 +11,6 @@
 	.st-content {
 	    overflow-y: scroll;
 	    -webkit-overflow-scrolling: touch;
-	    background-color:white;
-	    background: url(images/header-img-trans-whiter.png) top center no-repeat;
 	}
 
 	.st-content,
@@ -93,7 +91,7 @@
 	#st-trigger-effects {
 		background: #000;
 		color: #fff;
-		height: 73px;
+		height: 70px;
 		padding: 10px 0 0 15px;
 		width: 100%;
 	}
@@ -107,11 +105,10 @@
 		display: block;
 		float: left;
 		font-size: 12px;
-		line-height: 53px; /* height of the image */
+		height: 53px; /* height of the image */
 		margin: 0;
-		padding-top: 20px;
+		padding-top: 37px;
 		text-align: center;
-		/*text-indent: -1000em;*/
 		text-transform: uppercase;
 		overflow: hidden;
 		width: 40px; /* width of the image */
