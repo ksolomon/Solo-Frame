@@ -22,7 +22,6 @@
 		</div><!-- /st-pusher -->
 	</div><!-- /st-container -->
 
-
 	<script src="<?php bloginfo('template_url'); ?>/includes/scripts.js"></script>
 	<script src="<?php bloginfo('template_url'); ?>/includes/classie.js"></script>
 	<script src="<?php bloginfo('template_url'); ?>/includes/sidebarEffects.js"></script>
