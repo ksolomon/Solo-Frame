@@ -1304,3 +1304,29 @@ function css_browser_selector(u){var ua=u.toLowerCase(),is=function(t){return ua
     .on('keydown.bs.dropdown.data-api', '.dropdown-menu', Dropdown.prototype.keydown)
 
 }(jQuery);
+
+// Add class to body for device oreintation
+window.addEventListener("orientationchange", function() {
+	// Announce the new orientation number
+	if (window.matchMedia("(orientation: portrait)").matches) {
+		// you're in PORTRAIT mode
+		document.body.classList.remove("landscape");
+		document.body.classList.add("portrait");
+	}
+
+	if (window.matchMedia("(orientation: landscape)").matches) {
+		// you're in LANDSCAPE mode
+		document.body.classList.remove("portrait");
+		document.body.classList.add("landscape");
+	}
+}, false);
+
+if (window.matchMedia("(orientation: portrait)").matches) {
+	// you're in PORTRAIT mode
+	document.body.classList.add("portrait");
+}
+
+if (window.matchMedia("(orientation: landscape)").matches) {
+	// you're in LANDSCAPE mode
+	document.body.classList.add("landscape");
+}
