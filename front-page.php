@@ -21,8 +21,8 @@
 				<?php endwhile; else : ?>
 					<!-- No Posts Found -->
 					<section id="post-0" class="post error404 not-found">
-						<h2 class="pagetitle">Post not found.</h2>
-						<p>Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post.</p>
+						<h2 class="pagetitle">Page not found.</h2>
+						<p>Apologies, but we were unable to find the requested page.</p>
 						<?php get_search_form(); ?>
 					</section>
 			<?php endif; ?>
@@ -30,5 +30,5 @@
 		<!-- /content -->
 
 <?php get_sidebar(); ?>
-		
+
 <?php get_footer(); ?>
