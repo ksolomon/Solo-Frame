@@ -57,3 +57,10 @@ q:before, q:after {
 blockquote, q {
 	quotes: "" "";
 }
+
+/* Clearfix for not-floated parent of floated children */
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
