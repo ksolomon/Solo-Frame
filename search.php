@@ -3,8 +3,8 @@
 		<!-- content -->
 		<div id="content" class="content">
 			<?php if (have_posts()) : ?>
-				<h2 class="pagetitle">Search Results for "<em><?php the_search_query() ?></em>"</h1>
-				
+				<h2 class="pagetitle">Search Results for "<em><?php the_search_query() ?></em>"</h2>
+
 				<!-- Navigation -->
 				<?php sf_display_nav(); ?>
 
@@ -29,10 +29,15 @@
 
 						<div class="clear"></div>
 					</div>
-				<?php endwhile; else : ?>
+				<?php endwhile; ?>
+					<!-- Navigation -->
+					<?php if ($wp_query->max_num_pages > 1) : ?>
+						<?php sf_display_nav("numbar"); ?>
+					<?php endif; ?>
+				<?php else : ?>
 					<!-- No Posts Found -->
-					<h2 class="pagetitle">No posts found.</h1>
-					
+					<h2 class="pagetitle">No results found.</h2>
+
 					<p>Sorry, but we were unable to find any posts matching your criteria, please try your search again.  If you are still unable to find what you're looking for, please try browsing our archives.  You can also <a href="<?php bloginfo('url'); ?>">return home</a>.</p>
 			<?php endif; ?>
 		</div>
