@@ -65,6 +65,25 @@ function sf_responsive_caption($val, $attr, $content = null) {
 
 add_filter('img_caption_shortcode', 'sf_responsive_caption', 10, 3);
 
+// Make embeds responsive
+function div_wrapper($content) {
+    // match any iframes
+    $pattern = '~<iframe.*</iframe>|<embed.*</embed>~';
+    preg_match_all($pattern, $content, $matches);
+
+    foreach ($matches[0] as $match) {
+        // wrap matched iframe with div
+        $wrappedframe = '<div class="embed">' . $match . '</div>';
+
+        //replace original iframe with new in content
+        $content = str_replace($match, $wrappedframe, $content);
+    }
+
+    return $content;
+}
+
+add_filter('the_content', 'div_wrapper');
+
 // Generate title tag with extra SEO love.  Wrap function call in header.php with <title></title>.
 function sf_generate_title_tag() {
 	if (is_single()) : bloginfo('name'); wp_title('|', true, 'left');
