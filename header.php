@@ -10,8 +10,8 @@
 	<link rel="shortcut icon" href="<?php bloginfo('template_url'); ?>/images/favicon.ico" />
 
 	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/style.css?v=<?php echo filemtime(TEMPLATEPATH . '/style.css'); ?>" media="screen, projection" />
-	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/mobile-nav.css?v=<?php echo filemtime(TEMPLATEPATH . '/css/mobile-nav.css'); ?>" />
-	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/responsive.css?v=<?php echo filemtime(TEMPLATEPATH . '/css/responsive.css'); ?>" />
+	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/mobile-nav.css?v=<?php echo filemtime(TEMPLATEPATH . '/css/mobile-nav.css'); ?>" media="screen, projection" />
+	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/responsive.css?v=<?php echo filemtime(TEMPLATEPATH . '/css/responsive.css'); ?>" media="screen, projection" />
 	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/print.css" media="print" />
 	<!--[if lte IE 9]><link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/ie7.css" media="screen, projection" /><![endif]-->
 

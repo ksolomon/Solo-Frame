@@ -5,7 +5,7 @@ body {
 	font-size: 12pt;
 }
 
-.sidebar {
+#st-trigger-effects, .st-menu, #nav, .sidebar {
 	display: none;
 }
 
@@ -15,6 +15,7 @@ body {
 	color: black;
 	float: none !important;
 	margin: 0 5%;
+	overflow: visible !important;
 	padding: 0;
 	width: auto;
 }
