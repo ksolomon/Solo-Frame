@@ -1,7 +1,7 @@
 <?php
 /*
 	Solo-Frame Custom head META tags
-	
+
 	This file is a part of the Solo-Frame WordPress theme framework.
 */
 
@@ -40,9 +40,9 @@ function head_meta() {
 		if ($custom_desc_value) {
 			$text = $custom_desc_value;
 		} elseif ($post_use_excerpt) {
-			$text = $post->post_excerpt;
+			$text = strip_shortcodes($post->post_excerpt);
 		} else {
-			$text = $post->post_content;
+			$text = strip_shortcodes($post->post_content);
 		}
 
 		$text = str_replace(array("\r\n", "\r", "\n", "  "), " ", $text);
