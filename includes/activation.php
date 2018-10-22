@@ -8,6 +8,9 @@
 */
 
 if (isset($_GET['activated']) && is_admin()) {
+	// Set Blog Description to nothing
+	update_option('blogdescription', '');
+
 	// Create pages for Home and News
 	$home_title = 'Home';
 	$home_content = 'Front page content';
