@@ -339,12 +339,11 @@ body {
 
 	.sidebar li li { font-size: 1rem; }
 
-/** COMMENTS */
+	/** COMMENTS */
 	#comments { margin: 3em 0; }
 
 	#comments h3 {
-		border-bottom: 1px solid #333;
-		margin: 0 0 1em;
+		margin: 0 0 .25em;
 	}
 
 	#comments .commentlist {
@@ -381,8 +380,9 @@ body {
 	}
 
 	.commentmetadata {
+		border-bottom: 1px solid #ababab;
 		display: block;
-		margin: 0 0 1.5em;
+		margin: 0;
 	}
 
 	#comments .commentmetadata a:link, #comments .commentmetadata a:visited, #comments .commentmetadata a:active { }
@@ -390,11 +390,9 @@ body {
 	#comments .commentmetadata a:hover, #comments .comment-author a:hover { background: transparent; }
 
 	#comments .avatar {
-		border: 1px solid #333;
-		display: inline;
 		float: left;
-		margin: 0 .5em 0 0;
-		padding: .3em;
+		margin: 0 15px 0 0;
+		padding: 0;
 	}
 
 	#comments .comment-author { font-size: 1.2rem; }
@@ -430,7 +428,6 @@ body {
 	}
 
 	#commentform p.subscribe-to-comments {
-		display: inline;
 		float: left;
 		margin-top: -2.5em;
 	}
@@ -439,12 +436,12 @@ body {
 
 	#commentform #submit {
 		border: 2px solid #333;
-		display: inline;
 		float: right;
 		font-size: .8rem;
 		font-weight: bold;
 		padding: .5em;
 		text-transform: uppercase;
+		border-radius: 1em;
 		-moz-border-radius: 1em;
 		-webkit-border-radius: 1em;
 	}
