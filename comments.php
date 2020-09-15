@@ -13,7 +13,7 @@ if (post_password_required()) { ?>
 <a id="comments"></a>
 <h2>Comments</h2>
 <?php if ($comments) : ?>
-	<ol class="comments">
+	<ul class="commentlist">
 		<?php foreach ($comments as $comment) : ?>
 			<li id="comment-<?php comment_ID(); ?>" class="<?php if ($comment->user_id == 1) echo "authcomment"; ?>">
 				<?php if ($comment->comment_approved == '0') : ?>

@@ -353,7 +353,7 @@ body {
 
 	#comments .commentlist li {
 		font-size: 1.2rem;
-		list-style: none;
+		list-style-type: none;
 		margin: 0 0 1em;
 		padding: .5em;
 	}
