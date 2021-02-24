@@ -99,7 +99,7 @@ body {
 			-ms-flex-pack: space-around;
 			justify-content: space-around;
 			font-size: 1.2rem;
-			margin: 0 0 1em;
+			margin: .5em 0;
 			padding: 0;
 		}
 
@@ -361,7 +361,7 @@ body {
 		}
 
 		#comments .commentlist li.alt {
-			background: #eee;
+			background: var(--lt-gray);
 			border-bottom: 1px solid var(--dk-gray);
 			border-top: 1px solid var(--dk-gray);
 		}
@@ -382,7 +382,7 @@ body {
 		}
 
 		.commentmetadata {
-			border-bottom: 1px solid #ababab;
+			border-bottom: 1px solid var(--md-gray);
 			display: block;
 			margin: 0;
 		}
@@ -461,12 +461,12 @@ body {
 		text-align: center;
 	}
 
-	table#wp-calendar tbody .pad { background: #ddd; }
+	table#wp-calendar tbody .pad { background: var(--lt-gray); }
 
 	table#wp-calendar>tbody>tr>td>a { font-weight: bold; }
 
 	table#wp-calendar thead>tr>th {
-		background: #cdd5de;
+		background: var(--lt-gray);
 		border: 1px solid var(--dk-gray);
 		height: 2em;
 		line-height: 2em;
@@ -536,7 +536,7 @@ body {
 	#footer ul { margin-bottom: 1em; }
 
 	#footer ul li {
-		border-left: 1px solid #999;
+		border-left: 1px solid var(--dk-gray);
 		display: inline;
 		font-size: 1.1rem;
 		margin: 0 .5em;
