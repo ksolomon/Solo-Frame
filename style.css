@@ -51,9 +51,14 @@ body {
 }
 
 /** LINKS */
-	a:link, a:visited, a:active { text-decoration: none; }
+	a:link, a:visited, a:active {
+		color: var(--links);
+		text-decoration: none;
+	}
 
-	a:hover { }
+	a:hover {
+		color: var(--md-gray);
+	}
 
 	a.more-link {
 		display: block;
@@ -63,7 +68,8 @@ body {
 /** HEADER */
 	#header {
 		border-bottom: 1px solid var(--dk-gray);
-		margin: 1em 0 3em;
+		margin: 0 0 3em;
+		padding: 1em 0;
 		grid-area: header;
 	}
 
@@ -71,15 +77,26 @@ body {
 		#logo { margin-bottom: 0; }
 
 		#logo h1 a:link, #logo h1 a:visited, #logo h1 a:active {
-			font-size: 2.4rem;
+			color: var(--links);
+			font-size: clamp(1.125rem, 0.4337rem + 3.0723vw, 2.4rem);
+			line-height: 1;
+			margin: 0;
+			padding: 0;
 			text-decoration: none;
 		}
 
-		#logo h1 a:hover { }
+		#logo h1 a:hover {
+			color: var(--md-gray);
+		}
 
 		#logo h2 {
 			font-size: 1.8rem;
 			font-weight: normal;
+		}
+
+		#st-trigger-effects #logo {
+			float: left;
+			width: 75%;
 		}
 
 	/** NAVIGATION */
@@ -113,8 +130,7 @@ body {
 		}
 
 		#nav li a:hover, #nav li.current_page_item a, #nav li.current-page-ancestor a {
-			background: var(--links);
-			color: var(--white);
+			color: var(--md-gray);
 		}
 
 		/** SUCKERFISH DROPDOWNS */

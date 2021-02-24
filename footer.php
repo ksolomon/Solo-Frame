@@ -2,15 +2,9 @@
 
 						<!-- footer -->
 						<div id="footer">
-							<?php if ($sf_footer_text) { ?>
-								<p id="footer-credits" class="left"><?php echo $sf_footer_text; ?></p>
-							<?php } else { ?>
-								<p id="footer-credits" class="left"><?php sf_copyright(); ?></p>
+							<div id="footer-credits" class="left"><?php sf_copyright(); ?></div>
 
-								<ul id="footer-meta" class="right">
-									<li><a href="http://wordpress.org">Powered by WordPress</a></li>
-								</ul>
-							<?php } ?>
+							<div id="footer-meta" class="right"><a href="http://wordpress.org">Powered by WordPress</a></div>
 
 							<div class="clear"></div>
 						</div>

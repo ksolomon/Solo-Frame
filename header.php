@@ -18,7 +18,7 @@
 	</noscript>
 
 	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/style.css?v=<?php echo filemtime(TEMPLATEPATH . '/style.css'); ?>" media="screen, projection" />
-	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/mobile-nav.css?v=<?php echo filemtime(TEMPLATEPATH . '/css/mobile-nav.css'); ?>" media="screen, projection" />
+	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/mobile-nav-right.css?v=<?php echo filemtime(TEMPLATEPATH . '/css/mobile-nav-right.css'); ?>" media="screen, projection" />
 	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/responsive.css?v=<?php echo filemtime(TEMPLATEPATH . '/css/responsive.css'); ?>" media="screen, projection" />
 	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/print.css" media="print" />
 	<!--[if lte IE 9]><link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/ie7.css" media="screen, projection" /><![endif]-->
@@ -70,14 +70,15 @@
 					<!-- wrapper -->
 					<div id="wrapper" class="frame">
 						<header id="header" role="banner">
-							<hgroup id="logo">
-								<h1 id="site-name"><a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1>
-								<h2 id="site-description"><?php bloginfo('description'); ?></h2>
-							</hgroup>
+							<hgroup id="logo"><h1 id="site-name"><a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1></hgroup>
 
 							<nav id="nav" role="navigation">
 								<?php wp_nav_menu(array('theme_location' => 'primary')); ?>
 							</nav>
 
-							<div id="st-trigger-effects"><button data-effect="st-effect-3">Menu</button></div>
+							<div id="st-trigger-effects">
+								<hgroup id="logo"><h1 id="site-name"><a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1></hgroup>
+
+								<button data-effect="st-effect-3">Menu</button>
+							</div>
 						</header>
