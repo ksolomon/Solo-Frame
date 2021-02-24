@@ -15,11 +15,12 @@ Author URL: http://solowebdesigns.net
 
 /** SITE COLOR VARIABLES */
 :root {
-	--white:			#fff;
-	--lt-gray:			#f1f1f1;
-	--md-gray:			#666;
-	--dk-gray:			#333;
-	--black:			#000;
+	--white:	#fff;
+	--lt-gray:	#f1f1f1;
+	--md-gray:	#666;
+	--dk-gray:	#333;
+	--black:	#000;
+	--links:	#007ac9;
 }
 
 body {
@@ -104,7 +105,7 @@ body {
 
 		#nav li a:link, #nav li a:visited, #nav li a:active {
 			align-items: flex-start;
-			color: #007ac9;
+			color: var(--links);
 			font-weight: bold;
 			padding: 5px 10px;
 			text-align: center;
@@ -112,14 +113,14 @@ body {
 		}
 
 		#nav li a:hover, #nav li.current_page_item a, #nav li.current-page-ancestor a {
-			background: #007ac9;
-			color: #fff;
+			background: var(--links);
+			color: var(--white);
 		}
 
 		/** SUCKERFISH DROPDOWNS */
 			#nav li ul { /* second-level lists */
-				background: #fff;
-				border: 1px solid #333 !important;
+				background: var(--white);
+				border: 1px solid var(--dk-gray) !important;
 				-webkit-flex-direction: column;
 				-ms-flex-direction: column;
 				flex-direction: column;
@@ -131,7 +132,7 @@ body {
 
 			#nav li ul li a:link, #nav li ul li a:visited, #nav li ul li a:active {
 				background: transparent;
-				color: #007ac9;
+				color: var(--links);
 				display: block;
 				font-size: 1em;
 				height: auto !important;
@@ -139,8 +140,8 @@ body {
 			}
 
 			#nav li ul li a:hover {
-				background: #007ac9;
-				color: #fff;
+				background: var(--links);
+				color: var(--white);
 			}
 
 			#nav li:hover ul, #nav li.sfhover ul { /* lists nested under hovered list items */
@@ -155,7 +156,7 @@ body {
 	}
 
 	.content .featured {
-		color: #666;
+		color: var(--md-gray);
 		font-size: 0.62rem;
 		font-weight: 500;
 		letter-spacing: 0.1em;
@@ -170,7 +171,7 @@ body {
 	.content .even { }
 
 	.content .postmeta {
-		border: 1px solid #333;
+		border: 1px solid var(--dk-gray);
 		border-left: none;
 		border-right: none;
 		line-height: 1.4em;
@@ -234,51 +235,54 @@ body {
 
 		.pb-nav a, .pb-nav span {
 			text-decoration: none;
-			border: 1px solid #BFBFBF;
+			border: 1px solid var(--lt-gray);
 			padding: 3px 5px;
 			margin: 2px;
 		}
 
-		.pb-nav a:hover, .pb-nav span.current { border-color: #000; }
+		.pb-nav a:hover, .pb-nav span.current { border-color: var(--black); }
 
 		.pb-nav span.current { font-weight: bold; }
 
 	/** HEADING STYLES */
 		h1, h2, h3, h4, h5, h6 { }
 
-		.content h1 { font-size: 2rem; }
+	.content h1 { font-size: clamp(1.5rem, 1.2289rem + 1.2048vw, 2rem); }
 
-		.content h2 { font-size: 1.8rem; }
+	.content h2 { font-size: clamp(1.4rem, 1.2916rem + 0.4819vw, 1.6rem); }
 
-		.content h2.pagetitle {
-			font-size: 2rem;
-			font-weight: normal;
-			margin-bottom: 0;
-		}
+	.content h2.pagetitle {
+		font-weight: bold;
+		line-height: 1;
+		margin-bottom: .5em;
+	}
 
-		.content h2.pagetitle a:link, .content h2.pagetitle a:visited, .content h2.pagetitle a:active { text-decoration: none; }
+	.content h2.pagetitle a:link, .content h2.pagetitle a:visited, .content h2.pagetitle a:active {
+		color: var(--links);
+		text-decoration: none;
+	}
 
-		.content h2.pagetitle a:hover { }
+	.content h2.pagetitle a:hover { }
 
-		.content h3 {
-			font-size: 1.5rem;
-			font-weight: bold;
-		}
+	.content h3 {
+		font-size: clamp(1.3rem, 1.1916rem + 0.4819vw, 1.5rem);
+		font-weight: bold;
+	}
 
-		.content h4 {
-			font-size: 1.4rem;
-			font-weight: bold;
-		}
+	.content h4 {
+		font-size: clamp(1.2rem, 1.0916rem + 0.4819vw, 1.4rem);
+		font-weight: bold;
+	}
 
-		.content h5 {
-			font-size: 1.3rem;
-			font-weight: bold;
-		}
+	.content h5 {
+		font-size: clamp(1.1rem, 0.9916rem + 0.4819vw, 1.3rem);
+		font-weight: bold;
+	}
 
-		.content h6 {
-			font-size: 1.2rem;
-			font-weight: bold;
-		}
+	.content h6 {
+		font-size: clamp(1rem, 0.8916rem + 0.4819vw, 1.2rem);
+		font-weight: bold;
+	}
 
 	/** QUOTES & LISTS */
 		.content blockquote {
@@ -306,7 +310,7 @@ body {
 
 /** SIDEBAR */
 	#sidebar {
-		border-left: 1px solid #333;
+		border-left: 1px solid var(--dk-gray);
 		grid-area: sidebar;
 		padding-left: 25px;
 	}
@@ -358,8 +362,8 @@ body {
 
 		#comments .commentlist li.alt {
 			background: #eee;
-			border-bottom: 1px solid #333;
-			border-top: 1px solid #333;
+			border-bottom: 1px solid var(--dk-gray);
+			border-top: 1px solid var(--dk-gray);
 		}
 
 		#comments .commentlist p {
@@ -409,11 +413,11 @@ body {
 		#commentform label span { font-size: 1.1rem; }
 
 		#commentform input, #commentform textarea {
-			border: 1px solid #333;
+			border: 1px solid var(--dk-gray);
 			padding: .5em;
 		}
 
-		#commentform input:focus, #commentform textarea:focus { border: 1px solid #333; }
+		#commentform input:focus, #commentform textarea:focus { border: 1px solid var(--dk-gray); }
 
 		#commentform input#author, #commentform input#email, #commentform input#url {
 			margin-right: .5em;
@@ -433,7 +437,7 @@ body {
 		#commentform p.subscribe-to-comments input { margin-left: .5em; }
 
 		#commentform #submit {
-			border: 2px solid #333;
+			border: 2px solid var(--dk-gray);
 			float: right;
 			font-size: .8rem;
 			font-weight: bold;
@@ -448,7 +452,7 @@ body {
 
 /** CALENDAR */
 	table#wp-calendar {
-		border: 1px solid #333;
+		border: 1px solid var(--dk-gray);
 		border-collapse: collapse;
 	}
 
@@ -463,7 +467,7 @@ body {
 
 	table#wp-calendar thead>tr>th {
 		background: #cdd5de;
-		border: 1px solid #333;
+		border: 1px solid var(--dk-gray);
 		height: 2em;
 		line-height: 2em;
 		text-align: center;
@@ -471,7 +475,7 @@ body {
 	}
 
 	table#wp-calendar tbody>tr>td {
-		border: 1px solid #333;
+		border: 1px solid var(--dk-gray);
 		height: 2em;
 		line-height: 2em;
 		text-align: center;
@@ -479,7 +483,7 @@ body {
 	}
 
 	table#wp-calendar tfoot>tr>td.pad {
-		border: 1px solid #333;
+		border: 1px solid var(--dk-gray);
 		border-left: none;
 		border-right: none;
 	}
@@ -489,8 +493,8 @@ body {
 	table#wp-calendar tfoot>tr>td>a:active { font-weight: bold; }
 
 	table#wp-calendar tfoot>tr>td#prev {
-		background: #fff;
-		border: 1px solid #333;
+		background: var(--white);
+		border: 1px solid var(--dk-gray);
 		border-right: none;
 		height: 2em;
 		line-height: 2em;
@@ -500,8 +504,8 @@ body {
 	}
 
 	table#wp-calendar tfoot>tr>td#next {
-		background: #fff;
-		border: 1px solid #333;
+		background: var(--white);
+		border: 1px solid var(--dk-gray);
 		border-left: none;
 		height: 2em;
 		line-height: 2em;
@@ -512,8 +516,8 @@ body {
 
 /** FOOTER */
 	#footer {
-		border-top: 1px solid #333;
-		color: #333;
+		border-top: 1px solid var(--dk-gray);
+		color: var(--dk-gray);
 		grid-area: footer;
 		margin-top: 3em;
 		padding-top: .5em;
