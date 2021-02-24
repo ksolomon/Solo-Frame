@@ -9,6 +9,14 @@
 
 	<link rel="shortcut icon" href="<?php bloginfo('template_url'); ?>/images/favicon.ico" />
 
+	<!-- Google Fonts stuff -->
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700" media="print" onload="this.media='all'" />
+	<noscript>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700" />
+	</noscript>
+
 	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/style.css?v=<?php echo filemtime(TEMPLATEPATH . '/style.css'); ?>" media="screen, projection" />
 	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/mobile-nav.css?v=<?php echo filemtime(TEMPLATEPATH . '/css/mobile-nav.css'); ?>" media="screen, projection" />
 	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/responsive.css?v=<?php echo filemtime(TEMPLATEPATH . '/css/responsive.css'); ?>" media="screen, projection" />

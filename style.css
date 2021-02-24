@@ -25,7 +25,7 @@ Author URL: http://solowebdesigns.net
 body {
 	background: var(--white);
 	color: var(--black);
-	font-family: -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: clamp(0.6875rem, 0.5181rem + 0.7530vw, 1rem);
 	line-height: 1.25;
 	text-align: left;
