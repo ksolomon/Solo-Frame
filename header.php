@@ -21,7 +21,6 @@
 	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/mobile-nav-right.css?v=<?php echo filemtime(TEMPLATEPATH . '/css/mobile-nav-right.css'); ?>" media="screen, projection" />
 	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/responsive.css?v=<?php echo filemtime(TEMPLATEPATH . '/css/responsive.css'); ?>" media="screen, projection" />
 	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/print.css" media="print" />
-	<!--[if lte IE 9]><link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/ie7.css" media="screen, projection" /><![endif]-->
 
 	<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />
 

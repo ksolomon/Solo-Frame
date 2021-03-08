@@ -8,14 +8,13 @@
 }
 
 @media all and (min-width: 480px) and (max-width: 768px) {
-	/* REMOVE AFTER TESTING!! */
-	#wrapper { border: 1px solid blue; }
-
 	#header { padding: 0; }
 
 	#logo, #nav { display: none; }
 
 	#st-trigger-effects, #st-trigger-effects #logo { display: block; visibility: visible; }
+
+	#content, #sidebar { grid-column: 1 / span 5; }
 }
 
 @media all and (orientation: landscape) and (max-width: 768px) {
@@ -27,6 +26,8 @@
 	#logo, #nav { display: none; visibility: hidden; }
 
 	#st-trigger-effects, #st-trigger-effects #logo { display: block; visibility: visible; }
+
+	#content, #sidebar { grid-column: 1 / span 5; }
 }
 
 @media all and (max-width: 480px) {
@@ -38,6 +39,8 @@
 	#logo, #nav { display: none; }
 
 	#st-trigger-effects, #st-trigger-effects #logo { display: block; visibility: visible; }
+
+	#content, #sidebar { grid-column: 1 / span 5; }
 }
 
 /* Mobile navigation menu styles */
