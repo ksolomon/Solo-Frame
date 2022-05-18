@@ -26,6 +26,26 @@ body {
 		/* content: url(images/ig-icon-hover.png) url(images/fb-icon-hover.png) url(images/custom-sub-hover.png) url(images/cart-btn-hover.png) url(images/prodlink-hover.png) url(images/buy-btn-hover.png); */
 	}
 
+/** Variables */
+	:root {
+		/** Colors */
+			/* --blue: #0383d2; */
+
+		/** Font Sizes */
+			/* 18px @ 1920x1080 */
+			--med18: clamp(0.875rem, 0.8173rem + 0.2564vw, 1.125rem);
+			/* 24px @ 1920x1080 */
+			--med24: clamp(0.5rem, 0.2692rem + 1.0256vw, 1.5rem);
+			/* 45px @ 1920x1080 */
+			--lrg45: clamp(1.563rem, 1.2745rem + 1.2821vw, 2.813rem);
+
+		/** Font Weights */
+			--regular: 300;
+			--medium: 400;
+			--heavy: 700;
+			--black: 900;
+	}
+
 #wrapper {
 	margin: 0 auto;
 	max-width: 1260px;
