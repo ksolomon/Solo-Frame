@@ -22,7 +22,8 @@ body {
 /** Preload hover images */
 	body:after{
 		display: none;
-		content: url(images/ig-icon-hover.png) url(images/fb-icon-hover.png) url(images/custom-sub-hover.png) url(images/cart-btn-hover.png) url(images/prodlink-hover.png) url(images/buy-btn-hover.png);
+		/* Example for multiple images: */
+		/* content: url(images/ig-icon-hover.png) url(images/fb-icon-hover.png) url(images/custom-sub-hover.png) url(images/cart-btn-hover.png) url(images/prodlink-hover.png) url(images/buy-btn-hover.png); */
 	}
 
 #wrapper {
