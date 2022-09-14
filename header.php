@@ -9,11 +9,6 @@
 
 	<link rel="shortcut icon" href="<?php bloginfo('template_url'); ?>/images/favicon.ico" />
 
-	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/style.css?v=<?php echo filemtime(TEMPLATEPATH . '/style.css'); ?>" media="screen, projection" />
-	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/mobile-nav.css?v=<?php echo filemtime(TEMPLATEPATH . '/css/mobile-nav.css'); ?>" media="screen, projection" />
-	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/responsive.css?v=<?php echo filemtime(TEMPLATEPATH . '/css/responsive.css'); ?>" media="screen, projection" />
-	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/print.css" media="print" />
-	<!--[if lte IE 9]><link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/ie7.css" media="screen, projection" /><![endif]-->
 
 	<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />
 
@@ -25,10 +20,16 @@
 
 	<script src="<?php bloginfo('template_url'); ?>/includes/flexibility.js"></script>
 
-	<!-- HTML5 Shim for older IE versions -->
-	<!--[if lt IE 9]>
-	<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
+	<!-- Global style reset and WP basic styles -->
+	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/reset.css?v=<?php echo filemtime(TEMPLATEPATH . '/css/reset.css'); ?>" media="screen, projection" />
+	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/wp.css?v=<?php echo filemtime(TEMPLATEPATH . '/css/wp.css'); ?>" media="screen, projection" />
+
+	<!-- Theme-specific style -->
+	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/style.css?v=<?php echo filemtime(TEMPLATEPATH . '/style.css'); ?>" media="screen, projection" />
+
+	<!-- Mobile styles -->
+	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/mobile-nav.css?v=<?php echo filemtime(TEMPLATEPATH . '/css/mobile-nav.css'); ?>" media="screen, projection" />
+	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/responsive.css?v=<?php echo filemtime(TEMPLATEPATH . '/css/responsive.css'); ?>" media="screen, projection" />
 </head>
 
 <body <?php body_class(); ?>>

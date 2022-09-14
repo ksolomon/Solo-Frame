@@ -9,9 +9,6 @@ Author: Keith Solomon
 	For a copy, please refer to the following link: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
-@import url('css/reset.css');
-@import url('css/wp.css');
-
 body {
 	background: #fff;
 	color: #000;
@@ -29,7 +26,7 @@ body {
 /**
 Style Guide Base Styles
 
-Used with content (in HTML block) from include/style-guide.html
+Used with content (in Custom HTML block) from include/style-guide.html
 */
 	/** Color circles.  Add/change as necessary/ */
 	.color-1 { background: #f00; }
@@ -187,9 +184,7 @@ Used with content (in HTML block) from include/style-guide.html
 		}
 
 	/** NAVIGATION */
-		#st-trigger-effects {
-			display: none;
-		}
+		#st-trigger-effects { display: none; }
 
 		#nav ul {
 			display: -ms-flexbox;
@@ -248,9 +243,8 @@ Used with content (in HTML block) from include/style-guide.html
 				color: #fff;
 			}
 
-			#nav li:hover ul, #nav li.sfhover ul { /* lists nested under hovered list items */
-				left: auto;
-			}
+			/* lists nested under hovered list items */
+			#nav li:hover ul, #nav li.sfhover ul { left: auto; }
 
 /** CONTENT */
 	/** HOMEPAGE CONTENT */
@@ -351,14 +345,14 @@ Used with content (in HTML block) from include/style-guide.html
 		.pb-nav span.current { font-weight: bold; }
 
 	/** HEADING STYLES */
-		h1, h2, h3, h4, h5, h6 { }
+		h1, h2, h3, h4, h5, h6 { font-weight: bold; }
 
 		.content h1 { font-size: 2rem; }
 
 		.content h2 { font-size: 1.8rem; }
 
 		.content h2.pagetitle {
-			font-size: 2rem;
+			font-size: 1.8rem;
 			font-weight: normal;
 			margin-bottom: 0;
 		}
@@ -367,25 +361,13 @@ Used with content (in HTML block) from include/style-guide.html
 
 		.content h2.pagetitle a:hover { }
 
-		.content h3 {
-			font-size: 1.5rem;
-			font-weight: bold;
-		}
+		.content h3 { font-size: 1.7rem; }
 
-		.content h4 {
-			font-size: 1.4rem;
-			font-weight: bold;
-		}
+		.content h4 { font-size: 1.6rem; }
 
-		.content h5 {
-			font-size: 1.3rem;
-			font-weight: bold;
-		}
+		.content h5 { font-size: 1.5rem; }
 
-		.content h6 {
-			font-size: 1.2rem;
-			font-weight: bold;
-		}
+		.content h6 { font-size: 1.4rem; }
 
 	/** QUOTES & LISTS */
 		.content blockquote {
@@ -446,12 +428,10 @@ Used with content (in HTML block) from include/style-guide.html
 
 	.sidebar li li { font-size: 1rem; }
 
-	/** COMMENTS */
+/** COMMENTS */
 	#comments { margin: 3em 0; }
 
-	#comments h3 {
-		margin: 0 0 .25em;
-	}
+	#comments h3 { margin: 0 0 .25em; }
 
 	#comments .commentlist {
 		margin: 0;
