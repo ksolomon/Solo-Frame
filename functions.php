@@ -39,12 +39,6 @@
 	// Per-post/page <head> meta tags via custom fields
 	require (LIBPATH.'head_meta.php');
 
-	// Drag & drop page ordering
-	require (LIBPATH.'pageorder.php');
-
-	// Sitemap generator
-	require (LIBPATH.'sitemap_generator.php');
-
 	// Widget Logic plugin
 	require (LIBPATH.'widget_logic.php');
 
