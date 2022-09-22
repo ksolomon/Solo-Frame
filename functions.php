@@ -21,7 +21,7 @@
 	// Custom post types and taxonomies
 	require (LIBPATH.'post-types.php');
 
-	// Widgets positions
+	// Widget positions
 	require (LIBPATH.'widgets.php');
 
 	// Custom excerpt functions
@@ -35,9 +35,6 @@
 
 	// Per-post/page <head> meta tags via custom fields
 	require (LIBPATH.'head_meta.php');
-
-	// Widget Logic plugin
-	require (LIBPATH.'widget_logic.php');
 
 	// Show Active Template plugin
 	require (LIBPATH.'show-template.php');
