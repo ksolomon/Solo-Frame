@@ -1,8 +1,8 @@
 <?php
 /*
-	Solo-Frame Custom excerpts functions
+	SoloFrame Custom excerpts functions
 
-	This file is a part of the Solo-Frame WordPress theme framework.
+	This file is a part of the SoloFrame WordPress theme framework.
 
 	On Theme Activation adds Home, News, and Style Guide pages, sets up reading options for front page and posts page, and erases sample page and post.
 */

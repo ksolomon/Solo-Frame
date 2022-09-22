@@ -1,8 +1,8 @@
 <?php
 /*
-	Solo-Frame Widgets Functions
-	
-	This file is a part of the Solo-Frame WordPress theme framework.
+	SoloFrame Widgets Functions
+
+	This file is a part of the SoloFrame WordPress theme framework.
 */
 
 function sf_register_widgets() {

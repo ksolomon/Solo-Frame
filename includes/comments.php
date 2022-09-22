@@ -1,8 +1,8 @@
 <?php
 /*
-	Solo-Frame Custom comment functions
-	
-	This file is a part of the Solo-Frame WordPress theme framework.
+	SoloFrame Custom comment functions
+
+	This file is a part of the SoloFrame WordPress theme framework.
 */
 
 function sf_list_pings($comment, $args, $depth) {

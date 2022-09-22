@@ -1,11 +1,11 @@
-<?php 
-/* 
-Solo-Frame Sitemap Generator
+<?php
+/*
+SoloFrame Sitemap Generator
 
 English Language File
 */
 
-// Text shown on sitemap page 
+// Text shown on sitemap page
 define('SFSM_PAGE_HEADER', '<h2 class="posttitle">Pages</h2>');
 define('SFSM_POST_HEADER', '<h2>Posts</h2>');
 define('SFSM_CAT_HEADER', '<strong>Category:</strong>');
@@ -24,7 +24,7 @@ define('SFSM_NAV1_NEXT', 'Next');
 // Example: Pages: 1 2 3 4 5
 define('SFSM_NAV2_PAGE', 'Pages:');
 
-// Text shown in options page 
+// Text shown in options page
 define('SFSM_DEFAULTS_LOADED', 'Default Options Loaded!');
 define('SFSM_CONFIG_UPDATED', 'Configuration Updated!');
 define('SFSM_FOR_INFO', 'For information and updates, please visit:');

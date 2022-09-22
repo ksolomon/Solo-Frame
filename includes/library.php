@@ -1,8 +1,8 @@
 <?php
 /*
-	Solo-Frame Generic Function Library
+	SoloFrame Generic Function Library
 
-	This file is a part of the Solo-Frame WordPress theme framework.
+	This file is a part of the SoloFrame WordPress theme framework.
 */
 
 // Disable Admin Bar

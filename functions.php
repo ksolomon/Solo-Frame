@@ -6,7 +6,7 @@
 	// Theme framework setup
 	define('LIBPATH',TEMPLATEPATH.'/includes/');
 
-	$themename = "Solo-Frame";
+	$themename = "SoloFrame";
 	$shortname = "sf";
 
 	include (LIBPATH.'theme_options.php');
@@ -17,9 +17,6 @@
 	// Load framework libraries
 	// Generic functions
 	require (LIBPATH.'library.php');
-
-	// Custom nav walker for mobile menu
-	require (LIBPATH.'nav_walker.php');
 
 	// Custom post types and taxonomies
 	require (LIBPATH.'post-types.php');

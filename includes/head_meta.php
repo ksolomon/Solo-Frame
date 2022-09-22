@@ -1,8 +1,8 @@
 <?php
 /*
-	Solo-Frame Custom head META tags
+	SoloFrame Custom head META tags
 
-	This file is a part of the Solo-Frame WordPress theme framework.
+	This file is a part of the SoloFrame WordPress theme framework.
 */
 
 // PHP ternary: $var = (if clause) ? if true : if false
@@ -79,7 +79,7 @@ function head_meta() {
 	$imageArr = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID),'single-post-thumbnail');
 	$image = $imageArr[0];
 
-	echo "<!-- Meta tags built by Solo-Frame -->\n";
+	echo "<!-- Meta tags built by SoloFrame -->\n";
 
 	echo "<meta property=\"og:url\" content=\"$url\" />\n";
 	echo "<meta property=\"og:title\" content=\"$title\" />\n";

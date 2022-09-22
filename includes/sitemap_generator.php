@@ -1,12 +1,12 @@
 <?php
 /*
-Plugin Name: Solo-Frame Sitemap Generator
+Plugin Name: SoloFrame Sitemap Generator
 Description: Generates a fully customizable sitemap
 */
 
 $sfsm_ver = '1.0';
 
-/* 
+/*
  * Set up options if they do not exist
  */
 add_option('sfsm_language', 'English');
@@ -14,20 +14,20 @@ add_option('sfsm_items_per_page', 50);
 add_option('sfsm_sm_name', '');
 add_option('sfsm_what_to_show', 'both');
 add_option('sfsm_which_first', 'posts');
-add_option('sfsm_post_sort_order', 'title'); 
+add_option('sfsm_post_sort_order', 'title');
 add_option('sfsm_page_sort_order', 'title');
 add_option('sfsm_comments_on_posts', FALSE);
 add_option('sfsm_comments_on_pages', FALSE);
 add_option('sfsm_show_zero_comments', FALSE);
-add_option('sfsm_hide_future', FALSE); 
-add_option('sfsm_new_window', FALSE); 
-add_option('sfsm_show_post_date', FALSE); 
-add_option('sfsm_show_page_date', FALSE); 
-add_option('sfsm_date_format', 'F jS, Y'); 
-add_option('sfsm_hide_protected', TRUE); 
-add_option('sfsm_excluded_cats', ''); 
-add_option('sfsm_excluded_pages', ''); 
-add_option('sfsm_page_nav', '1'); 
+add_option('sfsm_hide_future', FALSE);
+add_option('sfsm_new_window', FALSE);
+add_option('sfsm_show_post_date', FALSE);
+add_option('sfsm_show_page_date', FALSE);
+add_option('sfsm_date_format', 'F jS, Y');
+add_option('sfsm_hide_protected', TRUE);
+add_option('sfsm_excluded_cats', '');
+add_option('sfsm_excluded_pages', '');
+add_option('sfsm_page_nav', '1');
 add_option('sfsm_page_nav_where', 'top');
 add_option('sfsm_xml_path', '');
 add_option('sfsm_xml_where', 'last');
@@ -37,7 +37,7 @@ add_option('sfsm_xml_where', 'last');
  */
 include 'sitemap_English.php';
 
-/* 
+/*
  * Add options page
  */
 function sfsm_add_option_pages() {
@@ -46,7 +46,7 @@ function sfsm_add_option_pages() {
 	}
 }
 
-/* 
+/*
  * Generate options page
  */
 function sfsm_options_page() {
@@ -55,31 +55,31 @@ function sfsm_options_page() {
 	if (isset($_POST['set_defaults'])) {
 		echo '<div id="message" class="updated fade"><p><strong>';
 
-		update_option('sfsm_language', 'English');		
+		update_option('sfsm_language', 'English');
 		update_option('sfsm_items_per_page', 50);
 		update_option('sfsm_sm_name', '');
 		update_option('sfsm_what_to_show', 'both');
-		update_option('sfsm_which_first', 'posts');	
-		update_option('sfsm_post_sort_order', 'title'); 
-		update_option('sfsm_page_sort_order', 'title'); 
-		update_option('sfsm_comments_on_posts', FALSE); 
-		update_option('sfsm_comments_on_pages', FALSE); 
-		update_option('sfsm_show_zero_comments', FALSE); 
-		update_option('sfsm_hide_future', FALSE); 
-		update_option('sfsm_new_window', FALSE); 
-		update_option('sfsm_show_post_date', FALSE); 
-		update_option('sfsm_show_page_date', FALSE); 
-		update_option('sfsm_date_format', 'F jS, Y'); 
-		update_option('sfsm_hide_protected', TRUE); 
-		update_option('sfsm_excluded_cats', ''); 
+		update_option('sfsm_which_first', 'posts');
+		update_option('sfsm_post_sort_order', 'title');
+		update_option('sfsm_page_sort_order', 'title');
+		update_option('sfsm_comments_on_posts', FALSE);
+		update_option('sfsm_comments_on_pages', FALSE);
+		update_option('sfsm_show_zero_comments', FALSE);
+		update_option('sfsm_hide_future', FALSE);
+		update_option('sfsm_new_window', FALSE);
+		update_option('sfsm_show_post_date', FALSE);
+		update_option('sfsm_show_page_date', FALSE);
+		update_option('sfsm_date_format', 'F jS, Y');
+		update_option('sfsm_hide_protected', TRUE);
+		update_option('sfsm_excluded_cats', '');
 		update_option('sfsm_excluded_pages', '');
-		update_option('sfsm_page_nav', '1'); 
+		update_option('sfsm_page_nav', '1');
 		update_option('sfsm_page_nav_where', 'top');
 		update_option('sfsm_xml_path', '');
 		update_option('sfsm_xml_where', 'last');
 
 		echo SFSM_DEFAULTS_LOADED;
-		echo '</strong></p></div>';	
+		echo '</strong></p></div>';
 	} else if (isset($_POST['info_update'])) {
 		echo '<div id="message" class="updated fade"><p><strong>';
 
@@ -87,24 +87,24 @@ function sfsm_options_page() {
 		update_option('sfsm_items_per_page', (int) $_POST["sfsm_items_per_page"]);
 		update_option('sfsm_sm_name', (string) $_POST["sfsm_sm_name"]);
 		update_option('sfsm_what_to_show', (string) $_POST["sfsm_what_to_show"]);
-		update_option('sfsm_which_first', (string) $_POST["sfsm_which_first"]);				
-		update_option('sfsm_post_sort_order', (string) $_POST["sfsm_post_sort_order"]);	
-		update_option('sfsm_page_sort_order', (string) $_POST["sfsm_page_sort_order"]);	
-		update_option('sfsm_comments_on_posts', (bool) $_POST["sfsm_comments_on_posts"]);	
-		update_option('sfsm_comments_on_pages', (bool) $_POST["sfsm_comments_on_pages"]);	
-		update_option('sfsm_show_zero_comments', (bool) $_POST["sfsm_show_zero_comments"]);	
-		update_option('sfsm_hide_future', (bool) $_POST["sfsm_hide_future"]);	
-		update_option('sfsm_new_window', (bool) $_POST["sfsm_new_window"]);	
-		update_option('sfsm_show_post_date', (bool) $_POST["sfsm_show_post_date"]);	
-		update_option('sfsm_show_page_date', (bool) $_POST["sfsm_show_page_date"]);	
-		update_option('sfsm_date_format', (string) $_POST["sfsm_date_format"]);	
-		update_option('sfsm_hide_protected', (bool) $_POST["sfsm_hide_protected"]);	
-		update_option('sfsm_excluded_cats', (string) $_POST["sfsm_excluded_cats"]);	
-		update_option('sfsm_excluded_pages', (string) $_POST["sfsm_excluded_pages"]);	
-		update_option('sfsm_page_nav', (string) $_POST["sfsm_page_nav"]);	
-		update_option('sfsm_page_nav_where', (string) $_POST["sfsm_page_nav_where"]);	
-		update_option('sfsm_xml_path', (string) $_POST["sfsm_xml_path"]);	
-		update_option('sfsm_xml_where', (string) $_POST["sfsm_xml_where"]);	
+		update_option('sfsm_which_first', (string) $_POST["sfsm_which_first"]);
+		update_option('sfsm_post_sort_order', (string) $_POST["sfsm_post_sort_order"]);
+		update_option('sfsm_page_sort_order', (string) $_POST["sfsm_page_sort_order"]);
+		update_option('sfsm_comments_on_posts', (bool) $_POST["sfsm_comments_on_posts"]);
+		update_option('sfsm_comments_on_pages', (bool) $_POST["sfsm_comments_on_pages"]);
+		update_option('sfsm_show_zero_comments', (bool) $_POST["sfsm_show_zero_comments"]);
+		update_option('sfsm_hide_future', (bool) $_POST["sfsm_hide_future"]);
+		update_option('sfsm_new_window', (bool) $_POST["sfsm_new_window"]);
+		update_option('sfsm_show_post_date', (bool) $_POST["sfsm_show_post_date"]);
+		update_option('sfsm_show_page_date', (bool) $_POST["sfsm_show_page_date"]);
+		update_option('sfsm_date_format', (string) $_POST["sfsm_date_format"]);
+		update_option('sfsm_hide_protected', (bool) $_POST["sfsm_hide_protected"]);
+		update_option('sfsm_excluded_cats', (string) $_POST["sfsm_excluded_cats"]);
+		update_option('sfsm_excluded_pages', (string) $_POST["sfsm_excluded_pages"]);
+		update_option('sfsm_page_nav', (string) $_POST["sfsm_page_nav"]);
+		update_option('sfsm_page_nav_where', (string) $_POST["sfsm_page_nav_where"]);
+		update_option('sfsm_xml_path', (string) $_POST["sfsm_xml_path"]);
+		update_option('sfsm_xml_where', (string) $_POST["sfsm_xml_where"]);
 
 		echo SFSM_CONFIG_UPDATED;
 	    echo '</strong></p></div>';
@@ -121,7 +121,7 @@ function sfsm_options_page() {
 
 	<p><strong>Usage:</strong> Insert "<strong>[sitemap]</strong>" on your chosen page after configuration and updating permalinks.</p>
 
-	<fieldset class="options"> 
+	<fieldset class="options">
 	<legend><strong><?php echo SFSM_GENERAL_OPTIONS; ?></strong></legend>
 	<table width="100%" border="0" cellspacing="0" cellpadding="6">
 
@@ -138,7 +138,7 @@ function sfsm_options_page() {
 	</table>
 	</fieldset>
 
-	<fieldset class="options"> 
+	<fieldset class="options">
 	<legend><strong><?php echo SFSM_SITEMAP_GENERATION; ?></strong></legend>
 	<table width="100%" border="0" cellspacing="0" cellpadding="6">
 
@@ -177,7 +177,7 @@ function sfsm_options_page() {
 
 	<tr><th width="45%" valign="top" align="right" scope="row"><?php echo SFSM_ZERO_COMMENTS; ?></th><td valign="top">
 	<input type="checkbox" name="sfsm_show_zero_comments" value="checkbox" <?php if (get_option('sfsm_show_zero_comments')) echo "checked='checked'"; ?>/>
-	</td></tr>	
+	</td></tr>
 
 	<tr><th width="45%" valign="top" align="right" scope="row"><?php echo SFSM_POST_DATES; ?></th><td valign="top">
 	<input type="checkbox" name="sfsm_show_post_date" value="checkbox" <?php if (get_option('sfsm_show_post_date')) echo "checked='checked'"; ?>/>
@@ -188,14 +188,14 @@ function sfsm_options_page() {
 	</td></tr>
 
 	<tr><th width="45%" valign="top" align="right" scope="row"><?php echo SFSM_DATE_FORMAT; ?></th><td valign="top">
-	<input name="sfsm_date_format" type="text" size="15" value="<?php echo get_option('sfsm_date_format') ?>"/> 
+	<input name="sfsm_date_format" type="text" size="15" value="<?php echo get_option('sfsm_date_format') ?>"/>
 	<?php echo SFSM_DATE_FORMAT_DESC; ?>
 	</td></tr>
 
 	</table>
 	</fieldset>
 
-	<fieldset class="options"> 
+	<fieldset class="options">
 	<legend><strong><?php echo SFSM_EXCLUSIONS; ?></strong></legend>
 	<table width="100%" border="0" cellspacing="0" cellpadding="6">
 
@@ -220,14 +220,14 @@ function sfsm_options_page() {
 	</table>
 	</fieldset>
 
-	<fieldset class="options"> 
+	<fieldset class="options">
 	<legend><strong><?php echo SFSM_NAVIGATION; ?></strong></legend>
 	<table width="100%" border="0" cellspacing="0" cellpadding="6">
 
 	<tr><th width="45%" valign="top" align="right" scope="row"><?php echo SFSM_NAV_METHOD; ?></th><td valign="top">
 	<label><input name="sfsm_page_nav" type="radio" value="1" <?php if (get_option('sfsm_page_nav') == 1) echo "checked='checked'"; ?> />&nbsp;&nbsp; <?php echo SFSM_NAV1_PAGE . ' 2 of 5 : <a href="#">' . SFSM_NAV1_PREV . '</a> : <a href="#">' . SFSM_NAV1_NEXT . '</a>'; ?><br /></label>
     <label><input name="sfsm_page_nav" type="radio" value="2" <?php if (get_option('sfsm_page_nav') == 2) echo "checked='checked'"; ?>/>&nbsp;&nbsp; <?php echo SFSM_NAV2_PAGE . ' <a href="#">1</a> 2 <a href="#">3</a> <a href="#">4</a> <a href="#">5</a>'; ?></label>
-	</td></tr>	
+	</td></tr>
 
 
 	<tr><th width="45%" valign="top" align="right" scope="row"><?php echo SFSM_NAV_WHERE; ?></th><td valign="top">
@@ -239,9 +239,9 @@ function sfsm_options_page() {
 	</table>
 	</fieldset>
 
-	<fieldset class="options"> 
+	<fieldset class="options">
 	<legend><strong><?php echo SFSM_MISC; ?></strong></legend>
-	<table width="100%" border="0" cellspacing="0" cellpadding="6">	
+	<table width="100%" border="0" cellspacing="0" cellpadding="6">
 
 	<tr><th width="45%" valign="top" align="right" scope="row"><?php echo SFSM_XML_PATH; ?></th><td valign="top">
 	<input name="sfsm_xml_path" type="text" size="55" value="<?php echo get_option('sfsm_xml_path') ?>"/>
@@ -258,7 +258,7 @@ function sfsm_options_page() {
 	</td></tr>
 
 	</table>
-	</fieldset>	
+	</fieldset>
 
 	<div class="submit">
 		<input type="submit" name="set_defaults" value="<?php echo SFSM_DEFAULT_BUTTON; ?> &raquo;" />
@@ -271,7 +271,7 @@ function sfsm_options_page() {
 
 }
 
-/* 
+/*
  * Build list of categories
  */
 function sfsm_get_cats($cat_data, $cats, $num_cats, $cats_with_children, $excluded_cats, $parent = 0, $level = 0) {
@@ -287,8 +287,8 @@ function sfsm_get_cats($cat_data, $cats, $num_cats, $cats_with_children, $exclud
 	while (isset($cats[$k]) && ($cats[$k]->category_parent == $parent) && ($k < $num_cats)) {
 
 		if (in_array($cats[$k]->category_ID, $excluded_cats, FALSE) === FALSE) {
-			$cat_data[] = array( 
-				'cat_id' => $cats[$k]->category_ID, 
+			$cat_data[] = array(
+				'cat_id' => $cats[$k]->category_ID,
 				'cat_name' => $cats[$k]->cat_name,
 				'level' => $level
 			);
@@ -310,7 +310,7 @@ function sfsm_get_cats($cat_data, $cats, $num_cats, $cats_with_children, $exclud
 
 }
 
-/* 
+/*
  * Build list of pages
  */
 function sfsm_get_pages($page_data, $pages, $num_pages, $pages_with_children, $excluded_pages, $comments_on_pages, $show_page_date, $parent = 0, $level = 0) {
@@ -331,7 +331,7 @@ function sfsm_get_pages($page_data, $pages, $num_pages, $pages_with_children, $e
 			if ($show_page_date) $tmp_array['date'] = $pages[$k]->post_date;
 			$page_data[] = $tmp_array;
 		}
-	
+
 		if (in_array($pages[$k]->ID, $pages_with_children, FALSE)) {
 			if (in_array($pages[$k]->ID, $excluded_pages, FALSE) === FALSE) {
 				$page_data = sfsm_get_pages($page_data, $pages, $num_pages, $pages_with_children, $excluded_pages, $comments_on_pages, $show_page_date, $pages[$k]->ID, $level + 1);
@@ -346,7 +346,7 @@ function sfsm_get_pages($page_data, $pages, $num_pages, $pages_with_children, $e
 
 }
 
-/* 
+/*
  * Find parent of page
  */
 function sfsm_find_parent_page($page_data, $p, $k) {
@@ -361,7 +361,7 @@ function sfsm_find_parent_page($page_data, $p, $k) {
 
 }
 
-/* 
+/*
  * Generate page output
  */
 function sfsm_display_pages($page_data, $num_pages, $page_start, $page_end, $comments_on_pages, $new_window, $show_page_date, $date_format) {
@@ -388,7 +388,7 @@ function sfsm_display_pages($page_data, $num_pages, $page_start, $page_end, $com
 			for ($k = $llevel + 1; $k < $level; $k++) {
 				$t_out .= '<li>' . sfsm_find_parent_page($page_data, $p, $k) . ' (continued)<ul>';
 			}
-		} 
+		}
 
 		if ($level == $llevel) {
 			$t_out .= '</li>';
@@ -406,7 +406,7 @@ function sfsm_display_pages($page_data, $num_pages, $page_start, $page_end, $com
 		if ($the_title == '') {
 			$the_title = SFSM_NO_TITLE;
 		}
-		
+
 		$t_out .= '<li><a href="' . get_permalink($page_data[$p]['id']) . '"';
 		$t_out .= ' title="' . strip_tags($the_title) . '"';
 		if ($new_window) {
@@ -439,7 +439,7 @@ function sfsm_display_pages($page_data, $num_pages, $page_start, $page_end, $com
 
 }
 
-/* 
+/*
  * Build post parent
  */
 function sfsm_find_parent_post($post_data, $p, $k) {
@@ -454,7 +454,7 @@ function sfsm_find_parent_post($post_data, $p, $k) {
 
 }
 
-/* 
+/*
  * Generate post output
  */
 function sfsm_display_posts($post_data, $num_posts, $post_start, $post_end, $comments_on_posts, $new_window, $show_post_date, $date_format) {
@@ -480,7 +480,7 @@ function sfsm_display_posts($post_data, $num_posts, $post_start, $post_end, $com
 			for ($k = $llevel + 1; $k < $level; $k++) {
 				$t_out .= '<li>' . strip_tags(sfsm_find_parent_post($post_data, $p, $k)) . ' (continued)<ul>';
 			}
-		} 
+		}
 		if ($level == $llevel) {
 			$t_out .= '</li>';
 		}
@@ -502,12 +502,12 @@ function sfsm_display_posts($post_data, $num_posts, $post_start, $post_end, $com
 			}
 			$t_out .= '>' . $post_data[$p]['title'] . '</a>';
 
-		} else { 
+		} else {
 
 			$the_title = htmlspecialchars(trim($post_data[$p]['title']));
 			if ($the_title == '') {
 				$the_title = SFSM_NO_TITLE;
-			}	
+			}
 
 			$t_out .= '<li><a href="' . get_permalink($post_data[$p]['id']) . '"';
 			$t_out .= ' title="' . $the_title . '"';
@@ -544,7 +544,7 @@ function sfsm_display_posts($post_data, $num_posts, $post_start, $post_end, $com
 
 }
 
-/* 
+/*
  * Merge categories with posts
  */
 function sfsm_merge_cats_posts($post_data, $posts, $cat_data, $num_posts, $num_cats, $comments_on_posts, $show_post_date) {
@@ -580,7 +580,7 @@ function sfsm_merge_cats_posts($post_data, $posts, $cat_data, $num_posts, $num_c
 
 			$k++;
 		}
-	
+
 	}
 
 	return $post_data;
@@ -642,7 +642,7 @@ function sfsm_generate_nav($total_pages, $current_page, $page_nav, $sm_name) {
 	global $wp_query;
 
 	$output1 = NULL;
-	
+
 	if (strlen($sm_name) > 0) { // permalinks enabled
 
 		$the_url = get_bloginfo('url');
@@ -697,7 +697,7 @@ function sfsm_generate_nav($total_pages, $current_page, $page_nav, $sm_name) {
 		if ($total_pages > 1) {
 
 			if ($page_nav == 1) {
-	
+
 				$output1 .= '<div class="sfsm-pagenav"><p>Page ' . $current_page . ' of ' . $total_pages;
 
 				if ($current_page > 1) {
@@ -739,7 +739,7 @@ function sfsm_generate_nav($total_pages, $current_page, $page_nav, $sm_name) {
 
 }
 
-/* 
+/*
  * Create the sitemap
  */
 function sfsm_create_sitemap() {
@@ -749,7 +749,7 @@ function sfsm_create_sitemap() {
 	$tp = $wpdb->prefix;
 
 	// Currently using a work-around for the version system
-	// determines if pre or post 2.3 from wp_term_taxonomy 
+	// determines if pre or post 2.3 from wp_term_taxonomy
 
 	$ver = 2.2;
 	$wpv = $wpdb->get_results("show tables like '{$tp}term_taxonomy'");
@@ -793,14 +793,14 @@ function sfsm_create_sitemap() {
 			$cats = (array)$wpdb->get_results("
 				SELECT cat_ID as category_ID, cat_name, category_parent
 				FROM {$tp}categories
-				GROUP BY cat_ID 
+				GROUP BY cat_ID
 				ORDER BY category_parent, cat_name
-			"); 
-	
+			");
+
 			$cats_with_children = (array)$wpdb->get_col("
 				SELECT category_parent
 				FROM {$tp}categories
-				WHERE category_parent != '0' 
+				WHERE category_parent != '0'
 				GROUP BY category_parent
 				ORDER BY category_parent
 			", 0);
@@ -808,20 +808,20 @@ function sfsm_create_sitemap() {
 		} else { // >= 2.3
 
 			$cats = (array)$wpdb->get_results("
-				SELECT {$tp}terms.term_id as category_ID, 
-					{$tp}terms.name as cat_name, 
+				SELECT {$tp}terms.term_id as category_ID,
+					{$tp}terms.name as cat_name,
 					{$tp}term_taxonomy.parent as category_parent
-				FROM {$tp}terms, {$tp}term_taxonomy 
+				FROM {$tp}terms, {$tp}term_taxonomy
 				WHERE {$tp}term_taxonomy.taxonomy = 'category'
 				AND {$tp}terms.term_id = {$tp}term_taxonomy.term_id
-				GROUP BY category_ID 
+				GROUP BY category_ID
 				ORDER BY category_parent, cat_name
-			"); 
+			");
 
 			$cats_with_children = (array)$wpdb->get_col("
 				SELECT parent as category_parent
 				FROM {$tp}term_taxonomy
-				WHERE parent != '0' 
+				WHERE parent != '0'
 				AND {$tp}term_taxonomy.taxonomy = 'category'
 				GROUP BY category_parent
 				ORDER BY category_parent
@@ -830,7 +830,7 @@ function sfsm_create_sitemap() {
 		}
 
 		$sort_string = '';
-		switch ($post_sort_order) { 
+		switch ($post_sort_order) {
 			case 'datea':
 				$sort_string = 'post_date ASC';
 				break;
@@ -866,29 +866,29 @@ function sfsm_create_sitemap() {
 		if ($ver < 2.3) {
 
 			$posts = (array)$wpdb->get_results("
-				SELECT ID, category_id, post_title $extra_data 
+				SELECT ID, category_id, post_title $extra_data
 				FROM {$tp}posts, {$tp}post2cat
-				WHERE {$tp}posts.ID = {$tp}post2cat.post_id 
-				AND post_status = 'publish' 
-				AND post_type = 'post' 
-				$dup_check 
-				$pass_check 
+				WHERE {$tp}posts.ID = {$tp}post2cat.post_id
+				AND post_status = 'publish'
+				AND post_type = 'post'
+				$dup_check
+				$pass_check
 				$future_check
 				ORDER BY category_id, $sort_string
 			");
-		
+
 		} else { // >= 2.3
 
 			$posts = (array)$wpdb->get_results("
-				SELECT ID, {$tp}term_taxonomy.term_id as category_id, post_title $extra_data 
+				SELECT ID, {$tp}term_taxonomy.term_id as category_id, post_title $extra_data
 				FROM {$tp}posts, {$tp}term_relationships, {$tp}term_taxonomy
-				WHERE {$tp}posts.ID = {$tp}term_relationships.object_id  
-				AND {$tp}term_relationships.term_taxonomy_id = {$tp}term_taxonomy.term_taxonomy_id 
-				AND {$tp}term_taxonomy.taxonomy = 'category' 
-				AND post_status = 'publish' 
-				AND post_type = 'post' 
-				$dup_check 
-				$pass_check 
+				WHERE {$tp}posts.ID = {$tp}term_relationships.object_id
+				AND {$tp}term_relationships.term_taxonomy_id = {$tp}term_taxonomy.term_taxonomy_id
+				AND {$tp}term_taxonomy.taxonomy = 'category'
+				AND post_status = 'publish'
+				AND post_type = 'post'
+				$dup_check
+				$pass_check
 				$future_check
 				ORDER BY category_id, $sort_string
 			");
@@ -901,7 +901,7 @@ function sfsm_create_sitemap() {
 		$num_posts = count($posts);
 
 		$cat_data = array();
-		$post_data = array();	
+		$post_data = array();
 
 
 		$cat_data = sfsm_get_cats($cat_data, $cats, $num_cats, $cats_with_children, $excluded_cats);
@@ -921,7 +921,7 @@ function sfsm_create_sitemap() {
 	if ($what_to_show != 'posts') {
 
 		$sort_string = '';
-		switch ($page_sort_order) { 
+		switch ($page_sort_order) {
 			case 'datea':
 				$sort_string = 'post_date ASC';
 				break;
@@ -953,20 +953,20 @@ function sfsm_create_sitemap() {
 		}
 
 		$pages = (array)$wpdb->get_results("
-			SELECT post_title, ID, post_parent $extra_data 
+			SELECT post_title, ID, post_parent $extra_data
 			FROM {$tp}posts
-			WHERE post_type = 'page' 
-			AND post_status = 'publish' 
-			$pass_check 
-			ORDER BY post_parent, $sort_string 
+			WHERE post_type = 'page'
+			AND post_status = 'publish'
+			$pass_check
+			ORDER BY post_parent, $sort_string
 		");
 
 		$pages_with_children = (array)$wpdb->get_col("
 			SELECT post_parent
 			FROM {$tp}posts
 			WHERE post_type = 'page'
-			AND post_status = 'publish' 
-			AND post_parent != '0' 
+			AND post_status = 'publish'
+			AND post_parent != '0'
 			GROUP BY post_parent
 			ORDER BY post_parent
 		", 0);
@@ -1000,7 +1000,7 @@ function sfsm_create_sitemap() {
 
 	$current_page = 1;
 	if (get_query_var("pg")) {
-		$current_page = get_query_var("pg");		
+		$current_page = get_query_var("pg");
 	}
 
 
@@ -1090,7 +1090,7 @@ function sfsm_create_sitemap() {
 			if ($end1 >= $num1) {
 				$end1 = $num1 - 1;
 			}
-		} else { 
+		} else {
 			$start1 = $t_start;
 			$end1 = $num1 - 1;
 			$start2 = 0;
@@ -1149,29 +1149,29 @@ function sfsm_create_sitemap() {
 
 
 
-/* 
+/*
  * Create rewrite rules for sitemap pages
  */
-function sfsm_permalinks($rules) { 
+function sfsm_permalinks($rules) {
 	global $wp_rewrite;
-	$sfsm_sm_name = trim(get_option('sfsm_sm_name')); 
+	$sfsm_sm_name = trim(get_option('sfsm_sm_name'));
 	if ($wp_rewrite->use_verbose_rules || !isset($wp_rewrite->use_verbose_rules)) {
 		$match_form = '$1';
 	} else {
 		$match_form = '$matches[1]';
 	}
 
-	if ($sfsm_sm_name != '') {	
+	if ($sfsm_sm_name != '') {
 		$newrules[$sfsm_sm_name . '/([0-9]{1,})/?$'] = 'index.php?&pagename=' . $sfsm_sm_name . '&pg=' . $match_form;
 		$newrules = array_merge($newrules,$rules);
 		return $newrules;
 	} else {
 		return $rules;
 	}
-} 
+}
 
 
-/* 
+/*
  * Initialize query var for sitemap permalinks
  */
 function sfsm_query_vars ( $vars ) {
@@ -1179,7 +1179,7 @@ function sfsm_query_vars ( $vars ) {
 	return $vars;
 }
 
-/* 
+/*
  * Display sitemap if trigger is found
  */
 function sfsm_generate_sitemap($content) {
@@ -1193,7 +1193,7 @@ function sfsm_generate_sitemap($content) {
 
 
 add_filter('query_vars', 'sfsm_query_vars');
-add_filter('rewrite_rules_array', 'sfsm_permalinks'); 
+add_filter('rewrite_rules_array', 'sfsm_permalinks');
 
 add_filter('the_content', 'sfsm_generate_sitemap');
 add_action('admin_menu', 'sfsm_add_option_pages');

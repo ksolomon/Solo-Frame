@@ -1,8 +1,8 @@
 <?php
 /*
-	Solo-Frame Custom excerpts functions
+	SoloFrame Custom excerpts functions
 
-	This file is a part of the Solo-Frame WordPress theme framework.
+	This file is a part of the SoloFrame WordPress theme framework.
 */
 
 function sf_custom_excerpt($excerpt) {
