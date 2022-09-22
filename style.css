@@ -9,10 +9,21 @@ Author: Keith Solomon
 	For a copy, please refer to the following link: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
+/** Variables */
+	:root {
+		/** Colors */
+		/* --blue: #0383d2; */
+
+		/** Font Sizes */
+		/* clamp() rules generated via https://utopia.fyi/type/calculator/ */
+		/* 16px @ 1920, 12px @ 320 */
+		--fontBase: clamp(0.75rem, calc(0.70rem + 0.25vw), 1.00rem);
+	}
+
 body {
 	background: #fff;
 	color: #000;
-	font: 100%/1.6875 -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
+	font: var(--fontBase)/1.6875 -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
 	text-align: left;
 }
 
@@ -110,43 +121,13 @@ Used with content (in Custom HTML block) from include/style-guide.html
 		margin-bottom: 75px;
 	}
 
-/** Variables */
-	:root {
-		/** Colors */
-			/* --blue: #0383d2; */
-
-		/** Font Sizes */
-			/* 18px @ 1920x1080 */
-			--med18: clamp(0.875rem, 0.8173rem + 0.2564vw, 1.125rem);
-			/* 24px @ 1920x1080 */
-			--med24: clamp(0.5rem, 0.2692rem + 1.0256vw, 1.5rem);
-			/* 45px @ 1920x1080 */
-			--lrg45: clamp(1.563rem, 1.2745rem + 1.2821vw, 2.813rem);
-
-		/** Font Weights */
-			--regular: 300;
-			--medium: 400;
-			--heavy: 700;
-			--black: 900;
-	}
-
 #wrapper {
 	margin: 0 auto;
-	max-width: 1260px;
-	width: 98%;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	-js-display: flex;
 	display: flex;
-	-webkit-flex-direction: row;
-	-ms-flex-direction: row;
 	flex-direction: row;
-	-webkit-flex-wrap: wrap;
-	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
-	-webkit-justify-content: space-between;
-	-ms-flex-pack: justify;
 	justify-content: space-between;
+	width: 100%;
 }
 
 /** LINKS */
@@ -184,20 +165,11 @@ Used with content (in Custom HTML block) from include/style-guide.html
 		}
 
 	/** NAVIGATION */
-		#st-trigger-effects { display: none; }
-
 		#nav ul {
-			display: -ms-flexbox;
-			display: -webkit-flex;
-			-js-display: flex;
 			display: flex;
-			-webkit-flex-wrap: wrap;
-			-ms-flex-wrap: wrap;
 			flex-wrap: wrap;
-			-webkit-justify-content: space-around;
-			-ms-flex-pack: space-around;
-			justify-content: space-around;
 			font-size: 1.2rem;
+			justify-content: space-around;
 			margin: 0 0 1em;
 			padding: 0;
 		}
@@ -215,36 +187,6 @@ Used with content (in Custom HTML block) from include/style-guide.html
 			background: #007ac9;
 			color: #fff;
 		}
-
-		/** SUCKERFISH DROPDOWNS */
-			#nav li ul { /* second-level lists */
-				background: #fff;
-				border: 1px solid #333 !important;
-				-webkit-flex-direction: column;
-				-ms-flex-direction: column;
-				flex-direction: column;
-				left: -999em; /* using left instead of display to hide menus because display: none isn't read by screen readers */
-				margin: 0 !important;
-				position: absolute;
-				width: 10em;
-			}
-
-			#nav li ul li a:link, #nav li ul li a:visited, #nav li ul li a:active {
-				background: transparent;
-				color: #007ac9;
-				display: block;
-				font-size: 1em;
-				height: auto !important;
-				width: 10em;
-			}
-
-			#nav li ul li a:hover {
-				background: #007ac9;
-				color: #fff;
-			}
-
-			/* lists nested under hovered list items */
-			#nav li:hover ul, #nav li.sfhover ul { left: auto; }
 
 /** CONTENT */
 	/** HOMEPAGE CONTENT */
@@ -287,49 +229,6 @@ Used with content (in Custom HTML block) from include/style-guide.html
 
 	.content p { margin-bottom: 1.5em; }
 
-	/** RESPONSIVE EMBEDS */
-		.embed { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
-		.embed iframe, .embed object, .embed embed, .embed video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-
-
-	/** GALLERY STYLES */
-		.content img.attachment-thumbnail {
-			border: none;
-			height: 92px;
-			margin: 0;
-			padding: 0;
-			width: 92px;
-		}
-
-		.gallery {
-			margin: auto;
-			/* gallery clearing */
-			overflow: hidden;
-			width: 100%;
-		}
-
-		.gallery .gallery-item {
-			float: left;
-			margin-top: 10px;
-			text-align: center;
-		}
-
-		.gallery img { border: 2px solid #cfcfcf; }
-
-		.gallery .gallery-caption { margin-left: 0; }
-
-		.gallery br { clear: both }
-
-		/* Available Columns */
-		.col-2 { width: 50% }
-		.col-3 { width: 33.333% }
-		.col-4 { width: 25% }
-		.col-5 { width: 20% }
-		.col-6 { width: 16.666% }
-		.col-7 { width: 14.285% }
-		.col-8 { width: 12.5% }
-		.col-9 { width: 11.111% }
-
 	/** PAGE BAR NAV STYLING */
 		.pb-nav { clear: both; }
 
@@ -349,7 +248,15 @@ Used with content (in Custom HTML block) from include/style-guide.html
 
 		.content h1 { font-size: 2rem; }
 
-		.content h2 { font-size: 1.8rem; }
+		.content h2 { font-size: 1.9rem; }
+
+		.content h3 { font-size: 1.8rem; }
+
+		.content h4 { font-size: 1.7rem; }
+
+		.content h5 { font-size: 1.6rem; }
+
+		.content h6 { font-size: 1.5rem; }
 
 		.content h2.pagetitle {
 			font-size: 1.8rem;
@@ -357,17 +264,11 @@ Used with content (in Custom HTML block) from include/style-guide.html
 			margin-bottom: 0;
 		}
 
-		.content h2.pagetitle a:link, .content h2.pagetitle a:visited, .content h2.pagetitle a:active { text-decoration: none; }
+		.content h2.pagetitle a:link, .content h2.pagetitle a:visited, .content h2.pagetitle a:active {
+			text-decoration: none;
+		}
 
-		.content h2.pagetitle a:hover { }
-
-		.content h3 { font-size: 1.7rem; }
-
-		.content h4 { font-size: 1.6rem; }
-
-		.content h5 { font-size: 1.5rem; }
-
-		.content h6 { font-size: 1.4rem; }
+		.content h2.pagetitle a:hover {  }
 
 	/** QUOTES & LISTS */
 		.content blockquote {
