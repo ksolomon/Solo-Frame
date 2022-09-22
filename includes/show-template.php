@@ -18,6 +18,7 @@ class ShowTemplate {
 	function __construct() {
 		if (is_admin())
 			return;
+
 		add_action('template_redirect', array(&$this, 'check_template'), 0);
 	}
 
@@ -41,7 +42,9 @@ class ShowTemplate {
 		else :
 			$this->template = function_exists('get_index_template') ? get_index_template() : TEMPLATEPATH . "/index.php";
 		endif;
+
 		$this->template = apply_filters('template_include', $this->template);
+
 		// Hook into the footer so we can echo the active template
 		add_action('wp_footer', array(&$this, 'show_template'), 100);
 	}

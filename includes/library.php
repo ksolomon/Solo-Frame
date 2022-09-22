@@ -6,10 +6,7 @@
 */
 
 // Disable Admin Bar
-add_filter('show_admin_bar', '__return_false');
-
-// Enqueue jQuery
-wp_enqueue_script("jquery");
+//add_filter('show_admin_bar', '__return_false');
 
 // Add theme support features
 add_theme_support('automatic_feed_links');
@@ -27,17 +24,7 @@ register_nav_menus(array(
 ));
 
 // Post thumbnails
-set_post_thumbnail_size(96, 96, true);
-
-function sf_thumbs() {
-    if ((function_exists('has_post_thumbnail')) && (has_post_thumbnail())) {
-	    // If WordPress 2.9 or above and a Post Thumbnail has been specified
-        the_post_thumbnail('thumbnail', array('alt' => ''.get_the_title().''));
-    } else {
-	    // Or if Post Thumbnail image hasn't been specified
-        echo '<img src="'.get_bloginfo('template_url').'/images/placeholder.png" alt="'.get_the_title().'" />';
-    }
-}
+set_post_thumbnail_size(150, 150, true);
 
 // Make captions responsive
 function sf_responsive_caption($val, $attr, $content = null) {
@@ -186,7 +173,7 @@ function sf_recent_posts($args='') {
 	global $wpdb;
 
 	parse_str($args);
-	if (!isset($numposts)) $numposts = 3;
+	if (!isset($numposts)) $numposts = 5;
 
 	if (isset($exclude)) {
 		$catid = $wpdb->get_var("SELECT term_ID FROM $wpdb->terms WHERE name='$exclude'");
@@ -201,6 +188,7 @@ function sf_recent_posts($args='') {
 		$excerpt = '('.$postdate.') ';
 		$excerpt .= get_the_excerpt();
 		$title = get_the_title();
+		$rec_posts = '';
 
 		$rec_posts .= '<h4>'.$title.'</h4>';
 		$rec_posts .= '<div class="news-summary">'.$excerpt.'</div>';
@@ -210,154 +198,6 @@ function sf_recent_posts($args='') {
 		echo "No news yet. Check back later.";
 	} else {
 		echo $rec_posts;
-	}
-}
-
-// Add first and last classes to list items returned from wp_list_pages
-function sf_addFirstLastClass($pageList) {
-	// pattern to focus on just li's
-	$allLisPattern = '/<li class="page_item(.*)<\/li>/s';
-	preg_match($allLisPattern,$pageList,$allLis);
-	$liClassPattern =  "/<li[^>]+class=\"([^\"]+)/i";
-
-	// first let's break out each li
-	$liArray = explode("\n",$allLis[0]);
-
-	// count to get last li
-	$liArrayCount = count($liArray);
-
-	$lastLiPosition = $liArrayCount-1;
-
-	// get the class name(s) of first class and last class
-	preg_match($liClassPattern,$liArray[0],$firstMatch);
-	preg_match($liClassPattern,$liArray[$lastLiPosition],$lastMatch);
-
-	// add the new class names and replace the complete first and last lis
-	$newFirstLi = str_replace($firstMatch[1],$firstMatch[1]. " first",$liArray[0]);
-	$newLastLi = str_replace($lastMatch[1],$lastMatch[1]. " last",$liArray[$lastLiPosition]);
-	// replace first and last of the li array with new lis
-
-	// rebuild newPageList
-		// set first li
-		$newPageList .= $newFirstLi.'';
-		$i=1;
-		while($i<$lastLiPosition)	{
-			$newPageList .= $liArray[$i];
-			$i++;
-		}
-		// set last li
-		$newPageList .= $newLastLi;
-
-		// lastly, replace old list with new list
-		$pageList = str_replace($allLis[0],$newPageList,$pageList);
-	return $pageList;
-}
-
-add_filter('wp_list_pages', 'sf_addFirstLastClass');
-
-// List child pages
-function sf_child_pages() {
-	global $post;
-
-	if ($post->post_parent)
-		$children = wp_list_pages("title_li=&child_of=".$post->post_parent."&echo=0");
-	else
-		$children = wp_list_pages("title_li=&child_of=".$post->ID."&echo=0");
-
-	if ($children) {
-		$output = '<ul>';
-		$output .= $children;
-		$output .= '</ul>';
-	}
-
-	print $output;
-}
-
-// Generate breadcrumbs
-function sf_breadcrumbs($args='') {
- 	parse_str($args);
-
-	if (!isset($between)) $between = '&raquo;';
-	if (!isset($name)) $name = 'Home'; //text for the 'Home' link
-	if (!isset($currentBefore)) $currentBefore = '<span class="current">';
-	if (!isset($currentAfter)) $currentAfter = '</span>';
-
-	if (!is_home() && !is_front_page() || is_paged()) {
-		echo '<div id="crumbs">';
-
-		global $post;
-		$home = get_bloginfo('url');
-		echo '<a href="' . $home . '">' . $name . '</a> ' . $between . ' ';
-
-		if (is_category()) {
-			global $wp_query;
-
-			$cat_obj = $wp_query->get_queried_object();
-			$thisCat = $cat_obj->term_id;
-			$thisCat = get_category($thisCat);
-			$parentCat = get_category($thisCat->parent);
-
-			if ($thisCat->parent != 0) echo(get_category_parents($parentCat, TRUE, ' ' . $between . ' '));
-			echo $currentBefore . 'Archive by category &#39;';
-			single_cat_title();
-			echo '&#39;' . $currentAfter;
-		} elseif (is_day()) {
-			echo '<a href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '</a> ' . $between . ' ';
-			echo '<a href="' . get_month_link(get_the_time('Y'),get_the_time('m')) . '">' . get_the_time('F') . '</a> ' . $between . ' ';
-			echo $currentBefore . get_the_time('d') . $currentAfter;
-		} elseif (is_month()) {
-			echo '<a href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '</a> ' . $between . ' ';
-			echo $currentBefore . get_the_time('F') . $currentAfter;
-		} elseif (is_year()) {
-			echo $currentBefore . get_the_time('Y') . $currentAfter;
-		} elseif (is_single()) {
-			$cat = get_the_category(); $cat = $cat[0];
-			echo get_category_parents($cat, TRUE, ' ' . $between . ' ');
-			echo $currentBefore;
-			the_title();
-			echo $currentAfter;
-		} elseif (is_page() && !$post->post_parent) {
-			echo $currentBefore;
-			the_title();
-			echo $currentAfter;
-		} elseif (is_page() && $post->post_parent) {
-			$parent_id  = $post->post_parent;
-			$breadcrumbs = array();
-
-			while ($parent_id) {
-				$page = get_page($parent_id);
-				$breadcrumbs[] = '<a href="' . get_permalink($page->ID) . '">' . get_the_title($page->ID) . '</a>';
-				$parent_id  = $page->post_parent;
-			}
-
-			$breadcrumbs = array_reverse($breadcrumbs);
-
-			foreach ($breadcrumbs as $crumb) echo $crumb . ' ' . $between . ' ';
-			echo $currentBefore;
-			the_title();
-			echo $currentAfter;
-		} elseif (is_search()) {
-			echo $currentBefore . 'Search results for &#39;' . get_search_query() . '&#39;' . $currentAfter;
-		} elseif (is_tag()) {
-			echo $currentBefore . 'Posts tagged &#39;';
-			single_tag_title();
-			echo '&#39;' . $currentAfter;
-		} elseif (is_author()) {
-			global $author;
-
-			$userdata = get_userdata($author);
-			echo $currentBefore . 'Articles posted by ' . $userdata->display_name . $currentAfter;
-		} elseif (is_404()) {
-			echo $currentBefore . 'Error 404' . $currentAfter;
-		}
-
-		if (get_query_var('paged')) {
-			if (is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author()) echo ' (';
-			echo __('Page') . ' ' . get_query_var('paged');
-			if (is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author()) echo ')';
-		}
-
-		echo '</div>';
 	}
 }
 
@@ -383,37 +223,16 @@ function sf_copyright() {
 
 	/* Display blog name from 'General Settings' page */
 	echo ' '.get_bloginfo('name').'. ';
-	echo 'Design by <a href="http://betterbug.com/">Drake Creative</a>';
 }
 
 // Get page slug
 function sf_get_slug() {
-    $post_data = get_post($post->ID, ARRAY_A);
+	global $post;
+
+	$post_data = get_post($post->ID, ARRAY_A);
     $slug = $post_data['post_name'];
     return $slug;
 }
-
-// Post Tag support for pages
-function sf_register_page_tags(){
-     register_taxonomy_for_object_type('post_tag', 'page');
-}
-
-add_action('init', 'sf_register_page_tags');
-
-// Adds an "even" or "odd" post class to each post using the post_class() function.
-global $current_class;
-$current_class = 'odd';
-
-function sf_post_class($classes) {
-	global $current_class;
-	$classes[] = $current_class;
-
-	$current_class = ($current_class == 'odd') ? 'even' : 'odd';
-
-	return $classes;
-}
-
-add_filter('post_class','sf_post_class');
 
 // Add performance metrics to page footer
 function sf_performance($visible = false) {
@@ -435,25 +254,6 @@ function sf_remove_editor_menu() {
 }
 
 add_action('_admin_menu', 'sf_remove_editor_menu', 1);
-
-// Rewrite search urls to get rid of querystring
-function sf_search_url_rewrite() {
-	if (is_search() && !empty($_GET['s'])) {
-		wp_redirect(home_url("/search/") . urlencode(get_query_var('s')));
-		exit();
-	}
-}
-
-add_action('template_redirect', 'sf_search_url_rewrite');
-
-// remove localization routines
-function sf_remove_l1on() {
-	if (!is_admin()) {
-		wp_deregister_script('l10n');
-	}
-}
-
-add_action('init', 'sf_remove_l1on');
 
 // Check referrer querystring to prevent comment floods
 function sf_check_referrer() {

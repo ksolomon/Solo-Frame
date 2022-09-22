@@ -18,6 +18,9 @@
 	// Generic functions
 	require (LIBPATH.'library.php');
 
+	// Per-post/page <head> meta tags via custom fields
+	require (LIBPATH.'head_meta.php');
+
 	// Custom post types and taxonomies
 	require (LIBPATH.'post-types.php');
 
@@ -27,14 +30,8 @@
 	// Custom excerpt functions
 	require (LIBPATH.'excerpts.php');
 
-	// Custom comment functions
-	require (LIBPATH.'comments.php');
-
 	// Custom search functions
 	require (LIBPATH.'search.php');
-
-	// Per-post/page <head> meta tags via custom fields
-	require (LIBPATH.'head_meta.php');
 
 	// Show Active Template plugin
 	require (LIBPATH.'show-template.php');
