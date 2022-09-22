@@ -31,7 +31,7 @@
 	require (LIBPATH.'excerpts.php');
 
 	// Custom search functions
-	require (LIBPATH.'search.php');
+	//require (LIBPATH.'search.php');
 
 	// Show Active Template plugin
 	require (LIBPATH.'show-template.php');
