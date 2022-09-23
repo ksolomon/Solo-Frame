@@ -142,7 +142,6 @@ Used with content (in Custom HTML block) from include/style-guide.html
 
 /** HEADER */
 	#header {
-		border-bottom: 1px solid #333;
 		margin: 1em 0 3em;
 		-webkit-flex: 0 1 100%;
 		-ms-flex: 0 1 100%;
@@ -290,9 +289,6 @@ Used with content (in Custom HTML block) from include/style-guide.html
 
 /** SIDEBAR */
 	#sidebar {
-		border-left: 1px solid #333;
-		-webkit-flex: 0 1 25%;
-		-ms-flex: 0 1 25%;
 		flex: 0 1 25%;
 		padding-left: 25px;
 	}
@@ -424,8 +420,6 @@ Used with content (in Custom HTML block) from include/style-guide.html
 		padding: .5em;
 		text-transform: uppercase;
 		border-radius: 1em;
-		-moz-border-radius: 1em;
-		-webkit-border-radius: 1em;
 	}
 
 	#commentform #submit:hover { cursor: pointer; }
@@ -518,7 +512,6 @@ Used with content (in Custom HTML block) from include/style-guide.html
 	#footer ul { margin-bottom: 1em; }
 
 	#footer ul li {
-		border-left: 1px solid #999;
 		display: inline;
 		font-size: 1.1rem;
 		margin: 0 .5em;
@@ -526,7 +519,6 @@ Used with content (in Custom HTML block) from include/style-guide.html
 	}
 
 	#footer ul li:first-child {
-		border-left: none;
 		margin-left: 0;
 		padding-left: 0;
 	}
