@@ -191,8 +191,9 @@ Used with content (in Custom HTML block) from include/style-guide.html
 	/** HOMEPAGE CONTENT */
 
 	#content { flex: 0 1 70%; }
+	#content.wide { flex: 0 1 100%; }
 
-	.content .postmeta {
+	#content .postmeta {
 		border: 1px solid #333;
 		border-left: none;
 		border-right: none;
@@ -201,7 +202,7 @@ Used with content (in Custom HTML block) from include/style-guide.html
 		padding: .5em;
 	}
 
-	.content .featured {
+	#content .featured {
 		color: #666;
 		font-size: 0.62rem;
 		font-weight: 500;
@@ -210,7 +211,7 @@ Used with content (in Custom HTML block) from include/style-guide.html
 		text-transform: uppercase;
 	}
 
-	.content .post { margin-bottom: 1.5em; }
+	#content .post { margin-bottom: 1.5em; }
 
 	.navigation {
 		float: left;
@@ -218,7 +219,7 @@ Used with content (in Custom HTML block) from include/style-guide.html
 		width: 100%;
 	}
 
-	.content p { margin-bottom: 1.5em; }
+	#content p { margin-bottom: 1.5em; }
 
 	/** PAGE BAR NAV STYLING */
 		.pb-nav { clear: both; }
@@ -237,55 +238,55 @@ Used with content (in Custom HTML block) from include/style-guide.html
 	/** HEADING STYLES */
 		h1, h2, h3, h4, h5, h6 { font-weight: bold; }
 
-		.content h1 { font-size: 2rem; }
+		#content h1 { font-size: 2rem; }
 
-		.content h2 { font-size: 1.9rem; }
+		#content h2 { font-size: 1.9rem; }
 
-		.content h3 { font-size: 1.8rem; }
+		#content h3 { font-size: 1.8rem; }
 
-		.content h4 { font-size: 1.7rem; }
+		#content h4 { font-size: 1.7rem; }
 
-		.content h5 { font-size: 1.6rem; }
+		#content h5 { font-size: 1.6rem; }
 
-		.content h6 { font-size: 1.5rem; }
+		#content h6 { font-size: 1.5rem; }
 
-		.content h2.pagetitle {
+		#content h2.pagetitle {
 			font-size: 1.8rem;
 			font-weight: normal;
 			margin-bottom: 0;
 		}
 
-		.content h2.pagetitle a:link, .content h2.pagetitle a:visited, .content h2.pagetitle a:active {
+		#content h2.pagetitle a:link, #content h2.pagetitle a:visited, #content h2.pagetitle a:active {
 			text-decoration: none;
 		}
 
-		.content h2.pagetitle a:hover {  }
+		#content h2.pagetitle a:hover {  }
 
 	/** QUOTES & LISTS */
-		.content blockquote {
+		#content blockquote {
 			font-style: italic;
 			line-height: 1.4em;
 			margin-bottom: 1.8em;
 			padding: 0 1.5em;
 		}
 
-		.content ul, .content ol { margin: 0 0 1.5em 3em; }
+		#content ul, #content ol { margin: 0 0 1.5em 3em; }
 
-		.content li {
+		#content li {
 			font-size: 1rem;
 			line-height: 1.4em;
 			margin-bottom: .5em;
 		}
 
-		.content ul li { list-style-type: disc; }
+		#content ul li { list-style-type: disc; }
 
-		.content ol li { list-style-type: decimal; }
+		#content ol li { list-style-type: decimal; }
 
-		.content li ol li { list-style-type: lower-alpha; }
+		#content li ol li { list-style-type: lower-alpha; }
 
-		.content li ul, .content li ol { margin: 0 0 0 1.5em; }
+		#content li ul, #content li ol { margin: 0 0 0 1.5em; }
 
-		.content li li { font-size: 1em; }
+		#content li li { font-size: 1em; }
 
 /** SIDEBAR */
 	#sidebar {

@@ -9,10 +9,10 @@ get_header();
 ?>
 
 	<!-- content -->
-	<div id="content" class="content">
+	<div id="content" class="wide">
 		<div class="entry" id="entry-err">
 			<h2 class="pagetitle">Can't find that page, sorry... <small>(Error 404)</small></h2>
-			
+
 			<p>Let me help you find what you came here for:</p>
 
 			<?php
@@ -61,7 +61,5 @@ get_header();
 			</ol>
 		</div>
 	</div>
-
-<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>
