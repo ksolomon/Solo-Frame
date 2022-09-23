@@ -142,6 +142,25 @@ Used with content (in Custom HTML block) from include/style-guide.html
 
 	li li { font-size: 1em; }
 
+/** Form Styles */
+	label { font-size: 1rem; }
+
+	label span { font-size: 1rem; }
+
+	input, textarea {
+		border: 1px solid #333;
+		padding: .5em;
+	}
+
+	input:focus, textarea:focus { border: 1px solid #007ac9; }
+
+	input[type='text'] {
+		margin-right: .5em;
+		width: 20em;
+	}
+
+	textarea { width: 100%; }
+
 /** Links */
 	a:link, a:visited, a:active { text-decoration: none; }
 
@@ -363,7 +382,7 @@ Used with content (in Custom HTML block) from include/style-guide.html
 		padding: 0;
 	}
 
-	#comments .comment-author { font-size: 1.2rem; }
+	#comments .comment-author { font-size: 1rem; }
 
 	#comments .comment-author cite { }
 
@@ -374,25 +393,9 @@ Used with content (in Custom HTML block) from include/style-guide.html
 		padding-bottom: 2em;
 	}
 
-	#commentform label { font-size: 1.2rem; }
-
-	#commentform label span { font-size: 1.1rem; }
-
-	#commentform input, #commentform textarea {
-		border: 1px solid #333;
-		padding: .5em;
-	}
-
-	#commentform input:focus, #commentform textarea:focus { border: 1px solid #333; }
-
 	#commentform input#author, #commentform input#email, #commentform input#url {
 		margin-right: .5em;
 		width: 20em;
-	}
-
-	#commentform textarea {
-		margin-bottom: .5em;
-		width: 100%;
 	}
 
 	#commentform p.subscribe-to-comments {
