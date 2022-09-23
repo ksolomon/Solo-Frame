@@ -6,7 +6,7 @@
 				<?php while (have_posts()) : the_post(); ?>
 					<!-- Individual Post Styling -->
 					<div class="entry" id="entry-<?php the_ID(); ?>">
-						<h2 class="pagetitle"><?php the_title(); ?></h2>
+						<h2 class="PageTitle"><?php the_title(); ?></h2>
 
 						<?php the_content("Continue reading " . the_title('', '', false)); ?>
 
@@ -15,7 +15,7 @@
 				<?php endwhile; else : ?>
 					<!-- No Posts Found -->
 					<div class="entry" id="entry-err">
-						<h2 class="pagetitle">Page not found.</h2>
+						<h2 class="PageTitle">Page not found.</h2>
 					</div>
 			<?php endif; ?>
 		</div>

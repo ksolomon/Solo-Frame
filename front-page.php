@@ -12,7 +12,7 @@
 				<?php while (have_posts()) : the_post(); ?>
 					<!-- Individual Post Styling -->
 					<article <?php post_class(); ?> id="entry-<?php the_ID(); ?>">
-						<h2 class="pagetitle"><?php the_title(); ?></h2>
+						<h2 class="PageTitle"><?php the_title(); ?></h2>
 
 						<?php the_content("Continue reading " . the_title('', '', false)); ?>
 
@@ -21,7 +21,7 @@
 				<?php endwhile; else : ?>
 					<!-- No Posts Found -->
 					<section id="post-0" class="post error404 not-found">
-						<h2 class="pagetitle">Page not found.</h2>
+						<h2 class="PageTitle">Page not found.</h2>
 						<p>Apologies, but we were unable to find the requested page.</p>
 						<?php get_search_form(); ?>
 					</section>

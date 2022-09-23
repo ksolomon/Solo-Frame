@@ -9,7 +9,7 @@
 
 					<!-- Individual Post Styling -->
 					<article <?php post_class(); ?> id="entry-<?php the_ID(); ?>">
-						<h2 class="pagetitle"><?php the_title(); ?></h2>
+						<h2 class="PageTitle"><?php the_title(); ?></h2>
 						<div class="postmeta">
 							Posted <?php the_time('F jS, Y') ?> &nbsp; &mdash; &nbsp; Filed under <?php the_category(', ') ?><br />
 							Tagged <?php the_tags('', ', ') ?> &nbsp; &mdash; &nbsp; <?php comments_number('No Comments', '1 Comment', '% Comments' );?> <?php edit_post_link('Edit this post', '&nbsp; &mdash; &nbsp; <small>', '</small>'); ?>
@@ -31,7 +31,7 @@
 				<?php else : ?>
 					<!-- No Posts Found -->
 					<div class="entry" id="entry-err">
-						<h2 class="pagetitle">Post not found.</h2>
+						<h2 class="PageTitle">Post not found.</h2>
 					</div>
 			<?php endif; ?>
 		</section>

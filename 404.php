@@ -9,36 +9,34 @@ get_header();
 ?>
 
 	<!-- content -->
-	<div id="content" class="wide">
+	<div id="content" class="wide pad">
 		<div class="entry" id="entry-err">
-			<h2 class="pagetitle">Can't find that page, sorry... <small>(Error 404)</small></h2>
-
-			<p>Let me help you find what you came here for:</p>
+			<h2 class="PageTitle">Can't find that page, sorry... <small>(Error 404)</small></h2>
 
 			<?php
-				$s = preg_replace("/(.*)-(html|htm|php|asp|aspx)$/","$1",$wp_query->query_vars['name']);
-				$posts = query_posts('post_type=any&name='.$s);
-				$s = str_replace("-"," ",$s);
+			$s = preg_replace("/(.*)-(html|htm|php|asp|aspx)$/","$1",$wp_query->query_vars['name']);
 
-				if (count($posts) == 0) {
-					$posts = query_posts('post_type=any&s='.$s);
-				}
+			$posts = query_posts('post_type=any&name='.$s);
 
-				if (count($posts) > 0) {
-					echo "<ol><li>";
-					echo "<p>Were you looking for <strong>one of the following</strong> posts or pages?</p>";
+			$s = str_replace("-"," ",$s);
 
-					echo "<ul>";
-						foreach ($posts as $post) {
-							echo '<li><a href="'.get_permalink($post->ID).'">'.$post->post_title.'</a></li>';
-						}
-					echo "</ul>";
+			if (count($posts) == 0) { $posts = query_posts('post_type=any&s='.$s); }
 
-					echo "<p>If not, don't worry, I've got a few more tips for you to find it:</p></li>";
-				} else {
-					echo "<p><strong>Don't worry though!</strong> I've got a few tips for you to find it:</p>";
-					echo "<ol>";
-				}
+			if (count($posts) > 0) {
+				echo "<ol><li>";
+				echo "<p>Were you looking for <strong>one of the following</strong> posts or pages?</p>";
+
+				echo "<ul>";
+					foreach ($posts as $post) {
+						echo '<li><a href="'.get_permalink($post->ID).'">'.$post->post_title.'</a></li>';
+					}
+				echo "</ul>";
+
+				echo "<p>If not, don't worry, I've got a few more tips for you to find it:</p></li>";
+			} else {
+				echo "<p>Here are a few tips for you to find it:</p>";
+				echo "<ol>";
+			}
 			?>
 				<li>
 					<label for="s"><strong>Search</strong> for it:</label>

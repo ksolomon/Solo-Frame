@@ -106,7 +106,43 @@ Used with content (in Custom HTML block) from include/style-guide.html
 	width: 100%;
 }
 
-/** LINKS */
+/** Heading Styles */
+	h1, h2, h3, h4, h5, h6 { font-weight: bold; }
+
+	h1 { font-size: 2rem; }
+	h2 { font-size: 1.9rem; }
+	h3 { font-size: 1.8rem; }
+	h4 { font-size: 1.7rem; }
+	h5 { font-size: 1.6rem; }
+	h6 { font-size: 1.5rem; }
+
+/** Quotes & Lists */
+	blockquote {
+		font-style: italic;
+		line-height: 1.4em;
+		margin-bottom: 1.8em;
+		padding: 0 1.5em;
+	}
+
+	ul, ol { margin: 0 0 1.5em 3em; }
+
+	li {
+		font-size: 1rem;
+		line-height: 1.4em;
+		margin-bottom: .5em;
+	}
+
+	ul li { list-style-type: disc; }
+
+	ol li { list-style-type: decimal; }
+
+	li ol li { list-style-type: lower-alpha; }
+
+	li ul, li ol { margin: 0 0 0 1.5em;	}
+
+	li li { font-size: 1em; }
+
+/** Links */
 	a:link, a:visited, a:active { text-decoration: none; }
 
 	a:hover { }
@@ -116,7 +152,10 @@ Used with content (in Custom HTML block) from include/style-guide.html
 		margin-top: 1.5em;
 	}
 
-/** HEADER */
+/** Utility Styles */
+	.pad { padding: 0 5%; }
+
+/** Header */
 	#header {
 		margin: 1em 0 3em;
 		-webkit-flex: 0 1 100%;
@@ -124,7 +163,7 @@ Used with content (in Custom HTML block) from include/style-guide.html
 		flex: 0 1 100%;
 	}
 
-	/** LOGO */
+	/** Logo */
 		#logo { margin-bottom: 0; }
 
 		#logo h1 a:link, #logo h1 a:visited, #logo h1 a:active {
@@ -139,7 +178,7 @@ Used with content (in Custom HTML block) from include/style-guide.html
 			font-weight: normal;
 		}
 
-	/** NAVIGATION */
+	/** Navigation */
 		#nav ul {
 			display: flex;
 			flex-wrap: wrap;
@@ -148,6 +187,8 @@ Used with content (in Custom HTML block) from include/style-guide.html
 			margin: 0 0 1em;
 			padding: 0;
 		}
+
+		#nav ul li { list-style-type: none; }
 
 		#nav li a:link, #nav li a:visited, #nav li a:active {
 			align-items: flex-start;
@@ -163,8 +204,8 @@ Used with content (in Custom HTML block) from include/style-guide.html
 			color: #fff;
 		}
 
-/** CONTENT */
-	/** HOMEPAGE CONTENT */
+/** Content */
+	/** Homepage Content */
 
 	#content { flex: 0 1 70%; }
 	#content.wide { flex: 0 1 100%; }
@@ -197,7 +238,32 @@ Used with content (in Custom HTML block) from include/style-guide.html
 
 	#content p { margin-bottom: 1.5em; }
 
-	/** PAGE BAR NAV STYLING */
+	/** Heading Styles */
+		h2.pageTitle {
+			font-size: 1.8rem;
+			font-weight: normal;
+			margin-bottom: 0;
+		}
+
+		h2.pageTitle a:link,
+		h2.pageTitle a:visited,
+		h2.pageTitle a:active { text-decoration: none; }
+
+		h2.pageTitle a:hover {}
+
+		h3.srchTitle {
+			font-size: 1.6rem;
+			font-weight: normal;
+			margin-bottom: 0;
+		}
+
+		h2.srchTitle a:link,
+		h2.srchTitle a:visited,
+		h2.srchTitle a:active { text-decoration: none; }
+
+		h2.srchTitle a:hover {}
+
+	/** Page Bar Nav Styles */
 		.pb-nav { clear: both; }
 
 		.pb-nav a, .pb-nav span {
@@ -211,60 +277,7 @@ Used with content (in Custom HTML block) from include/style-guide.html
 
 		.pb-nav span.current { font-weight: bold; }
 
-	/** HEADING STYLES */
-		h1, h2, h3, h4, h5, h6 { font-weight: bold; }
-
-		#content h1 { font-size: 2rem; }
-
-		#content h2 { font-size: 1.9rem; }
-
-		#content h3 { font-size: 1.8rem; }
-
-		#content h4 { font-size: 1.7rem; }
-
-		#content h5 { font-size: 1.6rem; }
-
-		#content h6 { font-size: 1.5rem; }
-
-		#content h2.pagetitle {
-			font-size: 1.8rem;
-			font-weight: normal;
-			margin-bottom: 0;
-		}
-
-		#content h2.pagetitle a:link, #content h2.pagetitle a:visited, #content h2.pagetitle a:active {
-			text-decoration: none;
-		}
-
-		#content h2.pagetitle a:hover {  }
-
-	/** QUOTES & LISTS */
-		#content blockquote {
-			font-style: italic;
-			line-height: 1.4em;
-			margin-bottom: 1.8em;
-			padding: 0 1.5em;
-		}
-
-		#content ul, #content ol { margin: 0 0 1.5em 3em; }
-
-		#content li {
-			font-size: 1rem;
-			line-height: 1.4em;
-			margin-bottom: .5em;
-		}
-
-		#content ul li { list-style-type: disc; }
-
-		#content ol li { list-style-type: decimal; }
-
-		#content li ol li { list-style-type: lower-alpha; }
-
-		#content li ul, #content li ol { margin: 0 0 0 1.5em; }
-
-		#content li li { font-size: 1em; }
-
-/** SIDEBAR */
+/** Sidebar */
 	#sidebar {
 		flex: 0 1 25%;
 		padding-left: 25px;
@@ -296,7 +309,7 @@ Used with content (in Custom HTML block) from include/style-guide.html
 
 	.sidebar li li { font-size: 1rem; }
 
-/** COMMENTS */
+/** Comments */
 	#comments { margin: 3em 0; }
 
 	#comments h3 { margin: 0 0 .25em; }
@@ -401,7 +414,7 @@ Used with content (in Custom HTML block) from include/style-guide.html
 
 	#commentform #submit:hover { cursor: pointer; }
 
-/** CALENDAR */
+/** Calendar */
 	table#wp-calendar {
 		border: 1px solid #333;
 		border-collapse: collapse;
@@ -465,7 +478,7 @@ Used with content (in Custom HTML block) from include/style-guide.html
 		width: 5.3em;
 	}
 
-/** FOOTER */
+/** Footer */
 	#footer {
 		border-top: 1px solid #333;
 		color: #333;

@@ -2,7 +2,7 @@
 
 		<!-- content -->
 		<div id="content" class="content">
-			<h2 class="pagetitle">Gallery Image</h2>
+			<h2 class="PageTitle">Gallery Image</h2>
 
 			<?php if (have_posts()) : ?>
 				<?php while (have_posts()) : the_post(); ?>
@@ -20,7 +20,7 @@
 				<?php endwhile; else : ?>
 					<!-- No Posts Found -->
 					<div class="entry" id="entry-err">
-						<h2 class="pagetitle">Image not found.</h2>
+						<h2 class="PageTitle">Image not found.</h2>
 					</div>
 			<?php endif; ?>
 		</div>

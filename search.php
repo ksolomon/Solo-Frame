@@ -1,9 +1,9 @@
 <?php get_header(); ?>
 
 		<!-- content -->
-		<div id="content" class="content">
+		<div id="content" class="pad">
 			<?php if (have_posts()) : ?>
-				<h2 class="pagetitle">Search Results for "<em><?php the_search_query() ?></em>"</h2>
+				<h2 class="pageTitle">Search Results for "<em><?php the_search_query() ?></em>"</h2>
 
 				<!-- Navigation -->
 				<?php sf_display_nav(); ?>
@@ -19,7 +19,8 @@
 								$title);
 						?>
 
-						<h2 class="pagetitle"><a href="<?php the_permalink() ?>" rel="bookmark" title='Click to read: "<?php strip_tags(the_title()); ?>"'><?php the_title(); ?></a></h2>
+						<h3 class="srchTitle"><a href="<?php the_permalink() ?>" rel="bookmark" title='Click to read: "<?php strip_tags(the_title()); ?>"'><?php the_title(); ?></a></h3>
+
 						<div class="postmeta">
 							Posted <?php the_time('F jS, Y') ?> &nbsp; &mdash; &nbsp; Filed under <?php the_category(', ') ?><br />
 							Tagged <?php the_tags('', ', ') ?> &nbsp; &mdash; &nbsp; <?php comments_number('No Comments', '1 Comment', '% Comments' );?> <?php edit_post_link('Edit this post', '&nbsp; &mdash; &nbsp; <small>', '</small>'); ?>
@@ -36,7 +37,7 @@
 					<?php endif; ?>
 				<?php else : ?>
 					<!-- No Posts Found -->
-					<h2 class="pagetitle">No results found.</h2>
+					<h2 class="PageTitle">No results found.</h2>
 
 					<p>Sorry, but we were unable to find any posts matching your criteria, please try your search again.  If you are still unable to find what you're looking for, please try browsing our archives.  You can also <a href="<?php bloginfo('url'); ?>">return home</a>.</p>
 			<?php endif; ?>
