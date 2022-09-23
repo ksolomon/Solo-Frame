@@ -17,9 +17,10 @@ add_theme_support('html5', array('comment-list', 'comment-form', 'gallery', 'sea
 // Set up shortcode support for text widgets
 add_filter('widget_text', 'do_shortcode');
 
-// Menu Support
+// Menu Positions
 register_nav_menus(array(
 	'primary' => 'Main Navigation',
+	'footer' => 'Footer Navigation',
 	'mobile' => 'Mobile Navigation',
 ));
 

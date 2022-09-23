@@ -492,25 +492,22 @@ Used with content (in Custom HTML block) from include/style-guide.html
 	#footer {
 		border-top: 1px solid #333;
 		color: #333;
+		flex: 0 1 100%;
+		font-size: 1rem;
 		margin-top: 3em;
 		padding-top: .5em;
-		flex: 0 1 100%;
 	}
 
-	#footer-credits, #footer-meta { width: 49%; }
-
-	#footer-meta { text-align: right; }
+	#footer p {  }
 
 	#footer a:link, #footer a:visited, #footer a:active { text-decoration: none; }
 
 	#footer a:hover { }
 
-	#footer p { font-size: 1rem; }
-
 	#footer ul { margin-bottom: 1em; }
 
 	#footer ul li {
-		display: inline;
+		display: inline-block;
 		font-size: 1.1rem;
 		margin: 0 .5em;
 		padding: 0 1em;
@@ -520,3 +517,7 @@ Used with content (in Custom HTML block) from include/style-guide.html
 		margin-left: 0;
 		padding-left: 0;
 	}
+
+	#footCredits, #footNav { width: 49%; }
+
+	#footNav { text-align: right; }

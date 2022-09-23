@@ -2,15 +2,11 @@
 
 		<!-- footer -->
 		<div id="footer">
-			<?php if ($sf_footer_text) { ?>
-				<p id="footer-credits" class="left"><?php echo $sf_footer_text; ?></p>
-			<?php } else { ?>
-				<p id="footer-credits" class="left"><?php sf_copyright(); ?></p>
+			<div id="footCredits" class="left"><p><?php sf_copyright(); ?></p></div>
 
-				<ul id="footer-meta" class="right">
-					<li><a href="http://wordpress.org">Powered by WordPress</a></li>
-				</ul>
-			<?php } ?>
+			<nav id="footNav" class="right" role="navigation">
+				<?php wp_nav_menu(array('theme_location' => 'primary')); ?>
+			</nav>
 
 			<div class="clear"></div>
 		</div>

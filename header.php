@@ -30,7 +30,7 @@
 
 <body <?php body_class(); ?>>
 	<!-- wrapper -->
-	<div id="wrapper" class="frame">
+	<div id="wrapper">
 		<header id="header" role="banner">
 			<hgroup id="logo">
 				<h1 id="site-name"><a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1>
