@@ -494,8 +494,6 @@ Used with content (in Custom HTML block) from include/style-guide.html
 		color: #333;
 		margin-top: 3em;
 		padding-top: .5em;
-		-webkit-flex: 0 1 100%;
-		-ms-flex: 0 1 100%;
 		flex: 0 1 100%;
 	}
 
@@ -507,7 +505,7 @@ Used with content (in Custom HTML block) from include/style-guide.html
 
 	#footer a:hover { }
 
-	#footer p { font-size: 1.1rem; }
+	#footer p { font-size: 1rem; }
 
 	#footer ul { margin-bottom: 1em; }
 
