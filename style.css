@@ -191,10 +191,15 @@ Used with content (in Custom HTML block) from include/style-guide.html
 /** CONTENT */
 	/** HOMEPAGE CONTENT */
 
-	#content {
-		-webkit-flex: 0 1 70%;
-		-ms-flex: 0 1 70%;
-		flex: 0 1 70%;
+	#content { flex: 0 1 70%; }
+
+	.content .postmeta {
+		border: 1px solid #333;
+		border-left: none;
+		border-right: none;
+		line-height: 1.4em;
+		margin-bottom: 1em;
+		padding: .5em;
 	}
 
 	.content .featured {
@@ -207,19 +212,6 @@ Used with content (in Custom HTML block) from include/style-guide.html
 	}
 
 	.content .post { margin-bottom: 1.5em; }
-
-	.content .odd { }
-
-	.content .even { }
-
-	.content .postmeta {
-		border: 1px solid #333;
-		border-left: none;
-		border-right: none;
-		line-height: 1.4em;
-		margin-bottom: 1em;
-		padding: .5em;
-	}
 
 	.navigation {
 		float: left;
@@ -290,7 +282,9 @@ Used with content (in Custom HTML block) from include/style-guide.html
 
 		.content ol li { list-style-type: decimal; }
 
-		.content li ul { margin-bottom: 0; }
+		.content li ol li { list-style-type: lower-alpha; }
+
+		.content li ul, .content li ol { margin: 0 0 0 1.5em; }
 
 		.content li li { font-size: 1em; }
 
