@@ -44,32 +44,16 @@ Used with content (in Custom HTML block) from include/style-guide.html
 	.color-2 { background: #0f0; }
 	.color-3 { background: #00f; }
 
-	#templateTitle {
-		position: relative;
-		padding-top: 10px;
-		margin: 0 auto;
-		text-align: center;
-	}
-
-	#projectTitle {
-		font-size: 30px;
-		font-weight: 700;
-		color: #C4C4C4;
-	}
-
-	#projectDesc {
-		font-family: sans-serif;
-		font-size: 20px;
-		font-weight: 300;
-		color: #DBDBDB;
+	.styleBlk {
+		float: left;
+		width: 100%;
 	}
 
 	.seperator {
-		position: relative;
 		padding-top: 20px;
 		margin: 0 auto;
 		margin-bottom: 50px;
-		border-bottom: 1px solid #EDEDED;
+		border-bottom: 1px solid #ededed;
 	}
 
 	.sectionHeading {
@@ -78,21 +62,18 @@ Used with content (in Custom HTML block) from include/style-guide.html
 	}
 
 	.sectionTitle {
-		font-family: sans-serif;
 		font-size: 20px;
 		font-weight: 300;
 		color: #848484;
 	}
 
 	.sectionSeperator {
-		position: relative;
 		padding-top: 5px;
 		margin: 0 auto;
-		border-bottom: 1px solid #CCCCCC;
+		border-bottom: 1px solid #cccccc;
 	}
 
 	ul#colors {
-		position: relative;
 		padding-top: 30px;
 		margin: 0 auto;
 		margin-bottom: 85px;
@@ -108,14 +89,9 @@ Used with content (in Custom HTML block) from include/style-guide.html
 		margin-right: 20px;
 	}
 
-	.colorHex {
-		position: relative;
-		top: 120px;
-		right: 6px;
-	}
+	.colorHex { margin-top: 120px; }
 
 	#typography, #inlineElements, #formElements {
-		position: relative;
 		padding-top: 10px;
 		margin: 0 auto;
 		margin-bottom: 75px;
