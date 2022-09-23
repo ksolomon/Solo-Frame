@@ -22,8 +22,8 @@
 						<h3 class="srchTitle"><a href="<?php the_permalink() ?>" rel="bookmark" title='Click to read: "<?php strip_tags(the_title()); ?>"'><?php the_title(); ?></a></h3>
 
 						<div class="postmeta">
-							Posted <?php the_time('F jS, Y') ?> &nbsp; &mdash; &nbsp; Filed under <?php the_category(', ') ?><br />
-							Tagged <?php the_tags('', ', ') ?> &nbsp; &mdash; &nbsp; <?php comments_number('No Comments', '1 Comment', '% Comments' );?> <?php edit_post_link('Edit this post', '&nbsp; &mdash; &nbsp; <small>', '</small>'); ?>
+							Posted <?php the_time('F jS, Y') ?> <?php if (has_category()) { ?>&nbsp; &mdash; &nbsp; Filed under <?php the_category(', '); } ?><br />
+							<?php if (has_tag()) { ?>Tagged <?php the_tags('', ', '); ?> &nbsp; &mdash; &nbsp; <?php } edit_post_link('Edit this post', '<small>', '</small>'); ?>
 						</div>
 
 						<?php the_excerpt(); ?>
