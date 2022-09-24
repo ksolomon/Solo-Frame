@@ -34,11 +34,9 @@ body {
 		/* content: url(images/ig-icon-hover.png) url(images/fb-icon-hover.png) url(images/custom-sub-hover.png) url(images/cart-btn-hover.png) url(images/prodlink-hover.png) url(images/buy-btn-hover.png); */
 	}
 
-/**
-Style Guide Base Styles
+/** Style Guide Base Styles */
+	/** Used with content (in Custom HTML block) from include/style-guide.html */
 
-Used with content (in Custom HTML block) from include/style-guide.html
-*/
 	/** Color circles.  Add/change as necessary/ */
 	.color-1 { background: #f00; }
 	.color-2 { background: #0f0; }
@@ -98,12 +96,10 @@ Used with content (in Custom HTML block) from include/style-guide.html
 	}
 
 #wrapper {
-	margin: 0 auto;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	width: 100%;
+	display: grid;
+	grid-gap: 0;
+	grid-template-columns: [col] 25% [col] 25% [col] 25% [col] 25%;
+	grid-template-rows: [header] auto [content] auto [footer];
 }
 
 /** Heading Styles */
@@ -174,7 +170,7 @@ Used with content (in Custom HTML block) from include/style-guide.html
 	input[required="required"] { border: 1px solid rgba(208,73,73,0.5); }
 
 	input[type='submit'], button, .btn {
-		background-color: rgba(0, 0, 0, .2);
+		background-color: rgba(24, 16, 115, 0.619);
 		/* change button color here */
 		-moz-border-radius: 2px;
 		-webkit-border-radius: 2px;
@@ -231,9 +227,8 @@ Used with content (in Custom HTML block) from include/style-guide.html
 /** Header */
 	#header {
 		margin: 1em 0 3em;
-		-webkit-flex: 0 1 100%;
-		-ms-flex: 0 1 100%;
-		flex: 0 1 100%;
+		grid-column: col / span 4;
+		grid-row: header;
 	}
 
 	/** Logo */
@@ -280,8 +275,14 @@ Used with content (in Custom HTML block) from include/style-guide.html
 /** Content */
 	/** Homepage Content */
 
-	#content { flex: 0 1 70%; }
-	#content.wide { flex: 0 1 100%; }
+	#content {
+		grid-column: col / span 3;
+		grid-row: content;
+	}
+	#content.wide {
+		grid-column: col / span 4;
+		grid-row: content;
+	}
 
 	#content .postmeta {
 		border: 1px solid #333;
@@ -352,7 +353,8 @@ Used with content (in Custom HTML block) from include/style-guide.html
 
 /** Sidebar */
 	#sidebar {
-		flex: 0 1 25%;
+		grid-column: col 4;
+		grid-row: content;
 		padding-left: 25px;
 	}
 
@@ -539,8 +541,9 @@ Used with content (in Custom HTML block) from include/style-guide.html
 	#footer {
 		border-top: 1px solid #333;
 		color: #333;
-		flex: 0 1 100%;
 		font-size: 1rem;
+		grid-column: col / span 4;
+		grid-row: footer;
 		margin-top: 3em;
 		padding-top: .5em;
 	}
