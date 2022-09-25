@@ -259,7 +259,7 @@ add_action('_admin_menu', 'sf_remove_editor_menu', 1);
 // Check referrer querystring to prevent comment floods
 function sf_check_referrer() {
 	if (!isset($_SERVER['HTTP_REFERER']) || $_SERVER['HTTP_REFERER'] == "") {
-		wp_die(__('Please enable referrers in your browser to cooment'));
+		wp_die(__('Please enable referrers in your browser to comment'));
 	}
 }
 

@@ -3,7 +3,7 @@
 <?php get_header(); ?>
 
 		<!-- content -->
-		<div id="content" class="content">
+		<div id="content" class="wide">
 			<?php if (have_posts()) : ?>
 				<?php while (have_posts()) : the_post(); ?>
 					<!-- Individual Post Styling -->
