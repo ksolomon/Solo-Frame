@@ -351,6 +351,90 @@ body {
 
 		.pb-nav span.current { font-weight: bold; }
 
+	/** Comments */
+		#comments { margin: 2em 0; }
+
+		#comments h3 { margin: 0 0 .25em; }
+
+		#comments .commentlist {
+			margin: 0;
+			padding: 0;
+		}
+
+		#comments .commentlist li {
+			font-size: 1.2rem;
+			list-style-type: none;
+			margin: 0 0 1em;
+			padding: .5em;
+		}
+
+		#comments .commentlist li.alt {
+			background: #eee;
+			border-bottom: 1px solid #333;
+			border-top: 1px solid #333;
+		}
+
+		#comments .commentlist p {
+			font-size: 1.1rem;
+			line-height: 1.4em;
+			margin: 0;
+		}
+
+		#commentform p { margin: 0; }
+
+		#commentform p small { font-size: .85rem; }
+
+		.nocomments {
+			margin: 0;
+			padding: 0;
+		}
+
+		.commentmetadata {
+			border-bottom: 1px solid #ababab;
+			display: block;
+			margin: 0;
+		}
+
+		#comments .commentmetadata a:link, #comments .commentmetadata a:visited, #comments .commentmetadata a:active {}
+
+		#comments .commentmetadata a:hover, #comments .comment-author a:hover { background: transparent; }
+
+		#comments .avatar {
+			float: left;
+			margin: 0 15px 0 0;
+			padding: 0;
+		}
+
+		#comments .comment-author { font-size: 1rem; }
+
+		#comments .comment-author cite {}
+
+		#comments .comment-author a:link, #comments .comment-author a:visited, #comments .comment-author a:active, #comments .comment-author a:hover { text-transform: none; }
+
+		#commentform {
+			margin: 0;
+			padding-bottom: 2em;
+		}
+
+		#commentform input#author, #commentform input#email, #commentform input#url {
+			margin-right: .5em;
+			width: 20em;
+		}
+
+		#commentform p.subscribe-to-comments {
+			float: left;
+			margin-top: -2.5em;
+		}
+
+		#commentform p.subscribe-to-comments input { margin-left: .5em; }
+
+		#commentform #submit {
+			float: right;
+			padding: .5em;
+		}
+
+		#commentform #submit:hover { cursor: pointer; }
+
 /** Sidebar */
 	#sidebar {
 		grid-column: col 4;
@@ -383,154 +467,6 @@ body {
 	.sidebar li ul { margin-bottom: 0; }
 
 	.sidebar li li { font-size: 1rem; }
-
-/** Comments */
-	#comments { margin: 3em 0; }
-
-	#comments h3 { margin: 0 0 .25em; }
-
-	#comments .commentlist {
-		margin: 0;
-		padding: 0;
-	}
-
-	#comments .commentlist li {
-		font-size: 1.2rem;
-		list-style-type: none;
-		margin: 0 0 1em;
-		padding: .5em;
-	}
-
-	#comments .commentlist li.alt {
-		background: #eee;
-		border-bottom: 1px solid #333;
-		border-top: 1px solid #333;
-	}
-
-	#comments .commentlist p {
-		font-size: 1.1rem;
-		line-height: 1.4em;
-		margin: 0;
-	}
-
-	#commentform p { margin: 0; }
-
-	#commentform p small { font-size: .85rem; }
-
-	.nocomments {
-		margin: 0;
-		padding: 0;
-	}
-
-	.commentmetadata {
-		border-bottom: 1px solid #ababab;
-		display: block;
-		margin: 0;
-	}
-
-	#comments .commentmetadata a:link, #comments .commentmetadata a:visited, #comments .commentmetadata a:active { }
-
-	#comments .commentmetadata a:hover, #comments .comment-author a:hover { background: transparent; }
-
-	#comments .avatar {
-		float: left;
-		margin: 0 15px 0 0;
-		padding: 0;
-	}
-
-	#comments .comment-author { font-size: 1rem; }
-
-	#comments .comment-author cite { }
-
-	#comments .comment-author a:link, #comments .comment-author a:visited, #comments .comment-author a:active, #comments .comment-author a:hover { text-transform: none; }
-
-	#commentform {
-		margin: 0;
-		padding-bottom: 2em;
-	}
-
-	#commentform input#author, #commentform input#email, #commentform input#url {
-		margin-right: .5em;
-		width: 20em;
-	}
-
-	#commentform p.subscribe-to-comments {
-		float: left;
-		margin-top: -2.5em;
-	}
-
-	#commentform p.subscribe-to-comments input { margin-left: .5em; }
-
-	#commentform #submit {
-		float: right;
-		padding: .5em;
-	}
-
-	#commentform #submit:hover { cursor: pointer; }
-
-/** Calendar */
-	table#wp-calendar {
-		border: 1px solid #333;
-		border-collapse: collapse;
-	}
-
-	table#wp-calendar caption {
-		font-size: 1.4rem;
-		text-align: center;
-	}
-
-	table#wp-calendar tbody .pad { background: #ddd; }
-
-	table#wp-calendar>tbody>tr>td>a { font-weight: bold; }
-
-	table#wp-calendar thead>tr>th {
-		background: #cdd5de;
-		border: 1px solid #333;
-		height: 2em;
-		line-height: 2em;
-		text-align: center;
-		width: 2em;
-	}
-
-	table#wp-calendar tbody>tr>td {
-		border: 1px solid #333;
-		height: 2em;
-		line-height: 2em;
-		text-align: center;
-		width: 2em;
-	}
-
-	table#wp-calendar tfoot>tr>td.pad {
-		border: 1px solid #333;
-		border-left: none;
-		border-right: none;
-	}
-
-	table#wp-calendar tfoot>tr>td>a, table#wp-calendar tfoot>tr>td>a:link,
-	table#wp-calendar tfoot>tr>td>a:visited, table#wp-calendar tfoot>tr>td>a:hover,
-	table#wp-calendar tfoot>tr>td>a:active { font-weight: bold; }
-
-	table#wp-calendar tfoot>tr>td#prev {
-		background: #fff;
-		border: 1px solid #333;
-		border-right: none;
-		height: 2em;
-		line-height: 2em;
-		text-align: left;
-		padding-left: .5em;
-		width: 5.3em;
-	}
-
-	table#wp-calendar tfoot>tr>td#next {
-		background: #fff;
-		border: 1px solid #333;
-		border-left: none;
-		height: 2em;
-		line-height: 2em;
-		text-align: right;
-		padding-right: .5em;
-		width: 5.3em;
-	}
 
 /** Footer */
 	#footer {
