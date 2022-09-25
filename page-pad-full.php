@@ -1,32 +1,26 @@
-<?php
-/*
-	Template Name: Home
-*/
-?>
+<?php /* Template Name: Padded Page without Sidebar */ ?>
 
 <?php get_header(); ?>
 
 		<!-- content -->
-		<section id="content" class="wide pad">
+		<div id="content" class="pad">
 			<?php if (have_posts()) : ?>
 				<?php while (have_posts()) : the_post(); ?>
 					<!-- Individual Post Styling -->
-					<article <?php post_class(); ?> id="entry-<?php the_ID(); ?>">
+					<div class="entry" id="entry-<?php the_ID(); ?>">
 						<h2 class="PageTitle"><?php the_title(); ?></h2>
 
 						<?php the_content("Continue reading " . the_title('', '', false)); ?>
 
 						<div class="clear"></div>
-					</article>
+					</div>
 				<?php endwhile; else : ?>
 					<!-- No Posts Found -->
-					<section id="post-0" class="post error404 not-found">
+					<div class="entry" id="entry-err">
 						<h2 class="PageTitle">Page not found.</h2>
-						<p>Apologies, but we were unable to find the requested page.</p>
-						<?php get_search_form(); ?>
-					</section>
+					</div>
 			<?php endif; ?>
-		</section>
+		</div>
 		<!-- /content -->
 
 <?php get_footer(); ?>

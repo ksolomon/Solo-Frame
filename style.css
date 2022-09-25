@@ -226,7 +226,7 @@ body {
 
 /** Header */
 	#header {
-		margin: 1em 0 3em;
+		margin: 1em 0;
 		grid-column: col / span 4;
 		grid-row: header;
 	}
@@ -462,13 +462,8 @@ body {
 	#commentform p.subscribe-to-comments input { margin-left: .5em; }
 
 	#commentform #submit {
-		border: 2px solid #333;
 		float: right;
-		font-size: .8rem;
-		font-weight: bold;
 		padding: .5em;
-		text-transform: uppercase;
-		border-radius: 1em;
 	}
 
 	#commentform #submit:hover { cursor: pointer; }

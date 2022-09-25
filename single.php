@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 		<!-- content -->
-		<section id="content" class="content">
+		<section id="content" class="pad">
 			<?php if (have_posts()) : ?>
 				<?php while (have_posts()) : the_post(); ?>
 					<!-- Navigation -->

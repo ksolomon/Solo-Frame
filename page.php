@@ -1,3 +1,5 @@
+<?php /* Full-width Page, theme default */ ?>
+
 <?php get_header(); ?>
 
 		<!-- content -->
@@ -20,7 +22,5 @@
 			<?php endif; ?>
 		</div>
 		<!-- /content -->
-
-<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>
