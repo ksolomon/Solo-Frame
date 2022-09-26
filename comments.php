@@ -11,7 +11,7 @@ if (post_password_required()) { ?>
 ?>
 
 <a id="comments"></a>
-<h2>Comments</h2>
+<h3>Comments</h3>
 <?php if ($comments) : ?>
 	<ul class="commentlist">
 		<?php foreach ($comments as $comment) : ?>
@@ -21,7 +21,7 @@ if (post_password_required()) { ?>
 				<?php endif; ?>
 				<?php echo get_avatar(get_comment_author_email(), 48, $default_avatar); ?>
 				<cite class="commentmetadata">
-					<h3><?php comment_author_link(); ?></h3> on <small><?php comment_date(); ?></small>
+					<h4><?php comment_author_link(); ?></h4> on <small><?php comment_date(); ?></small>
 				</cite>
 				<br />
 				<?php comment_text(); ?>
@@ -32,7 +32,7 @@ if (post_password_required()) { ?>
 
 <?php if (comments_open()) : ?>
 	<hr />
-	<h2>Add Your Comment</h2>
+	<h3>Add Your Comment</h3>
 	<?php if (get_option('comment_registration') && !$user_ID) : ?>
 		<p>You must be <a href="<?php echo get_option('siteurl'); ?>/wp-login.php?redirect_to=<?php echo urlencode(get_permalink()); ?>">logged in</a> to post a comment.</p><?php else : ?>
 		<form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" id="commentform">
