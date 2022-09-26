@@ -143,16 +143,12 @@ body {
 
 	label span { font-size: 1rem; }
 
-	input[type=email], input[type=number], input[type=password], input[type=tel], input[type=text], input[type=url], select, textarea {
+	input[type=email], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=url], select, textarea {
 		-moz-appearance: none;
 		-webkit-appearance: none;
 		appearance: none;
 		background: rgb(255, 255, 255);
 		border: 1px solid rgb(217, 217, 217);
-		-moz-border-radius: 1px;
-		-webkit-border-radius: 1px;
-		border-radius: 1px;
-		color: rgb(64, 64, 64);
 		display: inline-block;
 		font-size: 1em;
 		margin-top: 5px;
@@ -170,51 +166,32 @@ body {
 	input[required="required"] { border: 1px solid rgba(208,73,73,0.5); }
 
 	input[type='submit'], button, .btn {
-		background-color: rgba(24, 16, 115, 0.619);
-		/* change button color here */
-		-moz-border-radius: 2px;
-		-webkit-border-radius: 2px;
-		border-radius: 2px;
-		-moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.6);
-		-webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.6);
-		box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.6);
+		background-color: #002395; /* change button color here */
 		border: 0px;
 		color: white;
 		cursor: pointer;
 		display: inline-block;
-		font-size: 15px;
-		font-weight: normal;
-		letter-spacing: .12rem;
-		line-height: 1.428571429;
-		margin-bottom: 0;
+		font-size: 1em;
+		margin: 0;
 		outline: none;
-		padding: 8px 22px;
+		padding: .25em;
 		text-align: center;
 		text-decoration: none;
-		-webkit-user-select: none;
-		-moz-user-select: none;
-		-ms-user-select: none;
-		-o-user-select: none;
-		user-select: none;
 		vertical-align: middle;
 		white-space: nowrap;
 	}
 
-	input[type='submit']:hover, button:hover, .btn:hover {
-		background-color: rgba(0,0,0, .3);  /* change button color here */
-	}
+	input[type='submit']:hover, button:hover, .btn:hover { background-color: rgba(0,0,0, .3);  /* change button color here */ }
 
-	input[type='submit']:active, button:active, .btn:active {
-		background-color: rgba(0,0,0, .3);  /* change button color here */
-		border: 0px;
-		-webkit-box-shadow: inset 0px 2px 2px 2px rgba(0, 0, 0, .15);
-		box-shadow: inset 0px 2px 2px 2px rgba(0, 0, 0, .15);
-	}
+	input[type='submit']:active, button:active, .btn:active { background-color: rgba(0,0,0, .3);  /* change button color here */ }
 
 /** Links */
-	a:link, a:visited, a:active { text-decoration: none; }
+	a:link, a:visited, a:active {
+		color: #0892d0;
+		text-decoration: none;
+	}
 
-	a:hover { }
+	a:hover { color: #002395; }
 
 	a.more-link {
 		display: block;
@@ -396,6 +373,7 @@ body {
 			border-bottom: 1px solid #ababab;
 			display: block;
 			margin: 0;
+			padding: 0 0 8px;
 		}
 
 		#comments .commentmetadata a:link, #comments .commentmetadata a:visited, #comments .commentmetadata a:active {}
@@ -442,7 +420,7 @@ body {
 	#sidebar {
 		grid-column: col 4;
 		grid-row: content;
-		padding-left: 25px;
+		padding: 0 10%;
 	}
 
 	.sidebar a:link, .sidebar a:visited, .sidebar a:active { text-decoration: none; }
@@ -455,6 +433,19 @@ body {
 		font-size: 1.5rem;
 		font-weight: bold;
 		margin-bottom: 0;
+	}
+
+	.sidebar input[type=search] {
+		background: rgb(255, 255, 255);
+		border: 1px solid rgb(217, 217, 217);
+		color: rgb(64, 64, 64);
+		padding: .25em;
+		width: 70%;
+	}
+
+	.sidebar input[type=submit] {
+		margin-top: -6px;
+		padding: 5px .5em;
 	}
 
 	.sidebar ul, .sidebar ol { margin: 0 0 1.5em 3em; }

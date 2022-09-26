@@ -39,7 +39,7 @@ if (post_password_required()) { ?>
 			<?php if ($user_ID) : ?>
 				<p>Logged in as <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a>. <a href="<?php echo get_option('siteurl'); ?>/wp-login.php?action=logout" title="Log out of this account">Log out &raquo;</a></p>
 			<?php else : ?>
-				<p><input type="text" name="author" id="author" value="<?php echo $comment_author; ?>" size="22" tabindex="1" />
+				<p><input required="required" type="text" name="author" id="author" value="<?php echo $comment_author; ?>" size="22" tabindex="1" />
 					<label for="author">Name <?php if ($req) echo "(required)"; ?></label></p>
 				<p><input required="required" type="text" name="email" id="email" value="<?php echo $comment_author_email; ?>" size="22" tabindex="2" />
 					<label for="email">Email (will not be published<?php if ($req) echo ", required"; ?>)</label></p>
