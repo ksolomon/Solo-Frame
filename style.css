@@ -256,6 +256,7 @@ body {
 		grid-column: col / span 3;
 		grid-row: content;
 	}
+
 	#content.wide {
 		grid-column: col / span 4;
 		grid-row: content;
